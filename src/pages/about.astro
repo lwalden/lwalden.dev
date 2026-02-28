@@ -34,32 +34,33 @@ const skillsByCategory = skills.reduce(
 			<section class="mb-16">
 				<h1 class="text-3xl sm:text-4xl font-bold mb-8">About</h1>
 
-				<!-- TODO: Replace with your own words — this is a placeholder built from your positioning plan -->
 				<div class="prose prose-slate dark:prose-invert max-w-none space-y-4 text-slate-600 dark:text-slate-400 leading-relaxed">
 					<p>
-						I'm a senior software engineer with 12 years of experience building enterprise systems
-						in C#, .NET, and Azure. My work has lived in the invisible layer of large organizations —
-						the APIs, pipelines, and services that quietly keep things running. Now I'm making that
-						work visible.
+						I'm a senior software engineer with over a decade of experience building enterprise-grade
+						distributed systems in C#, .NET, and Azure. Most of that work lives in the invisible layer
+						of large organizations — the APIs, pipelines, and services that quietly keep things running.
+						I like it there. There's something satisfying about infrastructure that works so well nobody
+						notices it.
 					</p>
 					<p>
-						Currenty I'm at at a large enterprise retailer, where I build and maintain
-						software supporting global retail and e-commerce operations. I've shipped production
-						systems at scale — the kind where downtime has real costs and reliability is non-negotiable.
-						<!-- TODO: Add 2-3 specific quantified achievements -->
+						Across roles in retail, HR tech, and identity verification I've shipped production systems
+						where reliability isn't optional. Highlights include cutting a multi-step workflow's processing
+						time by 96% (6 minutes to 12 seconds), reducing daily failed transactions from 2,000 to under
+						one, and automating away over 1,000 hours of annual manual labor. The pattern that keeps
+						showing up: find the thing that's slow, fragile, or tedious, and make it not that.
 					</p>
 					<p>
 						Right now my focus is the intersection of .NET and agentic AI. I'm building
-						<a href={siteConfig.social.github + '/AIAgentMinder'} class="text-blue-600 dark:text-blue-400">AIAgentMinder</a>,
-						experimenting with Semantic Kernel and MCP, and writing about what it actually takes to
-						integrate AI into enterprise .NET systems — not the happy path demos, but the real
-						architectural decisions, failure modes, and trade-offs.
+						<a href={siteConfig.social.github + '/AIAgentMinder'} class="text-blue-600 dark:text-blue-400">AIAgentMinder</a> —
+						a governance framework for AI agents in enterprise .NET systems — and writing about what it
+						actually takes to put AI into production. Not the happy-path demos, but the real questions:
+						audit trails, lifecycle management, failure modes, and the organizational constraints nobody's
+						talking about yet.
 					</p>
 					<p>
 						I write here and on <a href={siteConfig.social.medium} class="text-blue-600 dark:text-blue-400">Medium</a>.
-						If you're building .NET + AI systems or just curious about the space, let's connect on
+						If you're working on .NET + AI systems or just want to compare notes on the space, find me on
 						<a href={siteConfig.social.linkedin} class="text-blue-600 dark:text-blue-400">LinkedIn</a>.
-						<!-- TODO: Add a specific call to action — consulting inquiries, collaboration, etc. -->
 					</p>
 				</div>
 			</section>
@@ -104,12 +105,14 @@ const skillsByCategory = skills.reduce(
 				</p>
 			</section>
 
-			<!-- Certifications placeholder -->
+			<!-- Certifications -->
 			<section class="mb-16">
 				<h2 class="text-2xl font-bold mb-4">Certifications</h2>
-				<!-- TODO: Add certifications if applicable, or remove this section -->
-				<p class="text-slate-500 dark:text-slate-400 text-sm italic">
-					In progress — Microsoft Azure certifications planned for 2026.
+				<ul class="space-y-2 text-slate-600 dark:text-slate-400">
+					<li>Certified Scrum Master (CSM) — Scrum Alliance, 2020</li>
+				</ul>
+				<p class="text-slate-500 dark:text-slate-400 text-sm italic mt-4">
+					Microsoft Azure certifications in progress for 2026.
 				</p>
 			</section>
 
