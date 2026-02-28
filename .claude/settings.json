@@ -8,7 +8,9 @@
       "Bash(npm run build)",
       "Bash(gh repo view --json defaultBranchRef)",
       "Bash(gh repo edit --default-branch main)",
-      "Bash(nslookup lwalden.dev)"
+      "Bash(nslookup lwalden.dev)",
+      "Bash(ls \"d:/Source/lwalden.dev/\"*.txt)",
+      "Bash(git -C \"d:/Source/lwalden.dev\" status --short)"
     ],
     "deny": [
       "Bash(rm -rf /:*)",
