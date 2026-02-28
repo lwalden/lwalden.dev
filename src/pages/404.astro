@@ -1,0 +1,27 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title="Page Not Found" description="The page you're looking for doesn't exist." />
+		<meta name="robots" content="noindex" />
+	</head>
+	<body class="bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans antialiased">
+		<Header />
+		<main class="max-w-4xl mx-auto px-4 sm:px-6 py-24 text-center">
+			<p class="text-6xl font-bold text-slate-200 dark:text-slate-800 mb-4">404</p>
+			<h1 class="text-2xl font-bold mb-4">Page not found</h1>
+			<p class="text-slate-600 dark:text-slate-400 mb-8">
+				That page doesn't exist. It may have moved or you may have followed a broken link.
+			</p>
+			<a href="/" class="inline-flex items-center px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors no-underline">
+				Back to Home
+			</a>
+		</main>
+		<Footer />
+	</body>
+</html>

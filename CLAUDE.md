@@ -37,7 +37,11 @@ Run `/handoff` to write a clear briefing for the next session. Hooks handle time
 
 ## MVP Goals
 
-<!-- Populated by /plan with Phase 1 deliverables -->
+- Astro site builds clean (`npm run build` zero errors), all pages render (homepage, about, projects, blog, 404)
+- Every page has unique `<title>`, `<meta description>`, canonical URL, OG tags, JSON-LD schema
+- Content collections working: RSS at `/rss.xml`, sitemap at `/sitemap-index.xml`, seed blog post renders
+- Azure Static Web Apps config + GitHub Actions workflow in place; legacy redirect page generated
+- GitHub profile README artifact generated and ready to push
 
 ## Behavioral Rules
 
