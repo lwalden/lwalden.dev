@@ -6,13 +6,15 @@ tags: [".NET", "AI", "career", "building-in-public"]
 draft: false
 ---
 
+****AI AUTOGENERATE BLOG POST PLACHOLDER****
+
 After 12 years of building enterprise systems with C# and Azure, most of my work has been invisible to the outside world. That changes now.
 
 <!-- TODO: Replace this content with your own voice. The outline below is a starting point. -->
 
 ## What I've been doing
 
-I've spent over a decade at Columbia Sportswear building and maintaining the software that quietly keeps a global retail operation running — APIs, integrations, event-driven pipelines, the kind of systems where failure has a dollar cost and reliability is non-negotiable.
+I've spent over a decade at a large enterprise retailer building and maintaining the software that quietly keeps a global retail operation running — APIs, integrations, event-driven pipelines, the kind of systems where failure has a dollar cost and reliability is non-negotiable.
 
 That work taught me a lot about what it actually takes to build software at scale. But almost none of it is visible online, which is a problem if you're positioning yourself for consulting or trying to contribute to the broader .NET community.
 

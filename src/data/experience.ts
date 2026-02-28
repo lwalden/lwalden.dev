@@ -11,7 +11,7 @@ export interface ExperienceEntry {
 // TODO: User to customize — fill in actual highlights, dates, and any prior roles
 export const experience: ExperienceEntry[] = [
 	{
-		company: 'Columbia Sportswear',
+		company: 'Enterprise Retail & E-Commerce',
 		title: 'Senior Software Engineer',
 		startDate: 'Jan 2013',
 		endDate: 'Dec 2024',
