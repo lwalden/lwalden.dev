@@ -1,29 +1,33 @@
 ---
 title: "AI Agent Minder"
-description: "Governance and lifecycle management framework for AI agents. Addresses the emerging enterprise need for agent oversight, auditability, and control in production agentic systems."
+description: "A lightweight project governance layer for Claude Code — slash commands, markdown templates, and minimal hooks that add structured planning and decision tracking without getting in the way."
 repo: "https://github.com/lwalden/AIAgentMinder"
-technologies: ["C#", ".NET", "Azure", "AI Agents", "Semantic Kernel", "MCP"]
+technologies: ["Claude Code", "Node.js", "Markdown", "Git"]
 featured: true
 sortOrder: 1
 status: "active"
 ---
 
-As AI agents move from demos to production systems, organizations face a new category of problem: how do you manage, monitor, and govern agents that can take autonomous actions on your behalf?
+Claude Code is powerful out of the box, but it doesn't have strong opinions about project planning, architectural decisions, or how work should be structured across sessions. AIAgentMinder fills that gap with a small, opinionated layer built entirely from markdown and two tiny Node.js hooks.
 
-AIAgentMinder is my attempt to build practical tooling for this problem in the .NET ecosystem. The goal is a framework that gives enterprise teams the controls they need to deploy AI agents with confidence — audit trails, lifecycle management, policy enforcement, and observability.
+## What it actually is
 
-## Why this exists
+A set of template files and slash commands you drop into a project alongside Claude Code:
 
-Most agent frameworks focus on capability (what the agent can do) and assume someone else will handle governance (who authorized it, what it changed, how it can be rolled back). That assumption doesn't hold in enterprise environments where compliance, audit, and change management are real constraints.
+- **`/plan`** — interview-driven planning session that produces a product brief, defines MVP scope, picks a quality tier, and optionally enables sprint planning
+- **`/handoff`** — session-end checkpoint that captures decisions, writes priorities to Claude Code's native persistent memory, and commits tracked changes
+- **`DECISIONS.md`** — architectural decision log; the pattern is to record significant choices with alternatives considered, so you stop re-debating them
+- **Sprint workflow** (optional) — structured issue decomposition with one branch per issue, per-issue PRs, and state tracked in `SPRINT.md`
+- **Two hooks** — an auto-commit on session end (feature branches only), and a post-compaction reorientation that surfaces the active sprint when Claude's context gets pruned
 
-<!-- TODO: Expand with specific capabilities, architecture decisions, and what problems it solves for the target audience -->
+No database, no external dependencies beyond Node.js, no MCP server. State is plain markdown in your repo.
 
-## Architecture
+## Why it exists
 
-<!-- TODO: Add architecture overview, key design decisions, and technical approach -->
+I kept running into the same friction when using Claude Code for personal projects: good at executing, not great at remembering *why* things were decided the way they were, or what the shape of the next phase should be. The governance layer I wanted was basically a structured `CLAUDE.md` plus a couple of conventions — so I extracted it into something reusable.
+
+v0.7.0 (released today) was a significant rethink. Earlier versions included session continuity infrastructure that Claude Code has since built natively. That stuff got removed. The current version is smaller and stays focused on what Claude Code doesn't do: structured planning and decision tracking.
 
 ## Current status
 
-Active development. The project is being built in public — follow the [GitHub repo](https://github.com/lwalden/AIAgentMinder) for progress.
-
-<!-- TODO: Update with current milestone and roadmap -->
+Active development, v0.7.0. Maintained as a personal tool I use on my own projects — including this site.
