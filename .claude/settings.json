@@ -1,5 +1,15 @@
 {
   "permissions": {
+    "allow": [
+      "mcp__context7__query-docs",
+      "Bash(npm create astro@latest . -- --template blog --typescript strict --no-install --no-git)",
+      "Read(//d/Source/**)",
+      "Bash(npm install)",
+      "Bash(npm run build)",
+      "Bash(gh repo view --json defaultBranchRef)",
+      "Bash(gh repo edit --default-branch main)",
+      "Bash(nslookup lwalden.dev)"
+    ],
     "deny": [
       "Bash(rm -rf /:*)",
       "Bash(rm -rf ~:*)",
@@ -11,6 +21,10 @@
       "Bash(git reset --hard origin:*)",
       "Bash(git clean -fd:*)",
       "Bash(chmod -R 777:*)"
+    ],
+    "additionalDirectories": [
+      "d:\\Source\\astro-scaffold",
+      "d:\\Source\\lwalden.dev\\.github\\workflows"
     ]
   },
   "hooks": {
