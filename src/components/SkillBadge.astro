@@ -1,0 +1,18 @@
+---
+interface Props {
+	name: string;
+	proficiency: 'expert' | 'advanced' | 'intermediate';
+}
+
+const { name, proficiency } = Astro.props;
+
+const styles = {
+	expert: 'bg-blue-100 text-blue-800 dark:bg-blue-950 dark:text-blue-300 border border-blue-200 dark:border-blue-800',
+	advanced: 'bg-slate-100 text-slate-800 dark:bg-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-700',
+	intermediate: 'bg-slate-50 text-slate-600 dark:bg-slate-900 dark:text-slate-400 border border-slate-100 dark:border-slate-800',
+};
+---
+
+<span class:list={['inline-flex items-center px-3 py-1 rounded-full text-sm font-medium', styles[proficiency]]}>
+	{name}
+</span>
