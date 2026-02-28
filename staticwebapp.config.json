@@ -1,0 +1,26 @@
+{
+  "navigationFallback": {
+    "rewrite": "/404.html"
+  },
+  "responseOverrides": {
+    "404": {
+      "rewrite": "/404.html",
+      "statusCode": 404
+    }
+  },
+  "globalHeaders": {
+    "X-Content-Type-Options": "nosniff",
+    "X-Frame-Options": "DENY",
+    "X-XSS-Protection": "1; mode=block",
+    "Referrer-Policy": "strict-origin-when-cross-origin",
+    "Permissions-Policy": "camera=(), microphone=(), geolocation=()"
+  },
+  "routes": [
+    {
+      "route": "/rss.xml",
+      "headers": {
+        "Content-Type": "application/rss+xml"
+      }
+    }
+  ]
+}

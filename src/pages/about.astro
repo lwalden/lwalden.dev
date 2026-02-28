@@ -1,0 +1,119 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import ExperienceItem from '../components/ExperienceItem.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import SkillBadge from '../components/SkillBadge.astro';
+import { experience } from '../data/experience';
+import { categoryLabels, skills } from '../data/skills';
+import { siteConfig } from '../data/siteConfig';
+
+const skillsByCategory = skills.reduce(
+	(acc, skill) => {
+		if (!acc[skill.category]) acc[skill.category] = [];
+		acc[skill.category].push(skill);
+		return acc;
+	},
+	{} as Record<string, typeof skills>,
+);
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+	<head>
+		<BaseHead
+			title="About"
+			description="Senior Software Engineer with 12 years of C#/.NET/Azure enterprise experience. Currently building AI-integrated systems and writing about agentic AI for the .NET ecosystem."
+		/>
+	</head>
+	<body class="bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans antialiased">
+		<Header />
+		<main class="max-w-4xl mx-auto px-4 sm:px-6 py-12">
+
+			<!-- Professional Summary -->
+			<section class="mb-16">
+				<h1 class="text-3xl sm:text-4xl font-bold mb-8">About</h1>
+
+				<!-- TODO: Replace with your own words — this is a placeholder built from your positioning plan -->
+				<div class="prose prose-slate dark:prose-invert max-w-none space-y-4 text-slate-600 dark:text-slate-400 leading-relaxed">
+					<p>
+						I'm a senior software engineer with 12 years of experience building enterprise systems
+						in C#, .NET, and Azure. My work has lived in the invisible layer of large organizations —
+						the APIs, pipelines, and services that quietly keep things running. Now I'm making that
+						work visible.
+					</p>
+					<p>
+						Most recently I was at Columbia Sportswear, where I built and maintained enterprise
+						software supporting global retail and e-commerce operations. I've shipped production
+						systems at scale — the kind where downtime has real costs and reliability is non-negotiable.
+						<!-- TODO: Add 2-3 specific quantified achievements from your Columbia tenure -->
+					</p>
+					<p>
+						Right now my focus is the intersection of .NET and agentic AI. I'm building
+						<a href={siteConfig.social.github + '/AIAgentMinder'} class="text-blue-600 dark:text-blue-400">AIAgentMinder</a>,
+						experimenting with Semantic Kernel and MCP, and writing about what it actually takes to
+						integrate AI into enterprise .NET systems — not the happy path demos, but the real
+						architectural decisions, failure modes, and trade-offs.
+					</p>
+					<p>
+						I write here and on <a href={siteConfig.social.medium} class="text-blue-600 dark:text-blue-400">Medium</a>.
+						If you're building .NET + AI systems or just curious about the space, let's connect on
+						<a href={siteConfig.social.linkedin} class="text-blue-600 dark:text-blue-400">LinkedIn</a>.
+						<!-- TODO: Add a specific call to action — consulting inquiries, collaboration, etc. -->
+					</p>
+				</div>
+			</section>
+
+			<!-- Experience -->
+			<section class="mb-16">
+				<h2 class="text-2xl font-bold mb-8">Experience</h2>
+				<div>
+					{experience.map((entry) => (
+						<ExperienceItem
+							company={entry.company}
+							title={entry.title}
+							startDate={entry.startDate}
+							endDate={entry.endDate}
+							description={entry.description}
+							highlights={entry.highlights}
+							technologies={entry.technologies}
+						/>
+					))}
+				</div>
+			</section>
+
+			<!-- Skills -->
+			<section class="mb-16">
+				<h2 class="text-2xl font-bold mb-8">Skills & Technologies</h2>
+				<div class="space-y-8">
+					{(Object.entries(skillsByCategory) as [string, typeof skills][]).map(([category, categorySkills]) => (
+						<div>
+							<h3 class="text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-3">
+								{categoryLabels[category as keyof typeof categoryLabels]}
+							</h3>
+							<div class="flex flex-wrap gap-2">
+								{categorySkills.map((skill) => (
+									<SkillBadge name={skill.name} proficiency={skill.proficiency} />
+								))}
+							</div>
+						</div>
+					))}
+				</div>
+				<p class="text-xs text-slate-400 dark:text-slate-600 mt-6">
+					Badge color indicates proficiency: blue = expert, gray = advanced, light = intermediate
+				</p>
+			</section>
+
+			<!-- Certifications placeholder -->
+			<section class="mb-16">
+				<h2 class="text-2xl font-bold mb-4">Certifications</h2>
+				<!-- TODO: Add certifications if applicable, or remove this section -->
+				<p class="text-slate-500 dark:text-slate-400 text-sm italic">
+					In progress — Microsoft Azure certifications planned for 2026.
+				</p>
+			</section>
+
+		</main>
+		<Footer />
+	</body>
+</html>
