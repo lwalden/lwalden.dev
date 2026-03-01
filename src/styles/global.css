@@ -2,43 +2,40 @@
 
 /* ─── Design tokens ──────────────────────────────────────────────────────── */
 :root {
-	/* Backgrounds */
-	--bg-base:         #0d1117;
-	--bg-surface:      #161b22;
-	--bg-surface-2:    #1c2128;
-	--bg-muted:        #21262d;
+	/* Backgrounds — near-black, not pure black */
+	--bg-base:         #111111;
+	--bg-surface:      #1a1a1a;
+	--bg-surface-2:    #222222;
+	--bg-muted:        #2a2a2a;
 
-	/* Borders */
-	--border:          #30363d;
-	--border-muted:    #21262d;
-	--border-emphasis: #484f57;
+	/* Borders — subtle, low contrast */
+	--border:          #2e2e2e;
+	--border-muted:    #242424;
+	--border-emphasis: #444444;
 
-	/* Text */
-	--text-primary:    #e6edf3;
-	--text-secondary:  #8b949e;
-	--text-tertiary:   #6e7681;
+	/* Text — near-white with clear hierarchy */
+	--text-primary:    #f0f0f0;
+	--text-secondary:  #999999;
+	--text-tertiary:   #555555;
 
-	/* Orange accent — CTAs, highlights */
-	--accent:          #f0883e;
-	--accent-hover:    #d4722a;
-	--accent-subtle:   rgba(240, 136, 62, 0.12);
+	/* Accent — single warm white used only for CTAs */
+	--accent:          #f0f0f0;
+	--accent-hover:    #ffffff;
 
-	/* Blue accent — links, interactive elements */
-	--link:            #58a6ff;
-	--link-hover:      #79c0ff;
-	--link-subtle:     rgba(88, 166, 255, 0.1);
+	/* Links — slightly cooler white, minimal */
+	--link:            #c8c8c8;
+	--link-hover:      #f0f0f0;
 
-	/* Status */
-	--color-success:        #3fb950;
-	--color-success-subtle: rgba(63, 185, 80, 0.12);
-	--color-info:           #58a6ff;
-	--color-info-subtle:    rgba(88, 166, 255, 0.12);
-	--color-muted:          #30363d;
+	/* Status — desaturated, low-key */
+	--color-success:        #6a9e6a;
+	--color-success-subtle: rgba(106, 158, 106, 0.1);
+	--color-info:           #6a8aae;
+	--color-info-subtle:    rgba(106, 138, 174, 0.1);
 
-	/* Shadows */
-	--shadow-sm:   0 1px 3px rgba(0, 0, 0, 0.4);
-	--shadow-md:   0 4px 12px rgba(0, 0, 0, 0.5);
-	--shadow-glow: 0 0 0 1px rgba(88, 166, 255, 0.15), 0 4px 12px rgba(0, 0, 0, 0.5);
+	/* Shadows — black on black, very subtle */
+	--shadow-sm:   0 1px 3px rgba(0, 0, 0, 0.6);
+	--shadow-md:   0 4px 16px rgba(0, 0, 0, 0.5);
+	--shadow-glow: 0 0 0 1px rgba(255, 255, 255, 0.06), 0 4px 16px rgba(0, 0, 0, 0.5);
 }
 
 /* ─── Base ───────────────────────────────────────────────────────────────── */
@@ -76,7 +73,7 @@ main {
 h1, h2, h3, h4, h5, h6 {
 	margin: 0 0 0.5rem 0;
 	color: var(--text-primary);
-	line-height: 1.25;
+	line-height: 1.2;
 	font-weight: 600;
 	letter-spacing: -0.02em;
 }
@@ -118,14 +115,14 @@ code {
 	font-size: 0.875em;
 	padding: 0.2em 0.45em;
 	background-color: var(--bg-muted);
-	border: 1px solid var(--border-muted);
-	border-radius: 4px;
-	color: var(--link-hover);
+	border: 1px solid var(--border);
+	border-radius: 3px;
+	color: var(--text-primary);
 }
 
 pre {
 	padding: 1.5rem;
-	border-radius: 8px;
+	border-radius: 6px;
 	border: 1px solid var(--border);
 	overflow-x: auto;
 	background: var(--bg-surface) !important;
@@ -139,11 +136,9 @@ pre > code {
 
 /* ─── Elements ───────────────────────────────────────────────────────────── */
 blockquote {
-	border-left: 3px solid var(--accent);
-	padding: 0.75rem 0 0.75rem 1.25rem;
+	border-left: 2px solid var(--border-emphasis);
+	padding: 0.5rem 0 0.5rem 1.25rem;
 	margin: 1.5rem 0;
-	background: var(--accent-subtle);
-	border-radius: 0 6px 6px 0;
 	font-style: italic;
 	color: var(--text-secondary);
 }
@@ -157,7 +152,7 @@ hr {
 img {
 	max-width: 100%;
 	height: auto;
-	border-radius: 8px;
+	border-radius: 4px;
 	border: 1px solid var(--border);
 }
 
@@ -183,7 +178,7 @@ textarea {
 	background: var(--bg-surface);
 	color: var(--text-primary);
 	border: 1px solid var(--border);
-	border-radius: 6px;
+	border-radius: 4px;
 }
 
 input {
@@ -191,7 +186,7 @@ input {
 	background: var(--bg-surface);
 	color: var(--text-primary);
 	border: 1px solid var(--border);
-	border-radius: 6px;
+	border-radius: 4px;
 }
 
 /* ─── Utility ────────────────────────────────────────────────────────────── */
@@ -206,6 +201,14 @@ input {
 	clip: rect(1px, 1px, 1px, 1px);
 	clip-path: inset(50%);
 	white-space: nowrap;
+}
+
+/* Mono label — used for tech tags, section labels, metadata */
+.mono {
+	font-family: 'JetBrains Mono', 'Fira Code', monospace;
+	font-size: 0.75rem;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
 }
 
 /* ─── Mobile ─────────────────────────────────────────────────────────────── */

@@ -12,22 +12,28 @@ const { title, description, pubDate, slug, tags = [], readingTime } = Astro.prop
 
 const formattedDate = pubDate.toLocaleDateString('en-US', {
 	year: 'numeric',
-	month: 'long',
+	month: 'short',
 	day: 'numeric',
 });
 ---
 
 <article
-	style="background:var(--bg-surface);border:1px solid var(--border);border-radius:8px;padding:1.5rem;box-shadow:var(--shadow-sm);transition:border-color 0.15s ease,box-shadow 0.15s ease,background-color 0.15s ease;"
-	onmouseover="this.style.borderColor='var(--border-emphasis)';this.style.backgroundColor='var(--bg-surface-2)';this.style.boxShadow='var(--shadow-glow)';"
-	onmouseout="this.style.borderColor='var(--border)';this.style.backgroundColor='var(--bg-surface)';this.style.boxShadow='var(--shadow-sm)';"
+	style="background:var(--bg-surface);border:1px solid var(--border);border-radius:4px;padding:1.5rem;transition:border-color 0.15s ease,background-color 0.15s ease;"
+	onmouseover="this.style.borderColor='var(--border-emphasis)';this.style.backgroundColor='var(--bg-surface-2)';"
+	onmouseout="this.style.borderColor='var(--border)';this.style.backgroundColor='var(--bg-surface)';"
 >
 	<a href={`/blog/${slug}`} class="no-underline block" style="color:inherit;">
-		<div class="flex items-center gap-3 mb-3 text-sm" style="color:var(--text-tertiary);">
-			<time datetime={pubDate.toISOString()}>{formattedDate}</time>
-			{readingTime && <span>&middot; {readingTime} min read</span>}
+		<div class="flex items-center gap-3 mb-3" style="color:var(--text-tertiary);">
+			<span class="font-mono" style="font-size:0.7rem;letter-spacing:0.06em;text-transform:uppercase;">
+				<time datetime={pubDate.toISOString()}>{formattedDate}</time>
+			</span>
+			{readingTime && (
+				<span class="font-mono" style="font-size:0.7rem;letter-spacing:0.06em;text-transform:uppercase;">
+					· {readingTime} min
+				</span>
+			)}
 		</div>
-		<h3 class="text-lg font-semibold mb-2 transition-colors" style="color:var(--text-primary);letter-spacing:-0.01em;">
+		<h3 class="font-semibold mb-2 leading-snug" style="font-size:1rem;color:var(--text-primary);letter-spacing:-0.01em;">
 			{title}
 		</h3>
 		<p class="text-sm leading-relaxed line-clamp-2 mb-0" style="color:var(--text-secondary);">
@@ -36,7 +42,7 @@ const formattedDate = pubDate.toLocaleDateString('en-US', {
 		{tags.length > 0 && (
 			<div class="flex flex-wrap gap-2 mt-4">
 				{tags.map((tag) => (
-					<span class="text-xs px-2 py-0.5 rounded" style="background:var(--bg-muted);border:1px solid var(--border-muted);color:var(--text-tertiary);">
+					<span class="font-mono" style="font-size:0.7rem;letter-spacing:0.04em;text-transform:uppercase;color:var(--text-tertiary);">
 						{tag}
 					</span>
 				))}

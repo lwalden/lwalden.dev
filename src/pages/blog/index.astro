@@ -22,15 +22,16 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
 		<Header />
 		<main class="max-w-5xl mx-auto px-4 sm:px-6 py-12">
 			<div class="mb-10">
-				<h1 class="text-3xl sm:text-4xl font-bold mb-3" style="color:var(--text-primary);letter-spacing:-0.03em;">Blog</h1>
+				<h2 class="font-mono mb-3" style="font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-tertiary);">&lt;Blog&gt;</h2>
+				<h1 class="font-bold mb-3" style="font-size:2rem;color:var(--text-primary);letter-spacing:-0.03em;">Writing</h1>
 				<p style="color:var(--text-secondary);">
-					Writing about .NET, Azure, and AI integration. Builder content — working code, honest trade-offs.
+					.NET, Azure, and AI integration. Builder content — working code, honest trade-offs.
 				</p>
 			</div>
 			{posts.length === 0 ? (
-				<p style="color:var(--text-tertiary);">No posts yet. Check back soon.</p>
+				<p class="font-mono" style="font-size:0.8rem;color:var(--text-tertiary);">No posts yet.</p>
 			) : (
-				<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+				<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
 					{posts.map((post) => (
 						<BlogPostCard
 							title={post.data.title}
