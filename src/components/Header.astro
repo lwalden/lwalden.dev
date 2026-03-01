@@ -9,9 +9,9 @@ const navLinks = [
 ];
 ---
 
-<header style="position:sticky;top:0;z-index:50;background:rgba(17,17,17,0.95);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--border);">
+<header style="position:sticky;top:0;z-index:50;background:var(--light-bg);border-bottom:2px solid var(--titan-border);">
 	<nav class="max-w-5xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
-		<a href="/" class="font-semibold no-underline text-sm tracking-tight" style="color:var(--text-primary);">
+		<a href="/" class="font-semibold no-underline text-sm tracking-tight" style="color:var(--light-text);">
 			lwalden.dev
 		</a>
 
@@ -23,9 +23,11 @@ const navLinks = [
 						href={href}
 						class="px-3 py-1.5 rounded text-xs font-mono no-underline transition-colors"
 						style={isActive
-							? 'color:var(--text-primary);background:var(--bg-surface-2);'
-							: 'color:var(--text-tertiary);'
+							? `color:var(--light-text);background:var(--light-surface-2);`
+							: `color:var(--light-text-3);`
 						}
+						onmouseover={!isActive ? `this.style.color='var(--light-text-2)'` : undefined}
+						onmouseout={!isActive ? `this.style.color='var(--light-text-3)'` : undefined}
 					>
 						{label.toLowerCase()}
 					</a>
@@ -35,13 +37,13 @@ const navLinks = [
 
 		<div class="hidden sm:flex items-center gap-4">
 			<a href={siteConfig.social.github} target="_blank" rel="noopener noreferrer"
-				class="text-xs font-mono no-underline transition-colors" style="color:var(--text-tertiary);"
-				onmouseover="this.style.color='var(--text-primary)'" onmouseout="this.style.color='var(--text-tertiary)'">
+				class="text-xs font-mono no-underline transition-colors" style="color:var(--light-text-3);"
+				onmouseover="this.style.color='var(--light-text)'" onmouseout="this.style.color='var(--light-text-3)'">
 				gh
 			</a>
 			<a href={siteConfig.social.linkedin} target="_blank" rel="noopener noreferrer"
-				class="text-xs font-mono no-underline transition-colors" style="color:var(--text-tertiary);"
-				onmouseover="this.style.color='var(--text-primary)'" onmouseout="this.style.color='var(--text-tertiary)'">
+				class="text-xs font-mono no-underline transition-colors" style="color:var(--light-text-3);"
+				onmouseover="this.style.color='var(--light-text)'" onmouseout="this.style.color='var(--light-text-3)'">
 				li
 			</a>
 		</div>

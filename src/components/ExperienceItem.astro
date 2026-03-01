@@ -7,28 +7,34 @@ interface Props {
 	description: string;
 	highlights: string[];
 	technologies: string[];
+	zone?: 'dark' | 'light';
 }
 
-const { company, title, startDate, endDate, description, highlights, technologies } = Astro.props;
+const { company, title, startDate, endDate, description, highlights, technologies, zone = 'light' } = Astro.props;
+
+const border = zone === 'light' ? 'var(--light-border)' : 'var(--dark-border)';
+const text1  = zone === 'light' ? 'var(--light-text)'   : 'var(--dark-text)';
+const text2  = zone === 'light' ? 'var(--light-text-2)' : 'var(--dark-text-2)';
+const text3  = zone === 'light' ? 'var(--light-text-3)' : 'var(--dark-text-3)';
 ---
 
-<div class="pb-10 last:pb-0" style="border-bottom:1px solid var(--border-muted);">
+<div class="pb-10 last:pb-0" style={`border-bottom:1px solid ${border};`}>
 	<div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-1">
-		<h3 class="font-semibold" style="font-size:1rem;color:var(--text-primary);">{title}</h3>
-		<span class="font-mono shrink-0" style="font-size:0.7rem;letter-spacing:0.04em;color:var(--text-tertiary);">
+		<h3 class="font-semibold" style={`font-size:1rem;color:${text1};`}>{title}</h3>
+		<span class="font-mono shrink-0" style={`font-size:0.7rem;letter-spacing:0.04em;color:${text3};`}>
 			{startDate} – {endDate}
 		</span>
 	</div>
-	<p class="font-mono mb-4" style="font-size:0.75rem;letter-spacing:0.04em;text-transform:uppercase;color:var(--text-tertiary);">
+	<p class="font-mono mb-4" style={`font-size:0.75rem;letter-spacing:0.04em;text-transform:uppercase;color:${text3};`}>
 		{company}
 	</p>
 
-	<p class="text-sm mb-4" style="color:var(--text-secondary);">{description}</p>
+	<p class="text-sm mb-4" style={`color:${text2};`}>{description}</p>
 
 	<ul class="space-y-1.5 mb-4">
 		{highlights.map((h) => (
-			<li class="text-sm flex gap-2.5" style="color:var(--text-secondary);">
-				<span class="shrink-0 mt-0.5" style="color:var(--text-tertiary);">—</span>
+			<li class="text-sm flex gap-2.5" style={`color:${text2};`}>
+				<span class="shrink-0 mt-0.5" style={`color:${text3};`}>—</span>
 				<span>{h}</span>
 			</li>
 		))}
@@ -36,7 +42,7 @@ const { company, title, startDate, endDate, description, highlights, technologie
 
 	<div class="flex flex-wrap gap-2">
 		{technologies.map((tech) => (
-			<span class="font-mono" style="font-size:0.7rem;letter-spacing:0.04em;text-transform:uppercase;color:var(--text-tertiary);">
+			<span class="font-mono" style={`font-size:0.7rem;letter-spacing:0.04em;text-transform:uppercase;color:${text3};`}>
 				{tech}
 			</span>
 		))}
