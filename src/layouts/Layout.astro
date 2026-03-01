@@ -128,6 +128,7 @@ const gaScript = `
     <meta property="og:image" content={pageOgImage} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={new URL(Astro.url.pathname, Astro.site)} />
+    <meta property="og:locale" content={SITE.lang.replace('-', '_')} />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
