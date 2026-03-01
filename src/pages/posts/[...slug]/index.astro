@@ -33,6 +33,7 @@ const schemas = [
     title: post.data.title,
     description: post.data.description,
     pubDate: post.data.pubDate,
+    updatedDate: post.data.updatedDate,
     url: new URL(Astro.url.pathname, Astro.site).toString(),
     lang: post.data.lang,
     image: new URL(`/og/${effectiveSlug}.png`, Astro.site).toString(),

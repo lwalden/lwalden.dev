@@ -19,6 +19,7 @@ export function getBlogPostingSchema(data: {
   title: string;
   description: string;
   pubDate: Date;
+  updatedDate?: Date;
   url: string;
   lang?: string;
   image?: string;
@@ -30,7 +31,7 @@ export function getBlogPostingSchema(data: {
     headline: data.title,
     description: data.description,
     datePublished: data.pubDate.toISOString(),
-    dateModified: data.pubDate.toISOString(),
+    dateModified: (data.updatedDate ?? data.pubDate).toISOString(),
     author: {
       '@type': 'Person',
       name: SITE.author,

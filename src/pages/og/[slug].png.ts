@@ -1,5 +1,6 @@
 import type { APIRoute } from 'astro';
 import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
 import satori from 'satori';
 import { html } from 'satori-html';
 import { Resvg } from '@resvg/resvg-js';
@@ -8,14 +9,29 @@ import { getPublishedPosts, getPostSlug } from '@/lib/utils/posts';
 
 export async function getStaticPaths() {
   const posts = await getPublishedPosts();
-  return posts.map((post: CollectionEntry<'posts'>) => ({
+  const projects = await getCollection('projects');
+
+  const postPaths = posts.map((post: CollectionEntry<'posts'>) => ({
     params: { slug: getPostSlug(post) },
-    props: { post },
+    props: { title: post.data.title, description: post.data.description, pubDate: post.data.pubDate },
   }));
+
+  const projectPaths = projects
+    .filter((project: CollectionEntry<'projects'>) => !project.data.directLink || !project.data.link)
+    .map((project: CollectionEntry<'projects'>) => ({
+      params: { slug: project.id },
+      props: { title: project.data.title, description: project.data.description, pubDate: null },
+    }));
+
+  return [...postPaths, ...projectPaths];
 }
 
 export const GET: APIRoute = async ({ props }) => {
-  const { post } = props;
+  const { title, description, pubDate } = props as {
+    title: string;
+    description: string;
+    pubDate: Date | null;
+  };
 
   // Minimal buffer fetch for a font (Inter Bold)
   const fontData = await fetch(
@@ -49,11 +65,11 @@ export const GET: APIRoute = async ({ props }) => {
         line-height: 1.1;
       "
       >
-        ${post.data.title}
+        ${title}
       </div>
 
       <div style="font-size: 32px; color: #9ca3af;">
-        ${post.data.description || `A post on ${SITE.title}`}
+        ${description || `A post on ${SITE.title}`}
       </div>
 
       <div
@@ -66,10 +82,7 @@ export const GET: APIRoute = async ({ props }) => {
       "
       >
         <span style="margin-right: 16px;">${SITE.website.replace(/^https?:\/\//, '')}</span>
-        <span>•</span>
-        <span style="margin-left: 16px;"
-          >${post.data.pubDate.toLocaleDateString('en-US', { dateStyle: 'long' })}</span
-        >
+        ${pubDate ? html`<span>•</span><span style="margin-left: 16px;">${pubDate.toLocaleDateString('en-US', { dateStyle: 'long' })}</span>` : ''}
       </div>
     </div>
   `;
