@@ -269,13 +269,7 @@ const projects = (await getCollection('projects'))
 
   @media (min-width: 1024px) {
     .hero-content :global(h1) {
-      font-size: 3rem; /* lg:text-5xl */
-    }
-  }
-
-  @media (min-width: 1920px) {
-    .hero-content :global(h1) {
-      font-size: 3.75rem; /* 3xl:text-6xl */
+      font-size: clamp(2.5rem, 2.5vw, 3rem); /* lg+: scale gently, hard cap at 3rem */
     }
   }
 
