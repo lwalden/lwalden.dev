@@ -18,11 +18,13 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
 			description="Writing about .NET, Azure, and AI integration — practical engineering for the agentic future. Articles on Semantic Kernel, MCP, Azure AI Foundry, and enterprise software architecture."
 		/>
 	</head>
-	<body class="antialiased" data-zone="light">
+	<body class="antialiased flex flex-col min-h-screen" data-zone="light">
 		<Header />
-		<main class="max-w-5xl mx-auto px-4 sm:px-6 py-12">
+		<main class="flex-1 max-w-5xl mx-auto px-4 sm:px-6 py-12">
 			<div class="mb-10">
-				<h2 class="font-mono mb-3" style="font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--light-text-3);">&lt;Blog&gt;</h2>
+				<div style="border-left:3px solid var(--light-border-hi);padding-left:0.75rem;margin-bottom:0.75rem;">
+					<p class="font-mono mb-0" style="font-size:0.75rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--light-text-3);">&lt;Blog&gt;</p>
+				</div>
 				<h1 class="font-bold mb-3" style="font-size:2rem;color:var(--light-text);letter-spacing:-0.03em;">Writing</h1>
 				<p style="color:var(--light-text-2);">
 					.NET, Azure, and AI integration. Builder content — working code, honest trade-offs.
@@ -39,7 +41,7 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
 							pubDate={post.data.pubDate}
 							slug={post.id}
 							tags={post.data.tags}
-							zone="light"
+							zone="dark"
 						/>
 					))}
 				</div>
