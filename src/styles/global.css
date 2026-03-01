@@ -23,6 +23,27 @@
   font-weight: 100 900;
   src: url('@fontsource-variable/inter/files/inter-latin-standard-normal.woff2') format('woff2');
 }
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('@fontsource/lora/files/lora-latin-400-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 400;
+  src: url('@fontsource/lora/files/lora-latin-400-italic.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url('@fontsource/lora/files/lora-latin-700-normal.woff2') format('woff2');
+}
 
 @theme {
   /* 1. Core Colors */
@@ -199,6 +220,13 @@
 
   font-size: 1.05rem;
   line-height: 1.75;
+  max-width: 68ch;
+}
+
+.prose p {
+  font-family: 'Lora', Georgia, 'Times New Roman', serif;
+  font-size: 1.125rem;
+  line-height: 1.8;
 }
 
 /* Inline code styling */
