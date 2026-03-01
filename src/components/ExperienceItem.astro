@@ -7,31 +7,42 @@ interface Props {
 	description: string;
 	highlights: string[];
 	technologies: string[];
+	zone?: 'dark' | 'light';
 }
 
-const { company, title, startDate, endDate, description, highlights, technologies } = Astro.props;
+const { company, title, startDate, endDate, description, highlights, technologies, zone = 'light' } = Astro.props;
+
+const border = zone === 'light' ? 'var(--light-border)' : 'var(--dark-border)';
+const text1  = zone === 'light' ? 'var(--light-text)'   : 'var(--dark-text)';
+const text2  = zone === 'light' ? 'var(--light-text-2)' : 'var(--dark-text-2)';
+const text3  = zone === 'light' ? 'var(--light-text-3)' : 'var(--dark-text-3)';
 ---
 
-<div class="border-l-2 border-slate-200 dark:border-slate-700 pl-6 pb-8 last:pb-0">
-	<div class="mb-2">
-		<div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
-			<h3 class="text-lg font-semibold text-slate-900 dark:text-slate-100">{title}</h3>
-			<span class="text-sm text-slate-500 dark:text-slate-400 shrink-0">{startDate} – {endDate}</span>
-		</div>
-		<p class="text-blue-600 dark:text-blue-400 font-medium">{company}</p>
+<div class="pb-10 last:pb-0" style={`border-bottom:1px solid ${border};`}>
+	<div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-1">
+		<h3 class="font-semibold" style={`font-size:1rem;color:${text1};`}>{title}</h3>
+		<span class="font-mono shrink-0" style={`font-size:0.7rem;letter-spacing:0.04em;color:${text3};`}>
+			{startDate} – {endDate}
+		</span>
 	</div>
-	<p class="text-slate-600 dark:text-slate-400 text-sm mb-3">{description}</p>
-	<ul class="space-y-1 mb-4">
+	<p class="font-mono mb-4" style={`font-size:0.75rem;letter-spacing:0.04em;text-transform:uppercase;color:${text3};`}>
+		{company}
+	</p>
+
+	<p class="text-sm mb-4" style={`color:${text2};`}>{description}</p>
+
+	<ul class="space-y-1.5 mb-4">
 		{highlights.map((h) => (
-			<li class="text-sm text-slate-700 dark:text-slate-300 flex gap-2">
-				<span class="text-slate-400 shrink-0 mt-0.5">▸</span>
+			<li class="text-sm flex gap-2.5" style={`color:${text2};`}>
+				<span class="shrink-0 mt-0.5" style={`color:${text3};`}>—</span>
 				<span>{h}</span>
 			</li>
 		))}
 	</ul>
+
 	<div class="flex flex-wrap gap-2">
 		{technologies.map((tech) => (
-			<span class="text-xs px-2 py-0.5 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 rounded font-mono">
+			<span class="font-mono" style={`font-size:0.7rem;letter-spacing:0.04em;text-transform:uppercase;color:${text3};`}>
 				{tech}
 			</span>
 		))}

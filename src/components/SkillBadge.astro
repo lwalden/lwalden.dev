@@ -2,17 +2,28 @@
 interface Props {
 	name: string;
 	proficiency: 'expert' | 'advanced' | 'intermediate';
+	zone?: 'dark' | 'light';
 }
 
-const { name, proficiency } = Astro.props;
+const { name, proficiency, zone = 'dark' } = Astro.props;
 
-const styles = {
-	expert: 'bg-blue-100 text-blue-800 dark:bg-blue-950 dark:text-blue-300 border border-blue-200 dark:border-blue-800',
-	advanced: 'bg-slate-100 text-slate-800 dark:bg-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-700',
-	intermediate: 'bg-slate-50 text-slate-600 dark:bg-slate-900 dark:text-slate-400 border border-slate-100 dark:border-slate-800',
-};
+// On dark bg: expert=near-white, advanced=mid-gray, intermediate=dim
+// On light bg: expert=near-black, advanced=mid-gray, intermediate=dim
+const styles = zone === 'light'
+	? {
+		expert:       `color:var(--light-text);border-color:var(--light-border-hi);background:var(--light-surface);`,
+		advanced:     `color:var(--light-text-2);border-color:var(--light-border);background:var(--light-surface);`,
+		intermediate: `color:var(--light-text-3);border-color:var(--light-border);background:var(--light-surface);`,
+	}
+	: {
+		expert:       `color:var(--dark-text);border-color:var(--dark-border-hi);background:var(--dark-surface);`,
+		advanced:     `color:var(--dark-text-2);border-color:var(--dark-border);background:var(--dark-surface);`,
+		intermediate: `color:var(--dark-text-3);border-color:var(--dark-border);background:var(--dark-surface);`,
+	};
 ---
 
-<span class:list={['inline-flex items-center px-3 py-1 rounded-full text-sm font-medium', styles[proficiency]]}>
+<span
+	class="inline-flex items-center px-2.5 py-1 font-mono"
+	style={`font-size:0.7rem;letter-spacing:0.04em;text-transform:uppercase;border:1px solid;border-radius:3px;${styles[proficiency]}`}>
 	{name}
 </span>
