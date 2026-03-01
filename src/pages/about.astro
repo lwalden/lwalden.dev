@@ -26,15 +26,16 @@ const skillsByCategory = skills.reduce(
 			description="Senior Software Engineer with 12 years of C#/.NET/Azure enterprise experience. Currently building AI-integrated systems and writing about agentic AI for the .NET ecosystem."
 		/>
 	</head>
-	<body class="bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans antialiased">
+	<body class="antialiased" data-zone="light">
 		<Header />
 		<main class="max-w-4xl mx-auto px-4 sm:px-6 py-12">
 
 			<!-- Professional Summary -->
 			<section class="mb-16">
-				<h1 class="text-3xl sm:text-4xl font-bold mb-8">About</h1>
+				<h2 class="font-mono mb-3" style="font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--light-text-3);">&lt;About&gt;</h2>
+				<h1 class="font-bold mb-8" style="font-size:2rem;color:var(--light-text);letter-spacing:-0.03em;">Laurance Walden</h1>
 
-				<div class="prose prose-slate dark:prose-invert max-w-none space-y-4 text-slate-600 dark:text-slate-400 leading-relaxed">
+				<div class="space-y-4 leading-relaxed max-w-2xl" style="color:var(--light-text-2);">
 					<p>
 						I'm a senior software engineer with over a decade of experience building enterprise-grade
 						distributed systems in C#, .NET, and Azure. Most of that work lives in the invisible layer
@@ -51,24 +52,24 @@ const skillsByCategory = skills.reduce(
 					</p>
 					<p>
 						Right now my focus is the intersection of .NET and agentic AI. I'm building
-						<a href={siteConfig.social.github + '/AIAgentMinder'} class="text-blue-600 dark:text-blue-400">AIAgentMinder</a> —
+						<a href={siteConfig.social.github + '/AIAgentMinder'} style="color:var(--light-text);text-decoration:underline;text-underline-offset:3px;">AIAgentMinder</a> —
 						a governance framework for AI agents in enterprise .NET systems — and writing about what it
 						actually takes to put AI into production. Not the happy-path demos, but the real questions:
 						audit trails, lifecycle management, failure modes, and the organizational constraints nobody's
 						talking about yet.
 					</p>
 					<p>
-						I write here and on <a href={siteConfig.social.medium} class="text-blue-600 dark:text-blue-400">Medium</a>.
+						I write here and on <a href={siteConfig.social.medium} style="color:var(--light-text);text-decoration:underline;text-underline-offset:3px;">Medium</a>.
 						If you're working on .NET + AI systems or just want to compare notes on the space, find me on
-						<a href={siteConfig.social.linkedin} class="text-blue-600 dark:text-blue-400">LinkedIn</a>.
+						<a href={siteConfig.social.linkedin} style="color:var(--light-text);text-decoration:underline;text-underline-offset:3px;">LinkedIn</a>.
 					</p>
 				</div>
 			</section>
 
 			<!-- Experience -->
 			<section class="mb-16">
-				<h2 class="text-2xl font-bold mb-8">Experience</h2>
-				<div>
+				<h2 class="font-mono mb-8" style="font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--light-text-3);">&lt;Experience&gt;</h2>
+				<div class="space-y-0">
 					{experience.map((entry) => (
 						<ExperienceItem
 							company={entry.company}
@@ -85,33 +86,33 @@ const skillsByCategory = skills.reduce(
 
 			<!-- Skills -->
 			<section class="mb-16">
-				<h2 class="text-2xl font-bold mb-8">Skills & Technologies</h2>
-				<div class="space-y-8">
+				<h2 class="font-mono mb-8" style="font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--light-text-3);">&lt;Stack&gt;</h2>
+				<div class="space-y-6">
 					{(Object.entries(skillsByCategory) as [string, typeof skills][]).map(([category, categorySkills]) => (
 						<div>
-							<h3 class="text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-3">
+							<h3 class="font-mono mb-3" style="font-size:0.65rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--light-text-3);">
 								{categoryLabels[category as keyof typeof categoryLabels]}
 							</h3>
 							<div class="flex flex-wrap gap-2">
 								{categorySkills.map((skill) => (
-									<SkillBadge name={skill.name} proficiency={skill.proficiency} />
+									<SkillBadge name={skill.name} proficiency={skill.proficiency} zone="light" />
 								))}
 							</div>
 						</div>
 					))}
 				</div>
-				<p class="text-xs text-slate-400 dark:text-slate-600 mt-6">
-					Badge color indicates proficiency: blue = expert, gray = advanced, light = intermediate
+				<p class="font-mono mt-6" style="font-size:0.65rem;letter-spacing:0.04em;color:var(--light-text-3);">
+					brightness = proficiency: black = expert · gray = advanced · dim = intermediate
 				</p>
 			</section>
 
 			<!-- Certifications -->
 			<section class="mb-16">
-				<h2 class="text-2xl font-bold mb-4">Certifications</h2>
-				<ul class="space-y-2 text-slate-600 dark:text-slate-400">
-					<li>Certified Scrum Master (CSM) — Scrum Alliance, 2020</li>
+				<h2 class="font-mono mb-6" style="font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--light-text-3);">&lt;Certifications&gt;</h2>
+				<ul class="space-y-2" style="color:var(--light-text-2);">
+					<li class="text-sm">Certified Scrum Master (CSM) — Scrum Alliance, 2020</li>
 				</ul>
-				<p class="text-slate-500 dark:text-slate-400 text-sm italic mt-4">
+				<p class="text-sm mt-4" style="color:var(--light-text-3);">
 					Microsoft Azure certifications in progress for 2026.
 				</p>
 			</section>
