@@ -1,6 +1,6 @@
 ---
 title: "I Just Deleted Most of My Project's Best Feature (and I'm Weirdly Happy About It)"
-description: "AIAgentMinder v0.7.0 removes three of four hooks after Claude Code native memory absorbed 80% of the project value. What that means for tool builders designing around AI coding assistants."
+description: "AIAgentMinder v0.7.0 removes three of four hooks after Claude Code's native memory system absorbed 80% of the project's value. What that means for tool builders designing around AI coding assistants."
 pubDate: 2026-02-28
 tags: ["AIAgentMinder", "Claude Code", "AI tooling", "building-in-public"]
 draft: false
