@@ -24,12 +24,12 @@ const featuredProjects = allProjects
 	<head>
 		<BaseHead title="Home" description={siteConfig.description} isHomePage={true} />
 	</head>
-	<body class="antialiased" style="background-color:var(--dark-bg);color:var(--dark-text);">
+	<body class="antialiased flex flex-col min-h-screen" style="background-color:var(--dark-bg);color:var(--dark-text);">
 		<Header />
 
-		<!-- Hero — dark zone, split-column at lg -->
-		<section style="background:var(--dark-bg);border-bottom:2px solid var(--titan-border);">
-			<div class="max-w-5xl mx-auto px-4 sm:px-6 pt-20 pb-16">
+		<div class="flex-1">
+			<!-- Hero — split-column at lg -->
+			<div class="max-w-5xl mx-auto px-4 sm:px-6 pt-20 pb-16" style="border-bottom:1px solid var(--dark-border);">
 				<div class="grid lg:grid-cols-[3fr_2fr] gap-12 items-start">
 					<!-- Left: main hero content -->
 					<div>
@@ -100,45 +100,43 @@ const featuredProjects = allProjects
 					</div>
 				</div>
 			</div>
-		</section>
 
-		<!-- Featured Projects — light zone, dark-inverted cards -->
-		{featuredProjects.length > 0 && (
-			<section style="background:var(--light-bg);border-bottom:2px solid var(--titan-border);">
-				<div class="max-w-5xl mx-auto px-4 sm:px-6 py-14">
-					<div class="flex items-baseline justify-between mb-8">
-						<div style="border-left:3px solid var(--dark-border-hi);padding-left:0.75rem;">
-							<h2 class="font-mono" style="font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--light-text-3);">
-								&lt;Projects&gt;
-							</h2>
+			<!-- Featured Projects — white section (the one bright moment) -->
+			{featuredProjects.length > 0 && (
+				<div style="background:var(--light-bg);border-bottom:1px solid var(--titan-border);">
+					<div class="max-w-5xl mx-auto px-4 sm:px-6 py-14">
+						<div class="flex items-baseline justify-between mb-8">
+							<div style="border-left:3px solid var(--dark-border-hi);padding-left:0.75rem;">
+								<h2 class="font-mono" style="font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--light-text-3);">
+									&lt;Projects&gt;
+								</h2>
+							</div>
+							<a href="/projects" class="text-xs font-mono no-underline transition-colors" style="color:var(--light-text-3);"
+								onmouseover="this.style.color='var(--light-text)'" onmouseout="this.style.color='var(--light-text-3)'">
+								all →
+							</a>
 						</div>
-						<a href="/projects" class="text-xs font-mono no-underline transition-colors" style="color:var(--light-text-3);"
-							onmouseover="this.style.color='var(--light-text)'" onmouseout="this.style.color='var(--light-text-3)'">
-							all →
-						</a>
-					</div>
-					<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-						{featuredProjects.map((project) => (
-							<ProjectCard
-								title={project.data.title}
-								description={project.data.description}
-								technologies={project.data.technologies}
-								repo={project.data.repo}
-								demo={project.data.demo}
-								status={project.data.status}
-								slug={project.id}
-								zone="dark"
-							/>
-						))}
+						<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+							{featuredProjects.map((project) => (
+								<ProjectCard
+									title={project.data.title}
+									description={project.data.description}
+									technologies={project.data.technologies}
+									repo={project.data.repo}
+									demo={project.data.demo}
+									status={project.data.status}
+									slug={project.id}
+									zone="dark"
+								/>
+							))}
+						</div>
 					</div>
 				</div>
-			</section>
-		)}
+			)}
 
-		<!-- Latest Blog Posts — dark zone, light-inverted cards -->
-		{recentPosts.length > 0 && (
-			<section style="background:var(--dark-bg);border-bottom:2px solid var(--titan-border);">
-				<div class="max-w-5xl mx-auto px-4 sm:px-6 py-14">
+			<!-- Latest Blog Posts — back to dark, light cards -->
+			{recentPosts.length > 0 && (
+				<div class="max-w-5xl mx-auto px-4 sm:px-6 py-14" style="border-bottom:1px solid var(--dark-border);">
 					<div class="flex items-baseline justify-between mb-8">
 						<div style="border-left:3px solid var(--titan-border);padding-left:0.75rem;">
 							<h2 class="font-mono" style="font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--dark-text-3);">
@@ -163,30 +161,28 @@ const featuredProjects = allProjects
 						))}
 					</div>
 				</div>
-			</section>
-		)}
+			)}
 
-		<!-- About blurb — titanium zone (coda) -->
-		<section style="background:var(--titan-bg);border-bottom:2px solid var(--titan-border);">
+			<!-- About blurb — dark, coda before footer -->
 			<div class="max-w-5xl mx-auto px-4 sm:px-6 py-10">
 				<div class="flex items-baseline justify-between mb-4">
-					<div style="border-left:3px solid var(--dark-border-hi);padding-left:0.75rem;">
-						<h2 class="font-mono" style="font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--titan-text-3);">
+					<div style="border-left:3px solid var(--titan-border);padding-left:0.75rem;">
+						<h2 class="font-mono" style="font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--dark-text-3);">
 							&lt;About&gt;
 						</h2>
 					</div>
-					<a href="/about" class="text-xs font-mono no-underline transition-colors" style="color:var(--titan-text-3);"
-						onmouseover="this.style.color='var(--titan-text)'" onmouseout="this.style.color='var(--titan-text-3)'">
+					<a href="/about" class="text-xs font-mono no-underline transition-colors" style="color:var(--dark-text-3);"
+						onmouseover="this.style.color='var(--dark-text)'" onmouseout="this.style.color='var(--dark-text-3)'">
 						more →
 					</a>
 				</div>
-				<p class="leading-relaxed max-w-xl mb-0" style="color:var(--titan-text-2);">
+				<p class="leading-relaxed max-w-xl mb-0" style="color:var(--dark-text-2);">
 					Senior software engineer with 12 years of enterprise C#, .NET, and Azure experience.
 					Currently exploring the intersection of .NET and agentic AI — building tools, writing
 					about trade-offs, and sharing what actually works in production.
 				</p>
 			</div>
-		</section>
+		</div>
 
 		<Footer />
 	</body>

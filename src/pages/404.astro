@@ -10,9 +10,9 @@ import Header from '../components/Header.astro';
 		<BaseHead title="Page Not Found" description="The page you're looking for doesn't exist." />
 		<meta name="robots" content="noindex" />
 	</head>
-	<body class="antialiased" data-zone="light">
+	<body class="antialiased flex flex-col min-h-screen" data-zone="light">
 		<Header />
-		<main class="max-w-5xl mx-auto px-4 sm:px-6 py-24">
+		<main class="flex-1 max-w-5xl mx-auto px-4 sm:px-6 py-24">
 			<p class="font-mono mb-2" style="font-size:0.75rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--light-text-3);">404</p>
 			<h1 class="font-bold mb-4" style="font-size:2rem;color:var(--light-text);letter-spacing:-0.03em;">Page not found</h1>
 			<p class="mb-8" style="color:var(--light-text-2);">
