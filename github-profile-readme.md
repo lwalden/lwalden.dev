@@ -1,13 +1,13 @@
 # Hey, I'm Laurance 👋
 
-**Senior Software Engineer** with 12 years of building enterprise systems in C#, .NET, and Azure.
+**Software Engineer** with 12 years of building enterprise cloud systems with C#, Typescript, .NET, node, cosmos, and SQL.
 Currently exploring the intersection of .NET and agentic AI — and writing about it.
 
 ## What I'm Working On
 
 🔧 **[AI Agent Minder](https://github.com/lwalden/AIAgentMinder)** — Governance and lifecycle management for AI agents, built in C#/.NET
 
-✍️ **[Blog](https://lwalden.dev/blog)** — Writing about .NET + AI integration, Semantic Kernel, MCP, and building agentic systems for the enterprise
+✍️ **[Blog](https://lwalden.dev/posts)** — Writing about Cloud Architecture, AI tooling and integration for enterprise and solo development.
 
 ## Tech Stack
 
@@ -22,7 +22,3 @@ Currently exploring the intersection of .NET and agentic AI — and writing abou
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/laurancewalden/)
 [![Medium](https://img.shields.io/badge/Medium-000000?style=flat&logo=medium&logoColor=white)](https://medium.com/@lwalden)
 [![Website](https://img.shields.io/badge/lwalden.dev-000?style=flat&logo=astro&logoColor=white)](https://lwalden.dev)
-
----
-
-*Instructions: Copy this file's contents into a new `lwalden/lwalden` GitHub repository as `README.md`. This creates your GitHub profile README.*
