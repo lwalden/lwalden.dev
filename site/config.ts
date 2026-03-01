@@ -54,7 +54,7 @@ export const SITE: SiteConfig = {
     medium: 'https://medium.com/@lwalden',
   },
   homeHeroDescription:
-    'I build enterprise systems, solo AI-integrated projects, and write about the rapidly evolving tools shaping the future of software development.',
+    '12 years building enterprise .NET and Azure systems — now at the intersection of production software and the agentic future. Writing about what actually works.',
   blogDescription:
     '.NET, Cloud Architecture , and AI integration. Builder content — working code, honest trade-offs.',
   projectsDescription:
