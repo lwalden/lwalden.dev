@@ -2,6 +2,7 @@
   author: string;
   desc: string;
   title: string;
+  navTitle: string;
   ogImage: string;
   lang: string;
   base: string;
@@ -44,6 +45,7 @@ export const SITE: SiteConfig = {
   author: 'Laurance Walden',
   desc: 'Senior Software Engineer specializing in .NET, Typescript, Event Driven Microservices. 12 years of building production software. I write about agentic AI, lessons learned, and the future of software engineering.',
   title: 'Laurance Walden — Senior Software Engineer | .NET, Azure & AI',
+  navTitle: 'Laurance Walden — Software Engineer | Cloud, Enterprise & AI',
   ogImage: 'og.png',
   lang: 'en-US',
   base: '/',
