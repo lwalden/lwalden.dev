@@ -32,9 +32,10 @@ const skillsByCategory = skills.reduce(
 
 			<!-- Professional Summary -->
 			<section class="mb-16">
-				<h1 class="text-3xl sm:text-4xl font-bold mb-8" style="color:var(--text-primary);letter-spacing:-0.03em;">About</h1>
+				<h2 class="font-mono mb-3" style="font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-tertiary);">&lt;About&gt;</h2>
+				<h1 class="font-bold mb-8" style="font-size:2rem;color:var(--text-primary);letter-spacing:-0.03em;">Laurance Walden</h1>
 
-				<div class="space-y-5 leading-relaxed" style="color:var(--text-secondary);">
+				<div class="space-y-4 leading-relaxed max-w-2xl" style="color:var(--text-secondary);">
 					<p>
 						I'm a senior software engineer with over a decade of experience building enterprise-grade
 						distributed systems in C#, .NET, and Azure. Most of that work lives in the invisible layer
@@ -67,8 +68,8 @@ const skillsByCategory = skills.reduce(
 
 			<!-- Experience -->
 			<section class="mb-16">
-				<h2 class="text-2xl font-bold mb-8" style="color:var(--text-primary);">Experience</h2>
-				<div>
+				<h2 class="font-mono mb-8" style="font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-tertiary);">&lt;Experience&gt;</h2>
+				<div class="space-y-0">
 					{experience.map((entry) => (
 						<ExperienceItem
 							company={entry.company}
@@ -85,11 +86,11 @@ const skillsByCategory = skills.reduce(
 
 			<!-- Skills -->
 			<section class="mb-16">
-				<h2 class="text-2xl font-bold mb-8" style="color:var(--text-primary);">Skills &amp; Technologies</h2>
-				<div class="space-y-8">
+				<h2 class="font-mono mb-8" style="font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-tertiary);">&lt;Stack&gt;</h2>
+				<div class="space-y-6">
 					{(Object.entries(skillsByCategory) as [string, typeof skills][]).map(([category, categorySkills]) => (
 						<div>
-							<h3 class="text-xs font-semibold uppercase tracking-widest mb-3" style="color:var(--text-tertiary);">
+							<h3 class="font-mono mb-3" style="font-size:0.65rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-tertiary);">
 								{categoryLabels[category as keyof typeof categoryLabels]}
 							</h3>
 							<div class="flex flex-wrap gap-2">
@@ -100,18 +101,18 @@ const skillsByCategory = skills.reduce(
 						</div>
 					))}
 				</div>
-				<p class="text-xs mt-6" style="color:var(--text-tertiary);">
-					Badge color: orange = expert · blue = advanced · gray = intermediate
+				<p class="font-mono mt-6" style="font-size:0.65rem;letter-spacing:0.04em;color:var(--text-tertiary);">
+					brightness = proficiency: white = expert · gray = advanced · dim = intermediate
 				</p>
 			</section>
 
 			<!-- Certifications -->
 			<section class="mb-16">
-				<h2 class="text-2xl font-bold mb-4" style="color:var(--text-primary);">Certifications</h2>
+				<h2 class="font-mono mb-6" style="font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-tertiary);">&lt;Certifications&gt;</h2>
 				<ul class="space-y-2" style="color:var(--text-secondary);">
-					<li>Certified Scrum Master (CSM) — Scrum Alliance, 2020</li>
+					<li class="text-sm">Certified Scrum Master (CSM) — Scrum Alliance, 2020</li>
 				</ul>
-				<p class="text-sm italic mt-4" style="color:var(--text-tertiary);">
+				<p class="text-sm mt-4" style="color:var(--text-tertiary);">
 					Microsoft Azure certifications in progress for 2026.
 				</p>
 			</section>

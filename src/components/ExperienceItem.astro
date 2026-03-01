@@ -12,24 +12,23 @@ interface Props {
 const { company, title, startDate, endDate, description, highlights, technologies } = Astro.props;
 ---
 
-<div class="pl-6 pb-10 last:pb-0" style="border-left:2px solid var(--border-emphasis);position:relative;">
-	<!-- Timeline dot -->
-	<div style="position:absolute;left:-5px;top:4px;width:8px;height:8px;border-radius:50%;background:var(--accent);border:2px solid var(--bg-base);"></div>
-
-	<div class="mb-2">
-		<div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
-			<h3 class="text-base font-semibold" style="color:var(--text-primary);">{title}</h3>
-			<span class="text-xs font-mono shrink-0" style="color:var(--text-tertiary);">{startDate} – {endDate}</span>
-		</div>
-		<p class="text-sm font-medium mb-0" style="color:var(--accent);">{company}</p>
+<div class="pb-10 last:pb-0" style="border-bottom:1px solid var(--border-muted);">
+	<div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-1">
+		<h3 class="font-semibold" style="font-size:1rem;color:var(--text-primary);">{title}</h3>
+		<span class="font-mono shrink-0" style="font-size:0.7rem;letter-spacing:0.04em;color:var(--text-tertiary);">
+			{startDate} – {endDate}
+		</span>
 	</div>
+	<p class="font-mono mb-4" style="font-size:0.75rem;letter-spacing:0.04em;text-transform:uppercase;color:var(--text-tertiary);">
+		{company}
+	</p>
 
-	<p class="text-sm mb-3" style="color:var(--text-secondary);">{description}</p>
+	<p class="text-sm mb-4" style="color:var(--text-secondary);">{description}</p>
 
 	<ul class="space-y-1.5 mb-4">
 		{highlights.map((h) => (
-			<li class="text-sm flex gap-2" style="color:var(--text-secondary);">
-				<span class="shrink-0 mt-0.5" style="color:var(--link);">▸</span>
+			<li class="text-sm flex gap-2.5" style="color:var(--text-secondary);">
+				<span class="shrink-0 mt-0.5" style="color:var(--text-tertiary);">—</span>
 				<span>{h}</span>
 			</li>
 		))}
@@ -37,8 +36,7 @@ const { company, title, startDate, endDate, description, highlights, technologie
 
 	<div class="flex flex-wrap gap-2">
 		{technologies.map((tech) => (
-			<span class="text-xs px-2 py-0.5 rounded font-mono"
-				style="background:var(--bg-muted);border:1px solid var(--border-muted);color:var(--text-tertiary);">
+			<span class="font-mono" style="font-size:0.7rem;letter-spacing:0.04em;text-transform:uppercase;color:var(--text-tertiary);">
 				{tech}
 			</span>
 		))}

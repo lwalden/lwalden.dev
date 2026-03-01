@@ -7,12 +7,14 @@ interface Props {
 const { name, proficiency } = Astro.props;
 
 const styles = {
-	expert:       'background:rgba(240,136,62,0.12);border:1px solid rgba(240,136,62,0.3);color:var(--accent);',
-	advanced:     'background:var(--color-info-subtle);border:1px solid rgba(88,166,255,0.25);color:var(--color-info);',
-	intermediate: 'background:var(--bg-muted);border:1px solid var(--border);color:var(--text-secondary);',
+	expert:       'color:var(--text-primary);border-color:var(--border-emphasis);',
+	advanced:     'color:var(--text-secondary);border-color:var(--border);',
+	intermediate: 'color:var(--text-tertiary);border-color:var(--border-muted);',
 };
 ---
 
-<span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium" style={styles[proficiency]}>
+<span
+	class="inline-flex items-center px-2.5 py-1 font-mono"
+	style={`font-size:0.7rem;letter-spacing:0.04em;text-transform:uppercase;background:var(--bg-surface);border:1px solid;border-radius:3px;${styles[proficiency]}`}>
 	{name}
 </span>
