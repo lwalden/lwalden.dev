@@ -18,18 +18,18 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
 			description="Writing about .NET, Azure, and AI integration — practical engineering for the agentic future. Articles on Semantic Kernel, MCP, Azure AI Foundry, and enterprise software architecture."
 		/>
 	</head>
-	<body style="background-color:var(--bg-base);color:var(--text-primary);" class="antialiased">
+	<body class="antialiased" data-zone="light">
 		<Header />
 		<main class="max-w-5xl mx-auto px-4 sm:px-6 py-12">
 			<div class="mb-10">
-				<h2 class="font-mono mb-3" style="font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-tertiary);">&lt;Blog&gt;</h2>
-				<h1 class="font-bold mb-3" style="font-size:2rem;color:var(--text-primary);letter-spacing:-0.03em;">Writing</h1>
-				<p style="color:var(--text-secondary);">
+				<h2 class="font-mono mb-3" style="font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--light-text-3);">&lt;Blog&gt;</h2>
+				<h1 class="font-bold mb-3" style="font-size:2rem;color:var(--light-text);letter-spacing:-0.03em;">Writing</h1>
+				<p style="color:var(--light-text-2);">
 					.NET, Azure, and AI integration. Builder content — working code, honest trade-offs.
 				</p>
 			</div>
 			{posts.length === 0 ? (
-				<p class="font-mono" style="font-size:0.8rem;color:var(--text-tertiary);">No posts yet.</p>
+				<p class="font-mono" style="font-size:0.8rem;color:var(--light-text-3);">No posts yet.</p>
 			) : (
 				<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
 					{posts.map((post) => (
@@ -39,6 +39,7 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
 							pubDate={post.data.pubDate}
 							slug={post.id}
 							tags={post.data.tags}
+							zone="light"
 						/>
 					))}
 				</div>

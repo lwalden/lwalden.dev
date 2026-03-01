@@ -3,31 +3,31 @@ import { siteConfig } from '../data/siteConfig';
 const year = new Date().getFullYear();
 ---
 
-<footer style="border-top:1px solid var(--border);margin-top:6rem;">
+<footer style="background:var(--dark-bg);border-top:2px solid var(--titan-border);">
 	<div class="max-w-5xl mx-auto px-4 sm:px-6 py-8">
 		<div class="flex flex-col sm:flex-row items-center justify-between gap-4">
-			<p class="text-xs font-mono mb-0" style="color:var(--text-tertiary);">
+			<p class="text-xs font-mono mb-0" style="color:var(--dark-text-3);">
 				© {year} Laurance Walden
 			</p>
 			<div class="flex items-center gap-6">
 				<a href={siteConfig.social.github} target="_blank" rel="noopener noreferrer"
-					class="text-xs font-mono no-underline transition-colors" style="color:var(--text-tertiary);"
-					onmouseover="this.style.color='var(--text-primary)'" onmouseout="this.style.color='var(--text-tertiary)'">
+					class="text-xs font-mono no-underline transition-colors" style="color:var(--dark-text-3);"
+					onmouseover="this.style.color='var(--dark-text)'" onmouseout="this.style.color='var(--dark-text-3)'">
 					github
 				</a>
 				<a href={siteConfig.social.linkedin} target="_blank" rel="noopener noreferrer"
-					class="text-xs font-mono no-underline transition-colors" style="color:var(--text-tertiary);"
-					onmouseover="this.style.color='var(--text-primary)'" onmouseout="this.style.color='var(--text-tertiary)'">
+					class="text-xs font-mono no-underline transition-colors" style="color:var(--dark-text-3);"
+					onmouseover="this.style.color='var(--dark-text)'" onmouseout="this.style.color='var(--dark-text-3)'">
 					linkedin
 				</a>
 				<a href={siteConfig.social.medium} target="_blank" rel="noopener noreferrer"
-					class="text-xs font-mono no-underline transition-colors" style="color:var(--text-tertiary);"
-					onmouseover="this.style.color='var(--text-primary)'" onmouseout="this.style.color='var(--text-tertiary)'">
+					class="text-xs font-mono no-underline transition-colors" style="color:var(--dark-text-3);"
+					onmouseover="this.style.color='var(--dark-text)'" onmouseout="this.style.color='var(--dark-text-3)'">
 					medium
 				</a>
 				<a href="/rss.xml"
-					class="text-xs font-mono no-underline transition-colors" style="color:var(--text-tertiary);"
-					onmouseover="this.style.color='var(--text-primary)'" onmouseout="this.style.color='var(--text-tertiary)'">
+					class="text-xs font-mono no-underline transition-colors" style="color:var(--dark-text-3);"
+					onmouseover="this.style.color='var(--dark-text)'" onmouseout="this.style.color='var(--dark-text-3)'">
 					rss
 				</a>
 			</div>

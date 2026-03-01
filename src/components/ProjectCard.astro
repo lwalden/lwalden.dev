@@ -7,53 +7,63 @@ interface Props {
 	demo?: string;
 	status: 'active' | 'complete' | 'archived';
 	slug: string;
+	zone?: 'dark' | 'light';
 }
 
-const { title, description, technologies, repo, demo, status, slug } = Astro.props;
+const { title, description, technologies, repo, demo, status, slug, zone = 'dark' } = Astro.props;
+
+const bg          = zone === 'light' ? 'var(--light-surface)'   : 'var(--dark-surface)';
+const bgHover     = zone === 'light' ? 'var(--light-surface-2)' : 'var(--dark-surface-2)';
+const border      = zone === 'light' ? 'var(--light-border)'    : 'var(--dark-border)';
+const borderHi    = zone === 'light' ? 'var(--light-border-hi)' : 'var(--dark-border-hi)';
+const borderMuted = zone === 'light' ? 'var(--light-border)'    : 'var(--dark-border)';
+const text1       = zone === 'light' ? 'var(--light-text)'      : 'var(--dark-text)';
+const text2       = zone === 'light' ? 'var(--light-text-2)'    : 'var(--dark-text-2)';
+const text3       = zone === 'light' ? 'var(--light-text-3)'    : 'var(--dark-text-3)';
 ---
 
 <article
 	class="flex flex-col gap-3"
-	style="background:var(--bg-surface);border:1px solid var(--border);border-radius:4px;padding:1.5rem;transition:border-color 0.15s ease,background-color 0.15s ease;"
-	onmouseover="this.style.borderColor='var(--border-emphasis)';this.style.backgroundColor='var(--bg-surface-2)';"
-	onmouseout="this.style.borderColor='var(--border)';this.style.backgroundColor='var(--bg-surface)';"
+	style={`background:${bg};border:1px solid ${border};border-radius:4px;padding:1.5rem;transition:border-color 0.15s ease,background-color 0.15s ease;`}
+	onmouseover={`this.style.borderColor='${borderHi}';this.style.backgroundColor='${bgHover}';`}
+	onmouseout={`this.style.borderColor='${border}';this.style.backgroundColor='${bg}';`}
 >
 	<div class="flex items-start justify-between gap-3">
-		<span class="font-mono" style="font-size:0.7rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-tertiary);">
+		<span class="font-mono" style={`font-size:0.7rem;letter-spacing:0.06em;text-transform:uppercase;color:${text3};`}>
 			{technologies[0] ?? 'project'}
 		</span>
-		<span class="font-mono" style="font-size:0.7rem;letter-spacing:0.04em;text-transform:uppercase;color:var(--text-tertiary);">
+		<span class="font-mono" style={`font-size:0.7rem;letter-spacing:0.04em;text-transform:uppercase;color:${text3};`}>
 			{status}
 		</span>
 	</div>
 
-	<h3 class="font-semibold leading-snug" style="font-size:1rem;color:var(--text-primary);letter-spacing:-0.01em;">
+	<h3 class="font-semibold leading-snug" style={`font-size:1rem;color:${text1};letter-spacing:-0.01em;`}>
 		<a href={`/projects#${slug}`} class="no-underline transition-colors"
-			style="color:var(--text-primary);"
-			onmouseover="this.style.color='var(--link-hover)'" onmouseout="this.style.color='var(--text-primary)'">
+			style={`color:${text1};`}
+			onmouseover={`this.style.color='${text3}'`} onmouseout={`this.style.color='${text1}'`}>
 			{title}
 		</a>
 	</h3>
 
-	<p class="text-sm leading-relaxed flex-1 mb-0" style="color:var(--text-secondary);">
+	<p class="text-sm leading-relaxed flex-1 mb-0" style={`color:${text2};`}>
 		{description}
 	</p>
 
 	{(repo || demo) && (
-		<div class="flex gap-4 pt-3" style="border-top:1px solid var(--border-muted);">
+		<div class="flex gap-4 pt-3" style={`border-top:1px solid ${borderMuted};`}>
 			{repo && (
 				<a href={repo} target="_blank" rel="noopener noreferrer"
 					class="text-xs font-mono no-underline transition-colors"
-					style="color:var(--text-tertiary);"
-					onmouseover="this.style.color='var(--text-primary)'" onmouseout="this.style.color='var(--text-tertiary)'">
+					style={`color:${text3};`}
+					onmouseover={`this.style.color='${text1}'`} onmouseout={`this.style.color='${text3}'`}>
 					github ↗
 				</a>
 			)}
 			{demo && (
 				<a href={demo} target="_blank" rel="noopener noreferrer"
 					class="text-xs font-mono no-underline transition-colors"
-					style="color:var(--text-tertiary);"
-					onmouseover="this.style.color='var(--text-primary)'" onmouseout="this.style.color='var(--text-tertiary)'">
+					style={`color:${text3};`}
+					onmouseover={`this.style.color='${text1}'`} onmouseout={`this.style.color='${text3}'`}>
 					demo ↗
 				</a>
 			)}

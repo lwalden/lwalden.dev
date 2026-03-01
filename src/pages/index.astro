@@ -24,124 +24,134 @@ const featuredProjects = allProjects
 	<head>
 		<BaseHead title="Home" description={siteConfig.description} isHomePage={true} />
 	</head>
-	<body style="background-color:var(--bg-base);color:var(--text-primary);" class="antialiased">
+	<body class="antialiased" style="background-color:var(--dark-bg);color:var(--dark-text);">
 		<Header />
 
-		<!-- Hero -->
-		<section class="max-w-5xl mx-auto px-4 sm:px-6 pt-20 pb-16">
-			<h1 class="font-bold tracking-tight mb-3" style="font-size:clamp(2.5rem,6vw,3.75rem);color:var(--text-primary);letter-spacing:-0.04em;line-height:1.1;">
-				Laurance Walden
-			</h1>
-			<div class="flex flex-col gap-0.5 mb-8">
-				<span class="font-mono" style="font-size:0.8rem;letter-spacing:0.04em;color:var(--text-tertiary);">Senior Software Engineer</span>
-				<span class="font-mono" style="font-size:0.8rem;letter-spacing:0.04em;color:var(--text-tertiary);">.NET · Azure · AI & Agentic Systems</span>
-			</div>
-			<p class="leading-relaxed mb-8 max-w-xl" style="color:var(--text-secondary);">
-				I build AI-integrated enterprise systems and write about making .NET work with the agentic future.
-				12 years of shipping production software — now making it visible.
-			</p>
-			<div class="flex flex-wrap gap-3 mb-8">
-				<a href="/blog"
-					class="inline-flex items-center px-5 py-2.5 rounded font-medium text-sm no-underline transition-colors"
-					style="background:var(--text-primary);color:var(--bg-base);"
-					onmouseover="this.style.background='var(--accent-hover)'" onmouseout="this.style.background='var(--text-primary)'">
-					Read the Blog
-				</a>
-				<a href="/projects"
-					class="inline-flex items-center px-5 py-2.5 rounded font-medium text-sm no-underline transition-colors"
-					style="background:transparent;border:1px solid var(--border-emphasis);color:var(--text-secondary);"
-					onmouseover="this.style.borderColor='var(--text-primary)';this.style.color='var(--text-primary)'"
-					onmouseout="this.style.borderColor='var(--border-emphasis)';this.style.color='var(--text-secondary)'">
-					View Projects
-				</a>
-			</div>
-			<div class="flex gap-5">
-				<a href={siteConfig.social.github} target="_blank" rel="noopener noreferrer"
-					class="text-xs font-mono no-underline transition-colors" style="color:var(--text-tertiary);"
-					onmouseover="this.style.color='var(--text-primary)'" onmouseout="this.style.color='var(--text-tertiary)'">
-					github ↗
-				</a>
-				<a href={siteConfig.social.linkedin} target="_blank" rel="noopener noreferrer"
-					class="text-xs font-mono no-underline transition-colors" style="color:var(--text-tertiary);"
-					onmouseover="this.style.color='var(--text-primary)'" onmouseout="this.style.color='var(--text-tertiary)'">
-					linkedin ↗
-				</a>
-				<a href={siteConfig.social.medium} target="_blank" rel="noopener noreferrer"
-					class="text-xs font-mono no-underline transition-colors" style="color:var(--text-tertiary);"
-					onmouseover="this.style.color='var(--text-primary)'" onmouseout="this.style.color='var(--text-tertiary)'">
-					medium ↗
-				</a>
+		<!-- Hero — dark zone -->
+		<section style="background:var(--dark-bg);border-bottom:2px solid var(--titan-border);">
+			<div class="max-w-5xl mx-auto px-4 sm:px-6 pt-20 pb-16">
+				<h1 class="font-bold tracking-tight mb-3" style="font-size:clamp(2.5rem,6vw,3.75rem);color:var(--dark-text);letter-spacing:-0.04em;line-height:1.1;">
+					Laurance Walden
+				</h1>
+				<div class="flex flex-col gap-0.5 mb-8">
+					<span class="font-mono" style="font-size:0.8rem;letter-spacing:0.04em;color:var(--dark-text-3);">Senior Software Engineer</span>
+					<span class="font-mono" style="font-size:0.8rem;letter-spacing:0.04em;color:var(--dark-text-3);">.NET · Azure · AI & Agentic Systems</span>
+				</div>
+				<p class="leading-relaxed mb-8 max-w-xl" style="color:var(--dark-text-2);">
+					I build AI-integrated enterprise systems and write about making .NET work with the agentic future.
+					12 years of shipping production software — now making it visible.
+				</p>
+				<div class="flex flex-wrap gap-3 mb-8">
+					<a href="/blog"
+						class="inline-flex items-center px-5 py-2.5 rounded font-medium text-sm no-underline transition-colors"
+						style="background:var(--dark-text);color:var(--dark-bg);"
+						onmouseover="this.style.background='#ffffff'" onmouseout="this.style.background='var(--dark-text)'">
+						Read the Blog
+					</a>
+					<a href="/projects"
+						class="inline-flex items-center px-5 py-2.5 rounded font-medium text-sm no-underline transition-colors"
+						style="background:transparent;border:1px solid var(--dark-border-hi);color:var(--dark-text-2);"
+						onmouseover="this.style.borderColor='var(--dark-text)';this.style.color='var(--dark-text)'"
+						onmouseout="this.style.borderColor='var(--dark-border-hi)';this.style.color='var(--dark-text-2)'">
+						View Projects
+					</a>
+				</div>
+				<div class="flex gap-5">
+					<a href={siteConfig.social.github} target="_blank" rel="noopener noreferrer"
+						class="text-xs font-mono no-underline transition-colors" style="color:var(--dark-text-3);"
+						onmouseover="this.style.color='var(--dark-text)'" onmouseout="this.style.color='var(--dark-text-3)'">
+						github ↗
+					</a>
+					<a href={siteConfig.social.linkedin} target="_blank" rel="noopener noreferrer"
+						class="text-xs font-mono no-underline transition-colors" style="color:var(--dark-text-3);"
+						onmouseover="this.style.color='var(--dark-text)'" onmouseout="this.style.color='var(--dark-text-3)'">
+						linkedin ↗
+					</a>
+					<a href={siteConfig.social.medium} target="_blank" rel="noopener noreferrer"
+						class="text-xs font-mono no-underline transition-colors" style="color:var(--dark-text-3);"
+						onmouseover="this.style.color='var(--dark-text)'" onmouseout="this.style.color='var(--dark-text-3)'">
+						medium ↗
+					</a>
+				</div>
 			</div>
 		</section>
 
-		<!-- Featured Projects -->
+		<!-- Featured Projects — light zone -->
 		{featuredProjects.length > 0 && (
-			<section class="max-w-5xl mx-auto px-4 sm:px-6 py-12" style="border-top:1px solid var(--border);">
-				<div class="flex items-baseline justify-between mb-8">
-					<h2 class="font-mono" style="font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-tertiary);">
-						&lt;Projects&gt;
-					</h2>
-					<a href="/projects" class="text-xs font-mono no-underline transition-colors" style="color:var(--text-tertiary);"
-						onmouseover="this.style.color='var(--text-primary)'" onmouseout="this.style.color='var(--text-tertiary)'">
-						all →
-					</a>
-				</div>
-				<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-					{featuredProjects.map((project) => (
-						<ProjectCard
-							title={project.data.title}
-							description={project.data.description}
-							technologies={project.data.technologies}
-							repo={project.data.repo}
-							demo={project.data.demo}
-							status={project.data.status}
-							slug={project.id}
-						/>
-					))}
+			<section style="background:var(--light-bg);border-bottom:2px solid var(--titan-border);">
+				<div class="max-w-5xl mx-auto px-4 sm:px-6 py-14">
+					<div class="flex items-baseline justify-between mb-8">
+						<h2 class="font-mono" style="font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--light-text-3);">
+							&lt;Projects&gt;
+						</h2>
+						<a href="/projects" class="text-xs font-mono no-underline transition-colors" style="color:var(--light-text-3);"
+							onmouseover="this.style.color='var(--light-text)'" onmouseout="this.style.color='var(--light-text-3)'">
+							all →
+						</a>
+					</div>
+					<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+						{featuredProjects.map((project) => (
+							<ProjectCard
+								title={project.data.title}
+								description={project.data.description}
+								technologies={project.data.technologies}
+								repo={project.data.repo}
+								demo={project.data.demo}
+								status={project.data.status}
+								slug={project.id}
+								zone="light"
+							/>
+						))}
+					</div>
 				</div>
 			</section>
 		)}
 
-		<!-- Latest Blog Posts -->
+		<!-- Latest Blog Posts — dark zone -->
 		{recentPosts.length > 0 && (
-			<section class="max-w-5xl mx-auto px-4 sm:px-6 py-12" style="border-top:1px solid var(--border);">
-				<div class="flex items-baseline justify-between mb-8">
-					<h2 class="font-mono" style="font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-tertiary);">
-						&lt;Posts&gt;
-					</h2>
-					<a href="/blog" class="text-xs font-mono no-underline transition-colors" style="color:var(--text-tertiary);"
-						onmouseover="this.style.color='var(--text-primary)'" onmouseout="this.style.color='var(--text-tertiary)'">
-						all →
-					</a>
-				</div>
-				<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-					{recentPosts.map((post) => (
-						<BlogPostCard
-							title={post.data.title}
-							description={post.data.description}
-							pubDate={post.data.pubDate}
-							slug={post.id}
-							tags={post.data.tags}
-						/>
-					))}
+			<section style="background:var(--dark-bg);border-bottom:2px solid var(--titan-border);">
+				<div class="max-w-5xl mx-auto px-4 sm:px-6 py-14">
+					<div class="flex items-baseline justify-between mb-8">
+						<h2 class="font-mono" style="font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--dark-text-3);">
+							&lt;Posts&gt;
+						</h2>
+						<a href="/blog" class="text-xs font-mono no-underline transition-colors" style="color:var(--dark-text-3);"
+							onmouseover="this.style.color='var(--dark-text)'" onmouseout="this.style.color='var(--dark-text-3)'">
+							all →
+						</a>
+					</div>
+					<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+						{recentPosts.map((post) => (
+							<BlogPostCard
+								title={post.data.title}
+								description={post.data.description}
+								pubDate={post.data.pubDate}
+								slug={post.id}
+								tags={post.data.tags}
+								zone="dark"
+							/>
+						))}
+					</div>
 				</div>
 			</section>
 		)}
 
-		<!-- About blurb -->
-		<section class="max-w-5xl mx-auto px-4 sm:px-6 py-12" style="border-top:1px solid var(--border);">
-			<h2 class="font-mono mb-6" style="font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-tertiary);">
-				&lt;About&gt;
-			</h2>
-			<p class="leading-relaxed max-w-xl mb-4" style="color:var(--text-secondary);">
-				Senior software engineer with 12 years of enterprise C#, .NET, and Azure experience.
-				Currently exploring the intersection of .NET and agentic AI — building tools, writing
-				about trade-offs, and sharing what actually works in production.
-			</p>
-			<a href="/about" class="text-xs font-mono no-underline transition-colors" style="color:var(--text-tertiary);"
-				onmouseover="this.style.color='var(--text-primary)'" onmouseout="this.style.color='var(--text-tertiary)'">
-				more →
-			</a>
+		<!-- About blurb — titanium zone -->
+		<section style="background:var(--titan-bg);border-bottom:2px solid var(--titan-border);">
+			<div class="max-w-5xl mx-auto px-4 sm:px-6 py-14">
+				<h2 class="font-mono mb-6" style="font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--titan-text-3);">
+					&lt;About&gt;
+				</h2>
+				<p class="leading-relaxed max-w-xl mb-4" style="color:var(--titan-text-2);">
+					Senior software engineer with 12 years of enterprise C#, .NET, and Azure experience.
+					Currently exploring the intersection of .NET and agentic AI — building tools, writing
+					about trade-offs, and sharing what actually works in production.
+				</p>
+				<a href="/about" class="text-xs font-mono no-underline transition-colors" style="color:var(--titan-text-3);"
+					onmouseover="this.style.color='var(--titan-text)'" onmouseout="this.style.color='var(--titan-text-3)'">
+					more →
+				</a>
+			</div>
 		</section>
 
 		<Footer />

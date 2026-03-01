@@ -6,24 +6,33 @@ interface Props {
 	slug: string;
 	tags?: string[];
 	readingTime?: number;
+	zone?: 'dark' | 'light';
 }
 
-const { title, description, pubDate, slug, tags = [], readingTime } = Astro.props;
+const { title, description, pubDate, slug, tags = [], readingTime, zone = 'dark' } = Astro.props;
 
 const formattedDate = pubDate.toLocaleDateString('en-US', {
 	year: 'numeric',
 	month: 'short',
 	day: 'numeric',
 });
+
+const bg       = zone === 'light' ? 'var(--light-surface)'   : 'var(--dark-surface)';
+const bgHover  = zone === 'light' ? 'var(--light-surface-2)' : 'var(--dark-surface-2)';
+const border   = zone === 'light' ? 'var(--light-border)'    : 'var(--dark-border)';
+const borderHi = zone === 'light' ? 'var(--light-border-hi)' : 'var(--dark-border-hi)';
+const text1    = zone === 'light' ? 'var(--light-text)'      : 'var(--dark-text)';
+const text2    = zone === 'light' ? 'var(--light-text-2)'    : 'var(--dark-text-2)';
+const text3    = zone === 'light' ? 'var(--light-text-3)'    : 'var(--dark-text-3)';
 ---
 
 <article
-	style="background:var(--bg-surface);border:1px solid var(--border);border-radius:4px;padding:1.5rem;transition:border-color 0.15s ease,background-color 0.15s ease;"
-	onmouseover="this.style.borderColor='var(--border-emphasis)';this.style.backgroundColor='var(--bg-surface-2)';"
-	onmouseout="this.style.borderColor='var(--border)';this.style.backgroundColor='var(--bg-surface)';"
+	style={`background:${bg};border:1px solid ${border};border-radius:4px;padding:1.5rem;transition:border-color 0.15s ease,background-color 0.15s ease;`}
+	onmouseover={`this.style.borderColor='${borderHi}';this.style.backgroundColor='${bgHover}';`}
+	onmouseout={`this.style.borderColor='${border}';this.style.backgroundColor='${bg}';`}
 >
 	<a href={`/blog/${slug}`} class="no-underline block" style="color:inherit;">
-		<div class="flex items-center gap-3 mb-3" style="color:var(--text-tertiary);">
+		<div class="flex items-center gap-3 mb-3" style={`color:${text3};`}>
 			<span class="font-mono" style="font-size:0.7rem;letter-spacing:0.06em;text-transform:uppercase;">
 				<time datetime={pubDate.toISOString()}>{formattedDate}</time>
 			</span>
@@ -33,16 +42,16 @@ const formattedDate = pubDate.toLocaleDateString('en-US', {
 				</span>
 			)}
 		</div>
-		<h3 class="font-semibold mb-2 leading-snug" style="font-size:1rem;color:var(--text-primary);letter-spacing:-0.01em;">
+		<h3 class="font-semibold mb-2 leading-snug" style={`font-size:1rem;color:${text1};letter-spacing:-0.01em;`}>
 			{title}
 		</h3>
-		<p class="text-sm leading-relaxed line-clamp-2 mb-0" style="color:var(--text-secondary);">
+		<p class="text-sm leading-relaxed line-clamp-2 mb-0" style={`color:${text2};`}>
 			{description}
 		</p>
 		{tags.length > 0 && (
 			<div class="flex flex-wrap gap-2 mt-4">
 				{tags.map((tag) => (
-					<span class="font-mono" style="font-size:0.7rem;letter-spacing:0.04em;text-transform:uppercase;color:var(--text-tertiary);">
+					<span class="font-mono" style={`font-size:0.7rem;letter-spacing:0.04em;text-transform:uppercase;color:${text3};`}>
 						{tag}
 					</span>
 				))}
