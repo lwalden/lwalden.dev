@@ -3,23 +3,31 @@ import { siteConfig } from '../data/siteConfig';
 const year = new Date().getFullYear();
 ---
 
-<footer class="border-t border-slate-200 dark:border-slate-800 mt-16">
-	<div class="max-w-4xl mx-auto px-4 sm:px-6 py-8">
+<footer style="border-top:1px solid var(--border);margin-top:5rem;">
+	<div class="max-w-5xl mx-auto px-4 sm:px-6 py-8">
 		<div class="flex flex-col sm:flex-row items-center justify-between gap-4">
-			<p class="text-sm text-slate-500 dark:text-slate-400">
+			<p class="text-sm" style="color:var(--text-tertiary);">
 				&copy; {year} Laurance Walden
 			</p>
-			<div class="flex items-center gap-4">
-				<a href={siteConfig.social.github} target="_blank" rel="noopener noreferrer" class="text-sm text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors no-underline">
+			<div class="flex items-center gap-5">
+				<a href={siteConfig.social.github} target="_blank" rel="noopener noreferrer"
+					class="text-sm no-underline transition-colors" style="color:var(--text-tertiary);"
+					onmouseover="this.style.color='var(--text-primary)'" onmouseout="this.style.color='var(--text-tertiary)'">
 					GitHub
 				</a>
-				<a href={siteConfig.social.linkedin} target="_blank" rel="noopener noreferrer" class="text-sm text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors no-underline">
+				<a href={siteConfig.social.linkedin} target="_blank" rel="noopener noreferrer"
+					class="text-sm no-underline transition-colors" style="color:var(--text-tertiary);"
+					onmouseover="this.style.color='var(--text-primary)'" onmouseout="this.style.color='var(--text-tertiary)'">
 					LinkedIn
 				</a>
-				<a href={siteConfig.social.medium} target="_blank" rel="noopener noreferrer" class="text-sm text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors no-underline">
+				<a href={siteConfig.social.medium} target="_blank" rel="noopener noreferrer"
+					class="text-sm no-underline transition-colors" style="color:var(--text-tertiary);"
+					onmouseover="this.style.color='var(--text-primary)'" onmouseout="this.style.color='var(--text-tertiary)'">
 					Medium
 				</a>
-				<a href="/rss.xml" class="text-sm text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors no-underline">
+				<a href="/rss.xml"
+					class="text-sm no-underline transition-colors" style="color:var(--text-tertiary);"
+					onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-tertiary)'">
 					RSS
 				</a>
 			</div>

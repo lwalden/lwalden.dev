@@ -13,6 +13,12 @@ const projects = await Promise.all(
 			return { ...project, Content };
 		}),
 );
+
+const statusStyles = {
+	active:   'background:var(--color-success-subtle);border:1px solid rgba(63,185,80,0.25);color:var(--color-success);',
+	complete: 'background:var(--color-info-subtle);border:1px solid rgba(88,166,255,0.25);color:var(--color-info);',
+	archived: 'background:var(--bg-muted);border:1px solid var(--border-muted);color:var(--text-tertiary);',
+};
 ---
 
 <!doctype html>
@@ -23,71 +29,73 @@ const projects = await Promise.all(
 			description="Open-source projects and tools built by Laurance Walden — focusing on AI agent governance, .NET enterprise tooling, and Azure integration."
 		/>
 	</head>
-	<body class="bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans antialiased">
+	<body style="background-color:var(--bg-base);color:var(--text-primary);" class="antialiased">
 		<Header />
-		<main class="max-w-4xl mx-auto px-4 sm:px-6 py-12">
-			<h1 class="text-3xl sm:text-4xl font-bold mb-4">Projects</h1>
-			<p class="text-slate-600 dark:text-slate-400 mb-10">
-				Things I've built — open source tools, experiments, and consulting portfolio pieces.
-				Every project here is a working system, not a demo.
-			</p>
+		<main class="max-w-5xl mx-auto px-4 sm:px-6 py-12">
+			<div class="mb-10">
+				<h1 class="text-3xl sm:text-4xl font-bold mb-3" style="color:var(--text-primary);letter-spacing:-0.03em;">Projects</h1>
+				<p style="color:var(--text-secondary);">
+					Things I've built — open source tools, experiments, and consulting portfolio pieces.
+					Every project here is a working system, not a demo.
+				</p>
+			</div>
 
 			{projects.length === 0 ? (
-				<p class="text-slate-500 dark:text-slate-400">Projects coming soon.</p>
+				<p style="color:var(--text-tertiary);">Projects coming soon.</p>
 			) : (
-				<div class="space-y-12">
+				<div class="space-y-10">
 					{projects.map((project) => {
 						const Content = project.Content;
 						return (
-							<article id={project.id} class="scroll-mt-24">
-								<div class="border border-slate-200 dark:border-slate-800 rounded-lg overflow-hidden">
-									<div class="p-6 sm:p-8">
-										<div class="flex items-start justify-between gap-4 mb-4">
-											<h2 class="text-2xl font-bold text-slate-900 dark:text-slate-100">
-												{project.data.title}
-											</h2>
-											<span class:list={[
-												'text-xs px-2 py-1 rounded font-medium shrink-0',
-												project.data.status === 'active' ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-400' :
-												project.data.status === 'complete' ? 'bg-blue-100 text-blue-700 dark:bg-blue-950 dark:text-blue-400' :
-												'bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400'
-											]}>
-												{project.data.status}
+							<article id={project.id} class="scroll-mt-24"
+								style="background:var(--bg-surface);border:1px solid var(--border);border-radius:10px;overflow:hidden;">
+								<div class="p-6 sm:p-8">
+									<div class="flex items-start justify-between gap-4 mb-4">
+										<h2 class="text-2xl font-bold" style="color:var(--text-primary);letter-spacing:-0.02em;">
+											{project.data.title}
+										</h2>
+										<span class="text-xs px-2 py-0.5 rounded font-medium shrink-0"
+											style={statusStyles[project.data.status]}>
+											{project.data.status}
+										</span>
+									</div>
+
+									<p class="mb-5" style="color:var(--text-secondary);">{project.data.description}</p>
+
+									<div class="flex flex-wrap gap-2 mb-5">
+										{project.data.technologies.map((tech) => (
+											<span class="text-xs px-2 py-0.5 rounded font-mono"
+												style="background:var(--bg-muted);border:1px solid var(--border-muted);color:var(--text-secondary);">
+												{tech}
 											</span>
-										</div>
+										))}
+									</div>
 
-										<p class="text-slate-600 dark:text-slate-400 mb-4">{project.data.description}</p>
+									<div class="flex gap-5 mb-6">
+										{project.data.repo && (
+											<a href={project.data.repo} target="_blank" rel="noopener noreferrer"
+												class="inline-flex items-center gap-2 text-sm no-underline font-medium transition-colors"
+												style="color:var(--link);"
+												onmouseover="this.style.color='var(--link-hover)'" onmouseout="this.style.color='var(--link)'">
+												<svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor" aria-hidden="true">
+													<path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+												</svg>
+												View on GitHub
+											</a>
+										)}
+										{project.data.demo && (
+											<a href={project.data.demo} target="_blank" rel="noopener noreferrer"
+												class="text-sm no-underline font-medium transition-colors"
+												style="color:var(--link);"
+												onmouseover="this.style.color='var(--link-hover)'" onmouseout="this.style.color='var(--link)'">
+												Live Demo →
+											</a>
+										)}
+									</div>
 
-										<div class="flex flex-wrap gap-2 mb-6">
-											{project.data.technologies.map((tech) => (
-												<span class="text-xs px-2 py-1 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded font-mono">
-													{tech}
-												</span>
-											))}
-										</div>
-
-										<div class="flex gap-4 mb-6">
-											{project.data.repo && (
-												<a href={project.data.repo} target="_blank" rel="noopener noreferrer"
-													class="inline-flex items-center gap-2 text-sm text-blue-600 dark:text-blue-400 hover:underline no-underline font-medium">
-													<svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true">
-														<path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
-													</svg>
-													View on GitHub
-												</a>
-											)}
-											{project.data.demo && (
-												<a href={project.data.demo} target="_blank" rel="noopener noreferrer"
-													class="text-sm text-blue-600 dark:text-blue-400 hover:underline no-underline font-medium">
-													Live Demo →
-												</a>
-											)}
-										</div>
-
-										<div class="prose prose-slate dark:prose-invert max-w-none text-sm
-											prose-headings:text-base prose-headings:font-semibold
-											prose-a:text-blue-600 dark:prose-a:text-blue-400
-											prose-code:font-mono prose-pre:bg-slate-900">
+									<div style="border-top:1px solid var(--border-muted);padding-top:1.5rem;">
+										<div class="prose max-w-none text-sm"
+											style="--tw-prose-body:var(--text-secondary);--tw-prose-headings:var(--text-primary);--tw-prose-links:var(--link);--tw-prose-code:var(--link-hover);--tw-prose-pre-bg:var(--bg-muted);">
 											<Content />
 										</div>
 									</div>

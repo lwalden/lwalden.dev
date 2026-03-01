@@ -28,55 +28,71 @@ const featuredProjects = allProjects
 			isHomePage={true}
 		/>
 	</head>
-	<body class="bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans antialiased">
+	<body style="background-color:var(--bg-base);color:var(--text-primary);" class="antialiased">
 		<Header />
 
 		<!-- Hero -->
-		<section class="max-w-4xl mx-auto px-4 sm:px-6 pt-20 pb-16">
-			<div class="max-w-2xl">
-				<h1 class="text-4xl sm:text-5xl font-bold tracking-tight mb-4">
-					Laurance Walden
-				</h1>
-				<p class="text-xl sm:text-2xl text-blue-600 dark:text-blue-400 font-medium mb-6">
-					Senior Software Engineer | .NET & Azure | AI & Agentic Systems
-				</p>
-				<p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-8">
-					I build AI-integrated enterprise systems and write about making .NET work with the agentic future.
-					12 years of shipping production software — now making it visible.
-					<!-- TODO: Customize this hook with your voice -->
-				</p>
-				<div class="flex flex-wrap gap-4 mb-8">
-					<a href="/blog" class="inline-flex items-center px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors no-underline">
-						Read the Blog
-					</a>
-					<a href="/projects" class="inline-flex items-center px-5 py-2.5 border border-slate-300 dark:border-slate-700 hover:border-blue-400 dark:hover:border-blue-600 text-slate-700 dark:text-slate-300 font-medium rounded-lg transition-colors no-underline">
-						View Projects
-					</a>
-				</div>
-				<div class="flex gap-4">
-					<a href={siteConfig.social.github} target="_blank" rel="noopener noreferrer" class="text-sm text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors no-underline">
-						GitHub ↗
-					</a>
-					<a href={siteConfig.social.linkedin} target="_blank" rel="noopener noreferrer" class="text-sm text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors no-underline">
-						LinkedIn ↗
-					</a>
-					<a href={siteConfig.social.medium} target="_blank" rel="noopener noreferrer" class="text-sm text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors no-underline">
-						Medium ↗
-					</a>
+		<section style="background:linear-gradient(160deg,rgba(88,166,255,0.04) 0%,transparent 50%);">
+			<div class="max-w-5xl mx-auto px-4 sm:px-6 pt-20 pb-16">
+				<div class="max-w-2xl">
+					<p class="text-sm font-mono mb-4" style="color:var(--accent);">Senior Software Engineer</p>
+					<h1 class="font-bold tracking-tight mb-4" style="font-size:clamp(2rem,5vw,3rem);color:var(--text-primary);">
+						Laurance Walden
+					</h1>
+					<p class="text-lg font-medium mb-5" style="color:var(--link);">
+						.NET &amp; Azure · AI &amp; Agentic Systems
+					</p>
+					<p class="text-base leading-relaxed mb-8" style="color:var(--text-secondary);">
+						I build AI-integrated enterprise systems and write about making .NET work with the agentic future.
+						12 years of shipping production software — now making it visible.
+					</p>
+					<div class="flex flex-wrap gap-3 mb-8">
+						<a href="/blog"
+							class="inline-flex items-center px-5 py-2.5 rounded-lg font-medium text-sm no-underline transition-colors"
+							style="background:var(--accent);color:#0d1117;"
+							onmouseover="this.style.background='var(--accent-hover)'" onmouseout="this.style.background='var(--accent)'">
+							Read the Blog
+						</a>
+						<a href="/projects"
+							class="inline-flex items-center px-5 py-2.5 rounded-lg font-medium text-sm no-underline transition-colors"
+							style="background:transparent;border:1px solid var(--border-emphasis);color:var(--text-secondary);"
+							onmouseover="this.style.borderColor='var(--link)';this.style.color='var(--text-primary)'"
+							onmouseout="this.style.borderColor='var(--border-emphasis)';this.style.color='var(--text-secondary)'">
+							View Projects
+						</a>
+					</div>
+					<div class="flex gap-5">
+						<a href={siteConfig.social.github} target="_blank" rel="noopener noreferrer"
+							class="text-sm no-underline transition-colors" style="color:var(--text-tertiary);"
+							onmouseover="this.style.color='var(--text-primary)'" onmouseout="this.style.color='var(--text-tertiary)'">
+							GitHub ↗
+						</a>
+						<a href={siteConfig.social.linkedin} target="_blank" rel="noopener noreferrer"
+							class="text-sm no-underline transition-colors" style="color:var(--text-tertiary);"
+							onmouseover="this.style.color='var(--text-primary)'" onmouseout="this.style.color='var(--text-tertiary)'">
+							LinkedIn ↗
+						</a>
+						<a href={siteConfig.social.medium} target="_blank" rel="noopener noreferrer"
+							class="text-sm no-underline transition-colors" style="color:var(--text-tertiary);"
+							onmouseover="this.style.color='var(--text-primary)'" onmouseout="this.style.color='var(--text-tertiary)'">
+							Medium ↗
+						</a>
+					</div>
 				</div>
 			</div>
 		</section>
 
 		<!-- Featured Projects -->
 		{featuredProjects.length > 0 && (
-			<section class="max-w-4xl mx-auto px-4 sm:px-6 py-12 border-t border-slate-100 dark:border-slate-800">
+			<section class="max-w-5xl mx-auto px-4 sm:px-6 py-12" style="border-top:1px solid var(--border-muted);">
 				<div class="flex items-baseline justify-between mb-8">
-					<h2 class="text-2xl font-bold">Featured Projects</h2>
-					<a href="/projects" class="text-sm text-blue-600 dark:text-blue-400 hover:underline no-underline">
+					<h2 class="text-xl font-semibold" style="color:var(--text-primary);">Featured Projects</h2>
+					<a href="/projects" class="text-sm no-underline transition-colors" style="color:var(--link);"
+						onmouseover="this.style.color='var(--link-hover)'" onmouseout="this.style.color='var(--link)'">
 						All projects →
 					</a>
 				</div>
-				<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+				<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
 					{featuredProjects.map((project) => (
 						<ProjectCard
 							title={project.data.title}
@@ -94,14 +110,15 @@ const featuredProjects = allProjects
 
 		<!-- Latest Blog Posts -->
 		{recentPosts.length > 0 && (
-			<section class="max-w-4xl mx-auto px-4 sm:px-6 py-12 border-t border-slate-100 dark:border-slate-800">
+			<section class="max-w-5xl mx-auto px-4 sm:px-6 py-12" style="border-top:1px solid var(--border-muted);">
 				<div class="flex items-baseline justify-between mb-8">
-					<h2 class="text-2xl font-bold">Latest Posts</h2>
-					<a href="/blog" class="text-sm text-blue-600 dark:text-blue-400 hover:underline no-underline">
+					<h2 class="text-xl font-semibold" style="color:var(--text-primary);">Latest Posts</h2>
+					<a href="/blog" class="text-sm no-underline transition-colors" style="color:var(--link);"
+						onmouseover="this.style.color='var(--link-hover)'" onmouseout="this.style.color='var(--link)'">
 						All posts →
 					</a>
 				</div>
-				<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+				<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
 					{recentPosts.map((post) => (
 						<BlogPostCard
 							title={post.data.title}
@@ -116,15 +133,15 @@ const featuredProjects = allProjects
 		)}
 
 		<!-- About blurb -->
-		<section class="max-w-4xl mx-auto px-4 sm:px-6 py-12 border-t border-slate-100 dark:border-slate-800">
-			<h2 class="text-2xl font-bold mb-4">About</h2>
-			<p class="text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl mb-4">
+		<section class="max-w-5xl mx-auto px-4 sm:px-6 py-12" style="border-top:1px solid var(--border-muted);">
+			<h2 class="text-xl font-semibold mb-4" style="color:var(--text-primary);">About</h2>
+			<p class="leading-relaxed max-w-2xl mb-4" style="color:var(--text-secondary);">
 				Senior software engineer with 12 years of enterprise C#, .NET, and Azure experience.
 				Currently exploring the intersection of .NET and agentic AI — building tools, writing
 				about trade-offs, and sharing what actually works in production.
-				<!-- TODO: Personalize this blurb -->
 			</p>
-			<a href="/about" class="text-blue-600 dark:text-blue-400 hover:underline no-underline text-sm font-medium">
+			<a href="/about" class="text-sm font-medium no-underline transition-colors" style="color:var(--link);"
+				onmouseover="this.style.color='var(--link-hover)'" onmouseout="this.style.color='var(--link)'">
 				Read more →
 			</a>
 		</section>

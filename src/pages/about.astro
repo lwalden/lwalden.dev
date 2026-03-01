@@ -26,15 +26,15 @@ const skillsByCategory = skills.reduce(
 			description="Senior Software Engineer with 12 years of C#/.NET/Azure enterprise experience. Currently building AI-integrated systems and writing about agentic AI for the .NET ecosystem."
 		/>
 	</head>
-	<body class="bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans antialiased">
+	<body style="background-color:var(--bg-base);color:var(--text-primary);" class="antialiased">
 		<Header />
 		<main class="max-w-4xl mx-auto px-4 sm:px-6 py-12">
 
 			<!-- Professional Summary -->
 			<section class="mb-16">
-				<h1 class="text-3xl sm:text-4xl font-bold mb-8">About</h1>
+				<h1 class="text-3xl sm:text-4xl font-bold mb-8" style="color:var(--text-primary);letter-spacing:-0.03em;">About</h1>
 
-				<div class="prose prose-slate dark:prose-invert max-w-none space-y-4 text-slate-600 dark:text-slate-400 leading-relaxed">
+				<div class="space-y-5 leading-relaxed" style="color:var(--text-secondary);">
 					<p>
 						I'm a senior software engineer with over a decade of experience building enterprise-grade
 						distributed systems in C#, .NET, and Azure. Most of that work lives in the invisible layer
@@ -51,23 +51,23 @@ const skillsByCategory = skills.reduce(
 					</p>
 					<p>
 						Right now my focus is the intersection of .NET and agentic AI. I'm building
-						<a href={siteConfig.social.github + '/AIAgentMinder'} class="text-blue-600 dark:text-blue-400">AIAgentMinder</a> —
+						<a href={siteConfig.social.github + '/AIAgentMinder'}>AIAgentMinder</a> —
 						a governance framework for AI agents in enterprise .NET systems — and writing about what it
 						actually takes to put AI into production. Not the happy-path demos, but the real questions:
 						audit trails, lifecycle management, failure modes, and the organizational constraints nobody's
 						talking about yet.
 					</p>
 					<p>
-						I write here and on <a href={siteConfig.social.medium} class="text-blue-600 dark:text-blue-400">Medium</a>.
+						I write here and on <a href={siteConfig.social.medium}>Medium</a>.
 						If you're working on .NET + AI systems or just want to compare notes on the space, find me on
-						<a href={siteConfig.social.linkedin} class="text-blue-600 dark:text-blue-400">LinkedIn</a>.
+						<a href={siteConfig.social.linkedin}>LinkedIn</a>.
 					</p>
 				</div>
 			</section>
 
 			<!-- Experience -->
 			<section class="mb-16">
-				<h2 class="text-2xl font-bold mb-8">Experience</h2>
+				<h2 class="text-2xl font-bold mb-8" style="color:var(--text-primary);">Experience</h2>
 				<div>
 					{experience.map((entry) => (
 						<ExperienceItem
@@ -85,11 +85,11 @@ const skillsByCategory = skills.reduce(
 
 			<!-- Skills -->
 			<section class="mb-16">
-				<h2 class="text-2xl font-bold mb-8">Skills & Technologies</h2>
+				<h2 class="text-2xl font-bold mb-8" style="color:var(--text-primary);">Skills &amp; Technologies</h2>
 				<div class="space-y-8">
 					{(Object.entries(skillsByCategory) as [string, typeof skills][]).map(([category, categorySkills]) => (
 						<div>
-							<h3 class="text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-3">
+							<h3 class="text-xs font-semibold uppercase tracking-widest mb-3" style="color:var(--text-tertiary);">
 								{categoryLabels[category as keyof typeof categoryLabels]}
 							</h3>
 							<div class="flex flex-wrap gap-2">
@@ -100,18 +100,18 @@ const skillsByCategory = skills.reduce(
 						</div>
 					))}
 				</div>
-				<p class="text-xs text-slate-400 dark:text-slate-600 mt-6">
-					Badge color indicates proficiency: blue = expert, gray = advanced, light = intermediate
+				<p class="text-xs mt-6" style="color:var(--text-tertiary);">
+					Badge color: orange = expert · blue = advanced · gray = intermediate
 				</p>
 			</section>
 
 			<!-- Certifications -->
 			<section class="mb-16">
-				<h2 class="text-2xl font-bold mb-4">Certifications</h2>
-				<ul class="space-y-2 text-slate-600 dark:text-slate-400">
+				<h2 class="text-2xl font-bold mb-4" style="color:var(--text-primary);">Certifications</h2>
+				<ul class="space-y-2" style="color:var(--text-secondary);">
 					<li>Certified Scrum Master (CSM) — Scrum Alliance, 2020</li>
 				</ul>
-				<p class="text-slate-500 dark:text-slate-400 text-sm italic mt-4">
+				<p class="text-sm italic mt-4" style="color:var(--text-tertiary);">
 					Microsoft Azure certifications in progress for 2026.
 				</p>
 			</section>
