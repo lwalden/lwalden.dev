@@ -94,9 +94,9 @@ const featuredProjects = allProjects
 							{recentPosts[0] && (
 							<div style="border-top:1px solid var(--titan-border);padding-top:1.25rem;">
 								<p class="font-mono mb-1.5" style="font-size:0.65rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--light-text-2);">Writing</p>
-								<a href={`/blog/${recentPosts[0].id}`} class="no-underline block">
-									<p class="font-mono mb-1" style="font-size:0.85rem;color:var(--light-text);line-height:1.3;"
-										onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+								<a href={`/blog/${recentPosts[0].id}`} class="no-underline block"
+									onmouseover="this.querySelector('.post-title').style.textDecoration='underline'" onmouseout="this.querySelector('.post-title').style.textDecoration='none'">
+									<p class="post-title font-mono mb-1" style="font-size:0.85rem;color:var(--light-text);line-height:1.3;">
 										{recentPosts[0].data.title}
 									</p>
 									<p class="font-mono mb-0" style="font-size:0.78rem;color:var(--light-text-2);line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">
