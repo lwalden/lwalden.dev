@@ -1,4 +1,4 @@
-export interface SiteConfig {
+﻿export interface SiteConfig {
   author: string;
   desc: string;
   title: string;
@@ -42,8 +42,8 @@ export interface SiteConfig {
 
 export const SITE: SiteConfig = {
   author: 'Laurance Walden',
-  desc: 'Senior Software Engineer specializing in .NET, Azure, and AI-integrated enterprise systems. 12 years of building production software. I write about agentic AI, Semantic Kernel, and the future of .NET.',
-  title: 'lwalden.dev',
+  desc: 'Senior Software Engineer specializing in .NET, Typescript, Event Driven Microservices. 12 years of building production software. I write about agentic AI, lessons learned, and the future of software engineering.',
+  title: 'Laurance Walden — Senior Software Engineer | .NET, Azure & AI',
   ogImage: 'og.png',
   lang: 'en-US',
   base: '/',
@@ -56,9 +56,9 @@ export const SITE: SiteConfig = {
   homeHeroDescription:
     'I build enterprise systems, solo AI-integrated projects, and write about the rapidly evolving tools shaping the future of software development.',
   blogDescription:
-    '.NET, Azure, and AI integration. Builder content — working code, honest trade-offs.',
+    '.NET, Cloud Architecture , and AI integration. Builder content — working code, honest trade-offs.',
   projectsDescription:
-    "Things I've built — open source tools, experiments, and consulting portfolio pieces.",
+    "Things I've built — open source tools, experiments, and integrations.",
   featuredPostsCount: 3,
   latestPostsCount: 3,
   homeProjects: {
@@ -87,3 +87,5 @@ export const SITE: SiteConfig = {
     lang: 'en',
   },
 };
+
+
