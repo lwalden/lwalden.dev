@@ -47,8 +47,8 @@ export const GET: APIRoute = async ({ props }) => {
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      background-color: #0d1117;
-      color: #fff;
+      background-color: #09090b;
+      color: #fafafa;
       font-family: 'Inter';
       padding: 40px;
       text-align: center;
@@ -58,9 +58,7 @@ export const GET: APIRoute = async ({ props }) => {
         style="
         font-size: 64px;
         font-weight: 700;
-        background-image: linear-gradient(to right, #c4b5fd, #a78bfa);
-        background-clip: text;
-        color: transparent;
+        color: #fafafa;
         margin-bottom: 24px;
         line-height: 1.1;
       "
@@ -68,7 +66,7 @@ export const GET: APIRoute = async ({ props }) => {
         ${title}
       </div>
 
-      <div style="font-size: 32px; color: #9ca3af;">
+      <div style="font-size: 32px; color: #a1a1aa;">
         ${description || `A post on ${SITE.title}`}
       </div>
 
@@ -78,7 +76,7 @@ export const GET: APIRoute = async ({ props }) => {
         align-items: center;
         margin-top: 48px;
         font-size: 24px;
-        color: #6b7280;
+        color: #71717a;
       "
       >
         <span style="margin-right: 16px;">${SITE.website.replace(/^https?:\/\//, '')}</span>
@@ -106,7 +104,7 @@ export const GET: APIRoute = async ({ props }) => {
 
   const png = resvg.render();
 
-  return new Response(png.asPng() as any, {
+  return new Response(png.asPng(), {
     headers: {
       'Content-Type': 'image/png',
     },
