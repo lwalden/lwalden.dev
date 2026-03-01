@@ -1,51 +1,53 @@
 ---
-import { siteConfig } from '../data/siteConfig';
+import { SITE } from '@/config';
+import ThemeToggle from '@/components/ThemeToggle.svelte';
+import Search from '@/components/Search.svelte';
 
-const currentPath = Astro.url.pathname;
-const navLinks = [
-	{ href: '/blog', label: 'Blog' },
-	{ href: '/projects', label: 'Projects' },
-	{ href: '/about', label: 'About' },
+interface NavLink {
+  name: string;
+  href: string;
+}
+
+const navLinks: NavLink[] = [
+  { name: 'Posts', href: '/posts' },
+  { name: 'Projects', href: '/projects' },
+  { name: 'About', href: '/about' },
 ];
 ---
 
-<header style="position:sticky;top:0;z-index:50;background:var(--light-bg);border-bottom:2px solid var(--titan-border);">
-	<nav class="max-w-5xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
-		<a href="/" class="font-semibold no-underline text-sm tracking-tight" style="color:var(--light-text);">
-			lwalden.dev
-		</a>
+<header
+  class="sticky top-0 z-50 backdrop-blur-md bg-background/80 flex flex-col lg:flex-row items-center justify-between py-4 sm:py-5 gap-4 border-b border-border transition-all duration-300"
+>
+  <div class="flex items-center justify-between w-full lg:w-auto">
+    <a
+      href="/"
+      class="text-xl sm:text-2xl font-black tracking-normal text-foreground transition-all no-underline hover:text-primary whitespace-nowrap"
+    >
+      {SITE.title}
+    </a>
+    <div class="flex items-center gap-2 lg:hidden">
+      <Search client:idle />
+      <ThemeToggle client:idle />
+    </div>
+  </div>
 
-		<div class="flex items-center gap-1">
-			{navLinks.map(({ href, label }) => {
-				const isActive = currentPath === href || (href !== '/' && currentPath.startsWith(href));
-				return (
-					<a
-						href={href}
-						class="px-3 py-1.5 rounded text-xs font-mono no-underline transition-colors"
-						style={isActive
-							? `color:var(--light-text);background:var(--light-surface-2);`
-							: `color:var(--light-text-3);`
-						}
-						onmouseover={!isActive ? `this.style.color='var(--light-text-2)'` : undefined}
-						onmouseout={!isActive ? `this.style.color='var(--light-text-3)'` : undefined}
-					>
-						{label.toLowerCase()}
-					</a>
-				);
-			})}
-		</div>
-
-		<div class="hidden sm:flex items-center gap-4">
-			<a href={siteConfig.social.github} target="_blank" rel="noopener noreferrer"
-				class="text-xs font-mono no-underline transition-colors" style="color:var(--light-text-3);"
-				onmouseover="this.style.color='var(--light-text)'" onmouseout="this.style.color='var(--light-text-3)'">
-				gh
-			</a>
-			<a href={siteConfig.social.linkedin} target="_blank" rel="noopener noreferrer"
-				class="text-xs font-mono no-underline transition-colors" style="color:var(--light-text-3);"
-				onmouseover="this.style.color='var(--light-text)'" onmouseout="this.style.color='var(--light-text-3)'">
-				li
-			</a>
-		</div>
-	</nav>
+  <nav class="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 w-full lg:w-auto">
+    <div class="flex items-center justify-center flex-wrap gap-x-2 gap-y-2 sm:gap-4">
+      {
+        navLinks.map((link) => (
+          <a
+            href={link.href}
+            class="px-1.5 py-1 rounded-md text-xs font-bold uppercase tracking-widest text-muted-foreground hover:bg-accent hover:text-primary transition-all shrink-0"
+          >
+            {link.name}
+          </a>
+        ))
+      }
+    </div>
+    <div class="hidden lg:block h-4 w-px bg-border"></div>
+    <div class="hidden lg:flex items-center gap-4">
+      <Search client:idle />
+      <ThemeToggle client:idle />
+    </div>
+  </nav>
 </header>
