@@ -27,63 +27,91 @@ const featuredProjects = allProjects
 	<body class="antialiased" style="background-color:var(--dark-bg);color:var(--dark-text);">
 		<Header />
 
-		<!-- Hero — dark zone -->
+		<!-- Hero — dark zone, split-column at lg -->
 		<section style="background:var(--dark-bg);border-bottom:2px solid var(--titan-border);">
 			<div class="max-w-5xl mx-auto px-4 sm:px-6 pt-20 pb-16">
-				<h1 class="font-bold tracking-tight mb-3" style="font-size:clamp(2.5rem,6vw,3.75rem);color:var(--dark-text);letter-spacing:-0.04em;line-height:1.1;">
-					Laurance Walden
-				</h1>
-				<div class="flex flex-col gap-0.5 mb-8">
-					<span class="font-mono" style="font-size:0.8rem;letter-spacing:0.04em;color:var(--dark-text-3);">Senior Software Engineer</span>
-					<span class="font-mono" style="font-size:0.8rem;letter-spacing:0.04em;color:var(--dark-text-3);">.NET · Azure · AI & Agentic Systems</span>
-				</div>
-				<p class="leading-relaxed mb-8 max-w-xl" style="color:var(--dark-text-2);">
-					I build AI-integrated enterprise systems and write about making .NET work with the agentic future.
-					12 years of shipping production software — now making it visible.
-				</p>
-				<div class="flex flex-wrap gap-3 mb-8">
-					<a href="/blog"
-						class="inline-flex items-center px-5 py-2.5 rounded font-medium text-sm no-underline transition-colors"
-						style="background:var(--dark-text);color:var(--dark-bg);"
-						onmouseover="this.style.background='#ffffff'" onmouseout="this.style.background='var(--dark-text)'">
-						Read the Blog
-					</a>
-					<a href="/projects"
-						class="inline-flex items-center px-5 py-2.5 rounded font-medium text-sm no-underline transition-colors"
-						style="background:transparent;border:1px solid var(--dark-border-hi);color:var(--dark-text-2);"
-						onmouseover="this.style.borderColor='var(--dark-text)';this.style.color='var(--dark-text)'"
-						onmouseout="this.style.borderColor='var(--dark-border-hi)';this.style.color='var(--dark-text-2)'">
-						View Projects
-					</a>
-				</div>
-				<div class="flex gap-5">
-					<a href={siteConfig.social.github} target="_blank" rel="noopener noreferrer"
-						class="text-xs font-mono no-underline transition-colors" style="color:var(--dark-text-3);"
-						onmouseover="this.style.color='var(--dark-text)'" onmouseout="this.style.color='var(--dark-text-3)'">
-						github ↗
-					</a>
-					<a href={siteConfig.social.linkedin} target="_blank" rel="noopener noreferrer"
-						class="text-xs font-mono no-underline transition-colors" style="color:var(--dark-text-3);"
-						onmouseover="this.style.color='var(--dark-text)'" onmouseout="this.style.color='var(--dark-text-3)'">
-						linkedin ↗
-					</a>
-					<a href={siteConfig.social.medium} target="_blank" rel="noopener noreferrer"
-						class="text-xs font-mono no-underline transition-colors" style="color:var(--dark-text-3);"
-						onmouseover="this.style.color='var(--dark-text)'" onmouseout="this.style.color='var(--dark-text-3)'">
-						medium ↗
-					</a>
+				<div class="grid lg:grid-cols-[3fr_2fr] gap-12 items-start">
+					<!-- Left: main hero content -->
+					<div>
+						<h1 class="font-bold tracking-tight mb-3" style="font-size:clamp(2.5rem,6vw,3.75rem);color:var(--dark-text);letter-spacing:-0.04em;line-height:1.1;">
+							Laurance Walden
+						</h1>
+						<div class="flex flex-col gap-0.5 mb-8">
+							<span class="font-mono" style="font-size:0.8rem;letter-spacing:0.04em;color:var(--dark-text-3);">Senior Software Engineer</span>
+							<span class="font-mono" style="font-size:0.8rem;letter-spacing:0.04em;color:var(--dark-text-3);">.NET · Azure · AI & Agentic Systems</span>
+						</div>
+						<p class="leading-relaxed mb-8" style="color:var(--dark-text-2);">
+							I build AI-integrated enterprise systems and write about making .NET work with the agentic future.
+							12 years of shipping production software — now making it visible.
+						</p>
+						<div class="flex flex-wrap gap-3 mb-8">
+							<a href="/blog"
+								class="inline-flex items-center px-5 py-2.5 rounded font-medium text-sm no-underline transition-colors"
+								style="background:var(--dark-text);color:var(--dark-bg);"
+								onmouseover="this.style.background='#ffffff'" onmouseout="this.style.background='var(--dark-text)'">
+								Read the Blog
+							</a>
+							<a href="/projects"
+								class="inline-flex items-center px-5 py-2.5 rounded font-medium text-sm no-underline transition-colors"
+								style="background:transparent;border:1px solid var(--dark-border-hi);color:var(--dark-text-2);"
+								onmouseover="this.style.borderColor='var(--dark-text)';this.style.color='var(--dark-text)'"
+								onmouseout="this.style.borderColor='var(--dark-border-hi)';this.style.color='var(--dark-text-2)'">
+								View Projects
+							</a>
+						</div>
+						<div class="flex gap-5">
+							<a href={siteConfig.social.github} target="_blank" rel="noopener noreferrer"
+								class="text-xs font-mono no-underline transition-colors" style="color:var(--dark-text-3);"
+								onmouseover="this.style.color='var(--dark-text)'" onmouseout="this.style.color='var(--dark-text-3)'">
+								github ↗
+							</a>
+							<a href={siteConfig.social.linkedin} target="_blank" rel="noopener noreferrer"
+								class="text-xs font-mono no-underline transition-colors" style="color:var(--dark-text-3);"
+								onmouseover="this.style.color='var(--dark-text)'" onmouseout="this.style.color='var(--dark-text-3)'">
+								linkedin ↗
+							</a>
+							<a href={siteConfig.social.medium} target="_blank" rel="noopener noreferrer"
+								class="text-xs font-mono no-underline transition-colors" style="color:var(--dark-text-3);"
+								onmouseover="this.style.color='var(--dark-text)'" onmouseout="this.style.color='var(--dark-text-3)'">
+								medium ↗
+							</a>
+						</div>
+					</div>
+					<!-- Right: titanium stat card -->
+					<div style="background:var(--titan-bg);border:1px solid var(--titan-border);border-radius:4px;padding:1.5rem;margin-top:0.5rem;">
+						<div class="flex flex-col gap-5">
+							<div>
+								<p class="font-mono mb-1.5" style="font-size:0.65rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--titan-text-3);">Experience</p>
+								<p class="font-mono mb-0" style="font-size:0.85rem;color:var(--titan-text);">12 yrs · .NET / Azure</p>
+								<p class="font-mono mb-0" style="font-size:0.85rem;color:var(--titan-text-2);">Enterprise distributed systems</p>
+							</div>
+							<div style="border-top:1px solid var(--titan-border);padding-top:1.25rem;">
+								<p class="font-mono mb-1.5" style="font-size:0.65rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--titan-text-3);">Focus</p>
+								<p class="font-mono mb-0.5" style="font-size:0.85rem;color:var(--titan-text);">C# · Azure · AI agents</p>
+								<p class="font-mono mb-0.5" style="font-size:0.85rem;color:var(--titan-text-2);">ASP.NET · EF Core · Durable</p>
+								<p class="font-mono mb-0" style="font-size:0.85rem;color:var(--titan-text-2);">Functions · Service Bus</p>
+							</div>
+							<div style="border-top:1px solid var(--titan-border);padding-top:1.25rem;">
+								<p class="font-mono mb-1.5" style="font-size:0.65rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--titan-text-3);">Building</p>
+								<p class="font-mono mb-0" style="font-size:0.85rem;color:var(--titan-text);">AIAgentMinder</p>
+								<p class="font-mono mb-0" style="font-size:0.85rem;color:var(--titan-text-2);">Agentic governance for .NET</p>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</section>
 
-		<!-- Featured Projects — light zone -->
+		<!-- Featured Projects — light zone, dark-inverted cards -->
 		{featuredProjects.length > 0 && (
 			<section style="background:var(--light-bg);border-bottom:2px solid var(--titan-border);">
 				<div class="max-w-5xl mx-auto px-4 sm:px-6 py-14">
 					<div class="flex items-baseline justify-between mb-8">
-						<h2 class="font-mono" style="font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--light-text-3);">
-							&lt;Projects&gt;
-						</h2>
+						<div style="border-left:3px solid var(--dark-border-hi);padding-left:0.75rem;">
+							<h2 class="font-mono" style="font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--light-text-3);">
+								&lt;Projects&gt;
+							</h2>
+						</div>
 						<a href="/projects" class="text-xs font-mono no-underline transition-colors" style="color:var(--light-text-3);"
 							onmouseover="this.style.color='var(--light-text)'" onmouseout="this.style.color='var(--light-text-3)'">
 							all →
@@ -99,7 +127,7 @@ const featuredProjects = allProjects
 								demo={project.data.demo}
 								status={project.data.status}
 								slug={project.id}
-								zone="light"
+								zone="dark"
 							/>
 						))}
 					</div>
@@ -107,14 +135,16 @@ const featuredProjects = allProjects
 			</section>
 		)}
 
-		<!-- Latest Blog Posts — dark zone -->
+		<!-- Latest Blog Posts — dark zone, light-inverted cards -->
 		{recentPosts.length > 0 && (
 			<section style="background:var(--dark-bg);border-bottom:2px solid var(--titan-border);">
 				<div class="max-w-5xl mx-auto px-4 sm:px-6 py-14">
 					<div class="flex items-baseline justify-between mb-8">
-						<h2 class="font-mono" style="font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--dark-text-3);">
-							&lt;Posts&gt;
-						</h2>
+						<div style="border-left:3px solid var(--titan-border);padding-left:0.75rem;">
+							<h2 class="font-mono" style="font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--dark-text-3);">
+								&lt;Posts&gt;
+							</h2>
+						</div>
 						<a href="/blog" class="text-xs font-mono no-underline transition-colors" style="color:var(--dark-text-3);"
 							onmouseover="this.style.color='var(--dark-text)'" onmouseout="this.style.color='var(--dark-text-3)'">
 							all →
@@ -128,7 +158,7 @@ const featuredProjects = allProjects
 								pubDate={post.data.pubDate}
 								slug={post.id}
 								tags={post.data.tags}
-								zone="dark"
+								zone="light"
 							/>
 						))}
 					</div>
@@ -136,21 +166,25 @@ const featuredProjects = allProjects
 			</section>
 		)}
 
-		<!-- About blurb — titanium zone -->
+		<!-- About blurb — titanium zone (coda) -->
 		<section style="background:var(--titan-bg);border-bottom:2px solid var(--titan-border);">
-			<div class="max-w-5xl mx-auto px-4 sm:px-6 py-14">
-				<h2 class="font-mono mb-6" style="font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--titan-text-3);">
-					&lt;About&gt;
-				</h2>
-				<p class="leading-relaxed max-w-xl mb-4" style="color:var(--titan-text-2);">
+			<div class="max-w-5xl mx-auto px-4 sm:px-6 py-10">
+				<div class="flex items-baseline justify-between mb-4">
+					<div style="border-left:3px solid var(--dark-border-hi);padding-left:0.75rem;">
+						<h2 class="font-mono" style="font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--titan-text-3);">
+							&lt;About&gt;
+						</h2>
+					</div>
+					<a href="/about" class="text-xs font-mono no-underline transition-colors" style="color:var(--titan-text-3);"
+						onmouseover="this.style.color='var(--titan-text)'" onmouseout="this.style.color='var(--titan-text-3)'">
+						more →
+					</a>
+				</div>
+				<p class="leading-relaxed max-w-xl mb-0" style="color:var(--titan-text-2);">
 					Senior software engineer with 12 years of enterprise C#, .NET, and Azure experience.
 					Currently exploring the intersection of .NET and agentic AI — building tools, writing
 					about trade-offs, and sharing what actually works in production.
 				</p>
-				<a href="/about" class="text-xs font-mono no-underline transition-colors" style="color:var(--titan-text-3);"
-					onmouseover="this.style.color='var(--titan-text)'" onmouseout="this.style.color='var(--titan-text-3)'">
-					more →
-				</a>
 			</div>
 		</section>
 
