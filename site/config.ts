@@ -8,6 +8,7 @@
   base: string;
   website: string;
   social: Record<string, string>;
+  twitterHandle?: string;
   googleAnalyticsId?: string;
   homeHeroDescription: string;
   blogDescription: string;
@@ -55,6 +56,7 @@ export const SITE: SiteConfig = {
     linkedin: 'https://www.linkedin.com/in/laurancewalden/',
     medium: 'https://medium.com/@lwalden',
   },
+  twitterHandle: '@lwalden',
   homeHeroDescription:
     'I build enterprise systems, solo AI-integrated projects, and write about the rapidly evolving tools shaping the future of software development.',
   blogDescription:
