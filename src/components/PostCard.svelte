@@ -24,7 +24,7 @@
 </script>
 
 <article
-  class="group relative -mx-4 px-4 py-3 sm:py-4 rounded-2xl hover:bg-accent transition-all duration-300"
+  class="group relative -mx-3 px-3 py-3 sm:py-4 rounded-2xl border border-transparent hover:border-border/70 hover:bg-card/70 transition-all duration-300"
 >
   <div class="flex flex-col gap-1.5">
     <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 sm:gap-4">
@@ -38,7 +38,7 @@
       </h2>
       <time
         datetime={post.data.pubDate.toISOString()}
-        class="flex-shrink-0 text-xs font-medium text-muted-foreground tabular-nums uppercase tracking-widest"
+        class="flex-shrink-0 text-xs font-medium text-muted-foreground tabular-nums tracking-[0.04em]"
       >
         {formatDate(post.data.pubDate)}
       </time>
@@ -51,7 +51,7 @@
     </p>
 
     <div
-      class="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs font-bold uppercase tracking-widest text-muted-foreground mt-1.5"
+      class="flex flex-wrap items-center gap-x-4 gap-y-2 text-[0.72rem] font-semibold tracking-[0.03em] text-muted-foreground mt-1.5"
     >
       {#if post.data.featured}
         <div class="flex items-center gap-1 text-primary">

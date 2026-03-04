@@ -47,33 +47,33 @@
 
 @theme {
   /* 1. Core Colors */
-  --color-background: #ffffff;
-  --color-foreground: #09090b;
+  --color-background: #eef4ff;
+  --color-foreground: #0e1d33;
 
-  --color-card: #ffffff;
-  --color-card-foreground: #09090b;
+  --color-card: #f9fcff;
+  --color-card-foreground: #0e1d33;
 
-  --color-popover: #ffffff;
-  --color-popover-foreground: #09090b;
+  --color-popover: #f9fcff;
+  --color-popover-foreground: #0e1d33;
 
-  --color-primary: #18181b;
-  --color-primary-foreground: #fafafa;
+  --color-primary: #165fb5;
+  --color-primary-foreground: #f4f8ff;
 
-  --color-secondary: #f4f4f5;
-  --color-secondary-foreground: #18181b;
+  --color-secondary: #dce9fb;
+  --color-secondary-foreground: #0e1d33;
 
-  --color-muted: #f4f4f5;
-  --color-muted-foreground: #18181b; /* Zinc 900 for absolute contrast compliance */
+  --color-muted: #e3edfb;
+  --color-muted-foreground: #3f5878;
 
-  --color-accent: #f4f4f5;
-  --color-accent-foreground: #18181b;
+  --color-accent: #d2e3fb;
+  --color-accent-foreground: #0f2b4e;
 
   --color-destructive: #ef4444;
   --color-destructive-foreground: #fafafa;
 
-  --color-border: #e4e4e7;
-  --color-input: #e4e4e7;
-  --color-ring: #18181b;
+  --color-border: #c5d8f1;
+  --color-input: #bdd3ef;
+  --color-ring: #165fb5;
 
   /* 2. Constants */
   --font-sans: 'Outfit', 'Inter', ui-sans-serif, system-ui, sans-serif;
@@ -88,25 +88,25 @@
 
 @layer base {
   .dark {
-    --color-background: #212737;
-    --color-foreground: #eaedf3;
-    --color-card: #303446; /* Catppuccin Frappe Base */
-    --color-card-foreground: #eaedf3;
-    --color-popover: #303446;
-    --color-popover-foreground: #eaedf3;
-    --color-primary: #f2d5cf; /* Lighter accent for Catppuccin harmony */
-    --color-primary-foreground: #303446;
-    --color-secondary: #292c3c; /* Mantle */
-    --color-secondary-foreground: #eaedf3;
-    --color-muted: #303446;
-    --color-muted-foreground: #d1d5dc;
-    --color-accent: #292c3c;
-    --color-accent-foreground: #eaedf3;
+    --color-background: #0b1422;
+    --color-foreground: #e8f1ff;
+    --color-card: #101e33;
+    --color-card-foreground: #e8f1ff;
+    --color-popover: #101e33;
+    --color-popover-foreground: #e8f1ff;
+    --color-primary: #7db0ff;
+    --color-primary-foreground: #0b1422;
+    --color-secondary: #172843;
+    --color-secondary-foreground: #e8f1ff;
+    --color-muted: #1c304e;
+    --color-muted-foreground: #a4b8d5;
+    --color-accent: #213b61;
+    --color-accent-foreground: #e8f1ff;
     --color-destructive: #ef4444;
     --color-destructive-foreground: #fafafa;
-    --color-border: #494d64; /* Surface 1 */
-    --color-input: #494d64;
-    --color-ring: #f2d5cf;
+    --color-border: #2f4f79;
+    --color-input: #2f4f79;
+    --color-ring: #7db0ff;
   }
 
   /* Fluid Typography & Scaling */
@@ -146,12 +146,47 @@
 
   body {
     background-color: var(--color-background);
+    background-image: radial-gradient(
+        1200px circle at 86% -16%,
+        rgba(22, 95, 181, 0.26),
+        transparent 58%
+      ),
+      radial-gradient(
+        900px circle at -15% 18%,
+        rgba(22, 95, 181, 0.15),
+        transparent 60%
+      ),
+      linear-gradient(180deg, #f8fbff 0%, #eef4ff 44%, #e9f1ff 100%);
+    background-position:
+      top right,
+      top left,
+      center;
+    background-repeat: no-repeat;
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     line-height: 1.6;
+  }
+
+  .dark body {
+    background-image: radial-gradient(
+        1200px circle at 86% -16%,
+        rgba(125, 176, 255, 0.22),
+        transparent 56%
+      ),
+      radial-gradient(
+        900px circle at -15% 18%,
+        rgba(125, 176, 255, 0.14),
+        transparent 60%
+      ),
+      linear-gradient(180deg, #0f1b2e 0%, #0b1422 48%, #0a1220 100%);
+    background-position:
+      top right,
+      top left,
+      center;
+    background-repeat: no-repeat;
   }
 
   h1,
@@ -210,6 +245,130 @@
   .container-padding {
     @apply px-4 sm:px-6 lg:px-8 xl:px-12 3xl:px-24;
   }
+
+  .section-head {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .section-head-main {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-shrink: 0;
+  }
+
+  .section-index {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.15rem;
+    height: 1.4rem;
+    padding: 0 0.55rem;
+    border: 1px solid rgba(22, 95, 181, 0.32);
+    border-radius: 9999px;
+    background: rgba(22, 95, 181, 0.09);
+    color: var(--color-primary);
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+  }
+
+  .section-title {
+    font-size: 0.92rem;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    color: var(--color-muted-foreground);
+  }
+
+  .section-rail {
+    position: relative;
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(22, 95, 181, 0.6), rgba(22, 95, 181, 0.2) 44%, transparent);
+  }
+
+  .section-rail::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 7px;
+    height: 7px;
+    border-radius: 9999px;
+    background: var(--color-primary);
+    transform: translateY(-50%);
+  }
+
+  .section-rail::after {
+    content: '';
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    width: 24px;
+    border-top: 1px dashed rgba(22, 95, 181, 0.45);
+    transform: translateY(-50%);
+  }
+
+  .annotated-callout {
+    position: relative;
+    border: 1px solid rgba(22, 95, 181, 0.25);
+    border-radius: 0.9rem;
+    background: linear-gradient(120deg, rgba(255, 255, 255, 0.86), rgba(22, 95, 181, 0.1));
+    padding: 1rem 1rem 0.95rem 1rem;
+    box-shadow: 0 12px 30px -24px rgba(22, 95, 181, 0.45);
+  }
+
+  .annotated-callout::before {
+    content: attr(data-label);
+    display: block;
+    margin-bottom: 0.55rem;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+  }
+
+  .annotated-callout::after {
+    content: '';
+    position: absolute;
+    right: 1rem;
+    top: 0.95rem;
+    width: 2.5rem;
+    border-top: 1px dashed rgba(22, 95, 181, 0.45);
+  }
+
+  .annotated-callout p {
+    margin: 0;
+    color: var(--color-muted-foreground);
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+
+  .dark .section-index {
+    border-color: rgba(125, 176, 255, 0.42);
+    background: rgba(125, 176, 255, 0.2);
+  }
+
+  .dark .section-rail {
+    background: linear-gradient(90deg, rgba(125, 176, 255, 0.7), rgba(125, 176, 255, 0.28) 44%, transparent);
+  }
+
+  .dark .section-rail::after {
+    border-top-color: rgba(125, 176, 255, 0.52);
+  }
+
+  .dark .annotated-callout {
+    border-color: rgba(125, 176, 255, 0.32);
+    background: linear-gradient(120deg, rgba(16, 30, 51, 0.9), rgba(125, 176, 255, 0.14));
+    box-shadow: 0 14px 32px -26px rgba(0, 0, 0, 0.8);
+  }
+
+  .dark .annotated-callout::after {
+    border-top-color: rgba(125, 176, 255, 0.58);
+  }
 }
 
 /* Typography Overrides */
@@ -225,7 +384,7 @@
   --tw-prose-quote-borders: var(--color-border);
   --tw-prose-captions: var(--color-muted-foreground);
   --tw-prose-code: var(--color-foreground);
-  --tw-prose-pre-bg: #f8fafc; /* Subtle off-white for light mode */
+  --tw-prose-pre-bg: #f2f6fc;
 
   font-size: 1.05rem;
   line-height: 1.75;
@@ -305,7 +464,7 @@
 .dark .shiki,
 .dark .astro-code {
   background-color: var(--shiki-dark-bg) !important;
-  border-color: #494d64 !important; /* Catppuccin Surface 1 */
+  border-color: var(--color-border) !important;
 }
 
 .dark .prose {

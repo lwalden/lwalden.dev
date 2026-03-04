@@ -16,14 +16,24 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.order -
   <Breadcrumbs items={[{ name: 'Projects', href: '/projects' }]} />
 
   <div class="mb-12 sm:mb-16 lg:mb-24">
+    <div class="section-head-main mb-4">
+      <span class="section-index" aria-hidden="true">01</span>
+      <span class="section-title">Build Index</span>
+    </div>
     <h1
       class="text-3xl sm:text-4xl lg:text-5xl 3xl:text-5xl font-black tracking-tight text-foreground leading-[1.1]"
     >
       Projects
     </h1>
-    <p class="mt-4 text-base sm:text-lg lg:text-xl text-muted-foreground max-w-2xl leading-relaxed">
+    <p class="mt-4 text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl leading-relaxed">
       {SITE.projectsDescription}
     </p>
+    <div class="annotated-callout mt-6 max-w-3xl" data-label="Selection Rule">
+      <p>
+        Each project highlights architectural boundaries, operational constraints, and why specific
+        implementation choices were made.
+      </p>
+    </div>
   </div>
 
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
@@ -35,7 +45,7 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.order -
         const target = isExternal ? '_blank' : '_self';
 
         return (
-          <article class="flex flex-col h-full p-6 rounded-2xl bg-secondary/30 border border-border/50 hover:bg-secondary/50 hover:border-border transition-all duration-300 group">
+          <article class="flex flex-col h-full p-6 rounded-2xl bg-card/80 border border-border/70 shadow-[0_8px_30px_-22px_rgba(15,23,42,0.45)] hover:-translate-y-0.5 hover:border-primary/35 hover:shadow-[0_20px_40px_-26px_rgba(15,23,42,0.55)] dark:shadow-[0_14px_35px_-26px_rgba(0,0,0,0.75)] transition-all duration-300 group">
             <div class="flex-1">
               <a
                 href={projectUrl}
@@ -52,7 +62,7 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.order -
                 <div class="flex flex-wrap gap-1.5 mb-3">
                   {project.data.types.map((type) => (
                     <span
-                      class={`inline-flex items-center px-2 py-0.5 rounded text-xs font-bold uppercase tracking-wide ${
+                      class={`inline-flex items-center px-2 py-0.5 rounded text-[0.72rem] font-semibold uppercase tracking-[0.06em] ${
                         type === 'commercial'
                           ? 'bg-primary/10 text-primary border border-primary/20'
                           : type === 'open-source'

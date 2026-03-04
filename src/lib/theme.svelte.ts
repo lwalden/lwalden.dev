@@ -1,7 +1,7 @@
 type Theme = 'light' | 'dark' | 'system';
 
 function createTheme() {
-  let theme = $state<Theme>('system');
+  let theme = $state<Theme>('dark');
   let mediaQuery: MediaQueryList | undefined;
   let isListeningToSystem = false;
 
@@ -45,7 +45,7 @@ function createTheme() {
   if (typeof window !== 'undefined') {
     const savedTheme = localStorage.getItem('theme') as Theme | null;
     const initialTheme =
-      savedTheme && ['light', 'dark', 'system'].includes(savedTheme) ? savedTheme : 'system';
+      savedTheme && ['light', 'dark', 'system'].includes(savedTheme) ? savedTheme : 'dark';
     theme = initialTheme;
     applyTheme(initialTheme);
   }
