@@ -14,13 +14,14 @@
 
   {#each items as item (item.name)}
     <span class="text-border shrink-0">/</span>
-    <a
-      href={item.href}
-      class="hover:text-primary transition-colors {item.href === '#'
-        ? 'pointer-events-none'
-        : ''} truncate max-w-[150px] sm:max-w-none"
-    >
-      {item.name}
-    </a>
+    {#if item.href === '#'}
+      <span aria-current="page" class="truncate max-w-[150px] sm:max-w-none text-foreground">
+        {item.name}
+      </span>
+    {:else}
+      <a href={item.href} class="hover:text-primary transition-colors truncate max-w-[150px] sm:max-w-none">
+        {item.name}
+      </a>
+    {/if}
   {/each}
 </nav>

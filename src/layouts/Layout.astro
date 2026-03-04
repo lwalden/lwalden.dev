@@ -80,7 +80,7 @@ const gaScript = `
     <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
     <meta name="robots" content="index, follow" />
     <meta name="author" content={SITE.author} />
-    <meta name="theme-color" content="#09090b" />
+    <meta name="theme-color" content="#165fb5" />
 
     <!-- RSS Feed -->
     <link
@@ -97,7 +97,7 @@ const gaScript = `
           if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
             return localStorage.getItem('theme');
           }
-          return 'system';
+          return 'dark';
         };
 
         const setDarkClass = () => {
