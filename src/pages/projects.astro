@@ -28,12 +28,6 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.order -
     <p class="mt-4 text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl leading-relaxed">
       {SITE.projectsDescription}
     </p>
-    <div class="annotated-callout mt-6 max-w-3xl" data-label="Selection Rule">
-      <p>
-        Each project highlights architectural boundaries, operational constraints, and why specific
-        implementation choices were made.
-      </p>
-    </div>
   </div>
 
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
