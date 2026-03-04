@@ -67,7 +67,7 @@
           </svg>
           Featured
         </div>
-        <span class="hidden sm:inline text-border">•</span>
+        <span class="hidden sm:inline text-border">&bull;</span>
       {/if}
 
       {#if post.data.draft}
@@ -86,7 +86,7 @@
           </svg>
           Draft
         </div>
-        <span class="hidden sm:inline text-border">•</span>
+        <span class="hidden sm:inline text-border">&bull;</span>
       {/if}
 
       <div class="flex items-center gap-1.5">
@@ -107,16 +107,21 @@
         {readTime}
       </div>
 
-      <span class="hidden sm:inline text-border">•</span>
+      <span class="hidden sm:inline text-border">&bull;</span>
 
       <div class="flex gap-3">
         {#each post.data.tags.slice(0, 3) as tag (tag)}
-          <span class="hover:text-primary transition-colors cursor-pointer">#{tag}</span>
+          <a
+            href={`/posts/tag/${encodeURIComponent(tag)}`}
+            class="hover:text-primary transition-colors no-underline"
+          >
+            #{tag}
+          </a>
         {/each}
       </div>
 
       {#if post.data.lang && post.data.lang !== 'en'}
-        <span class="hidden sm:inline text-border">•</span>
+        <span class="hidden sm:inline text-border">&bull;</span>
         <div
           class="flex items-center gap-1.5 transition-all cursor-help"
           title={`Language: ${post.data.lang}`}
@@ -128,3 +133,4 @@
     </div>
   </div>
 </article>
+

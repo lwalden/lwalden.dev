@@ -74,7 +74,7 @@ const schemas = [
             {
               post.data.draft && (
                 <>
-                  <span class="hidden sm:inline text-border">•</span>
+                  <span class="hidden sm:inline text-border">&bull;</span>
                   <div class="flex items-center gap-1.5 text-amber-600 dark:text-amber-400 bg-amber-100 dark:bg-amber-900/30 px-2 py-1 rounded">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -96,7 +96,7 @@ const schemas = [
             {
               post.data.tags && post.data.tags.length > 0 && (
                 <>
-                  <span class="hidden sm:inline text-border">•</span>
+                  <span class="hidden sm:inline text-border">&bull;</span>
                   <div class="flex flex-wrap gap-2 text-xs uppercase font-bold tracking-widest text-muted-foreground/80">
                     {post.data.tags.map((tag: string) => (
                       <span class="opacity-80">#{tag}</span>
@@ -146,3 +146,4 @@ const schemas = [
     </div>
   </div>
 </Layout>
+

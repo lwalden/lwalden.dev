@@ -216,7 +216,7 @@
 .prose {
   --tw-prose-body: var(--color-foreground);
   --tw-prose-headings: var(--color-foreground);
-  --tw-prose-links: var(--color-foreground);
+  --tw-prose-links: var(--color-primary);
   --tw-prose-bold: var(--color-foreground);
   --tw-prose-counters: var(--color-muted-foreground);
   --tw-prose-bullets: var(--color-border);
@@ -236,6 +236,17 @@
   font-family: 'Lora', Georgia, 'Times New Roman', serif;
   font-size: 1.125rem;
   line-height: 1.8;
+}
+
+.prose a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 1px;
+}
+
+.prose a:hover {
+  text-decoration-thickness: 2px;
 }
 
 /* Inline code styling */
@@ -301,7 +312,7 @@
   --tw-prose-body: #d1d5dc;
   --tw-prose-headings: #eaedf3;
   --tw-prose-pre-bg: var(--shiki-dark-bg);
-  --tw-prose-links: var(--color-foreground);
+  --tw-prose-links: var(--color-primary);
 }
 
 /* Heading anchor links */
