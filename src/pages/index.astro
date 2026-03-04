@@ -42,13 +42,19 @@ const projects = (await getCollection('projects'))
           }
         })()}
       />
+      <div class="annotated-callout mt-6 mb-7 md:mb-8 md:max-w-[38rem]" data-label="Design Principle">
+        <p>
+          Prioritize failure isolation, observability, and reversible delivery before adding new
+          platform complexity.
+        </p>
+      </div>
       <div class="flex flex-wrap justify-center md:justify-start gap-4 sm:gap-6">
         {
           Object.entries(SITE.social).map(([platform, link]) => (
             <a
               href={link}
               aria-label={`Visit our ${platform} profile`}
-              class="text-xs font-bold uppercase tracking-widest text-muted-foreground hover:text-primary transition-all no-underline"
+              class="text-sm font-medium tracking-[0.02em] text-muted-foreground hover:text-primary transition-all no-underline"
             >
               {platform}
             </a>
@@ -76,14 +82,15 @@ const projects = (await getCollection('projects'))
     {
       featuredPosts.length > 0 && (
         <section>
-          <div class="flex items-baseline justify-between mb-8 sm:mb-12">
-            <h2 class="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground">
-              Featured
-            </h2>
-            <div class="h-px flex-1 mx-4 sm:mx-8 bg-border opacity-70" />
+          <div class="section-head mb-8 sm:mb-12">
+            <div class="section-head-main">
+              <span class="section-index" aria-hidden="true">01</span>
+              <h2 class="section-title">Featured</h2>
+            </div>
+            <div class="section-rail" aria-hidden="true" />
             <a
               href="/posts"
-              class="px-2 py-0.5 rounded-md text-xs font-bold uppercase tracking-widest hover:bg-accent hover:text-primary transition-all no-underline"
+              class="px-2.5 py-1 rounded-md text-sm font-medium tracking-[0.02em] text-muted-foreground hover:bg-accent hover:text-primary transition-all no-underline"
             >
               See all posts
             </a>
@@ -99,14 +106,15 @@ const projects = (await getCollection('projects'))
 
     <!-- 3. Latest Posts -->
     <section>
-      <div class="flex items-baseline justify-between mb-8 sm:mb-12">
-        <h2 class="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground">
-          Latest Writing
-        </h2>
-        <div class="h-px flex-1 mx-4 sm:mx-8 bg-border opacity-70"></div>
+      <div class="section-head mb-8 sm:mb-12">
+        <div class="section-head-main">
+          <span class="section-index" aria-hidden="true">02</span>
+          <h2 class="section-title">Latest Writing</h2>
+        </div>
+        <div class="section-rail" aria-hidden="true"></div>
         <a
           href="/posts"
-          class="px-2 py-0.5 rounded-md text-xs font-bold uppercase tracking-widest hover:bg-accent hover:text-primary transition-all no-underline"
+          class="px-2.5 py-1 rounded-md text-sm font-medium tracking-[0.02em] text-muted-foreground hover:bg-accent hover:text-primary transition-all no-underline"
           >Writing Archive</a
         >
       </div>
@@ -123,15 +131,16 @@ const projects = (await getCollection('projects'))
     {
       SITE.homeProjects.enabled && projects.length > 0 && (
         <section>
-          <div class="flex items-baseline justify-between mb-8 sm:mb-12">
-            <h2 class="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground">
-              Projects
-            </h2>
-            <div class="h-px flex-1 mx-4 sm:mx-8 bg-border opacity-70" />
+          <div class="section-head mb-8 sm:mb-12">
+            <div class="section-head-main">
+              <span class="section-index" aria-hidden="true">03</span>
+              <h2 class="section-title">Projects</h2>
+            </div>
+            <div class="section-rail" aria-hidden="true" />
             <a
               href="/projects"
               aria-label="View all projects"
-              class="px-2 py-0.5 rounded-md text-xs font-bold uppercase tracking-widest hover:bg-accent hover:text-primary transition-all no-underline"
+              class="px-2.5 py-1 rounded-md text-sm font-medium tracking-[0.02em] text-muted-foreground hover:bg-accent hover:text-primary transition-all no-underline"
             >
               All Projects
             </a>
@@ -144,7 +153,7 @@ const projects = (await getCollection('projects'))
               const target = isExternal ? '_blank' : '_self';
 
               return (
-                <article class="flex flex-col h-full p-6 rounded-2xl bg-secondary/30 border border-border/50 hover:bg-secondary/50 hover:border-border transition-all duration-300 group">
+                <article class="flex flex-col h-full p-6 rounded-2xl bg-card/80 border border-border/70 shadow-[0_8px_30px_-22px_rgba(15,23,42,0.45)] hover:-translate-y-0.5 hover:border-primary/35 hover:shadow-[0_20px_40px_-26px_rgba(15,23,42,0.55)] dark:shadow-[0_14px_35px_-26px_rgba(0,0,0,0.75)] transition-all duration-300 group">
                   <div class="flex-1">
                     <a
                       href={projectUrl}
@@ -161,7 +170,7 @@ const projects = (await getCollection('projects'))
                       <div class="flex flex-wrap gap-1.5 mb-3">
                         {project.data.types.map((type) => (
                           <span
-                            class={`inline-flex items-center px-2 py-0.5 rounded text-xs font-bold uppercase tracking-wide ${
+                            class={`inline-flex items-center px-2 py-0.5 rounded text-[0.72rem] font-semibold uppercase tracking-[0.06em] ${
                               type === 'commercial'
                                 ? 'bg-primary/10 text-primary border border-primary/20'
                                 : type === 'open-source'
@@ -259,6 +268,8 @@ const projects = (await getCollection('projects'))
     letter-spacing: -0.025em; /* tracking-tight */
     margin-bottom: 1rem; /* mb-4 */
     color: var(--color-foreground);
+    max-width: 18ch;
+    text-wrap: balance;
   }
 
   @media (min-width: 640px) {
@@ -278,9 +289,10 @@ const projects = (await getCollection('projects'))
     line-height: 1.625; /* leading-relaxed */
     color: var(--color-muted-foreground);
     margin-bottom: 2rem; /* mb-8 */
-    max-width: 42rem; /* max-w-2xl */
+    max-width: 40rem;
     margin-left: auto;
     margin-right: auto;
+    text-wrap: pretty;
   }
 
   @media (min-width: 640px) {

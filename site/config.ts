@@ -44,9 +44,9 @@
 
 export const SITE: SiteConfig = {
   author: 'Laurance Walden',
-  desc: 'Senior Software Engineer specializing in .NET, Typescript, Event Driven Microservices. 12 years of building production software. I write about agentic AI, lessons learned, and the future of software engineering.',
+  desc: 'Senior software engineer designing resilient cloud systems and practical AI workflows. I write about architecture trade-offs, delivery patterns, and what holds up in production.',
   title: 'Laurance Walden — Senior Software Engineer | .NET, Azure & AI',
-  navTitle: 'Laurance Walden — Software Engineer | Cloud, Enterprise & AI',
+  navTitle: 'Laurance Walden',
   ogImage: 'og.png',
   lang: 'en-US',
   base: '/',
@@ -58,11 +58,11 @@ export const SITE: SiteConfig = {
   },
   twitterHandle: '@lwalden',
   homeHeroDescription:
-    'I build enterprise systems, solo AI-integrated projects, and write about the rapidly evolving tools shaping the future of software development.',
+    'I design resilient cloud platforms and practical AI integrations, then document the decisions, trade-offs, and implementation details behind them.',
   blogDescription:
-    '.NET, Cloud Architecture , and AI integration. Builder content — working code, honest trade-offs.',
+    'Architecture notes on .NET, cloud systems, and AI integration. Working code, measured trade-offs, and production lessons.',
   projectsDescription:
-    "Things I've built — open source tools, experiments, and integrations.",
+    "Selected builds: production integrations, open-source tools, and focused experiments.",
   featuredPostsCount: 3,
   latestPostsCount: 3,
   homeProjects: {
