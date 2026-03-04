@@ -1,3 +1,3 @@
-# Architecting scalable cloud systems and AI integrations.
+# Designing resilient cloud systems and practical AI workflows.
 
-I build enterprise systems, solo AI-integrated projects, and write about the rapidly evolving tools shaping the future of software development.
+I build enterprise-grade platforms and focused AI integrations, then share the architecture decisions, constraints, and delivery patterns that work in production.
