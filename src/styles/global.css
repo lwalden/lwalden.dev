@@ -114,10 +114,19 @@
     color-scheme: light;
     /* Base font size scales between 16px on mobile and 18px on 4K */
     font-size: clamp(16px, 0.5vw + 14px, 20px);
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
 
   html.dark {
     color-scheme: dark;
+  }
+
+  @media (max-width: 640px) {
+    html {
+      /* Lift baseline reading size on modern high-density phones */
+      font-size: clamp(17px, 1.1vw + 13px, 18px);
+    }
   }
 
   @media (min-width: 2560px) {
