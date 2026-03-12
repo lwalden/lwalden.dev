@@ -332,12 +332,7 @@
   }
 
   .annotated-callout::after {
-    content: '';
-    position: absolute;
-    right: 1rem;
-    top: 0.95rem;
-    width: 2.5rem;
-    border-top: 1px dashed rgba(22, 95, 181, 0.45);
+    content: none;
   }
 
   .annotated-callout p {
@@ -366,9 +361,6 @@
     box-shadow: 0 14px 32px -26px rgba(0, 0, 0, 0.8);
   }
 
-  .dark .annotated-callout::after {
-    border-top-color: rgba(125, 176, 255, 0.58);
-  }
 }
 
 /* Typography Overrides */
