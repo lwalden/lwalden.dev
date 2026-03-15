@@ -6,6 +6,10 @@ slug: "aiagentminder-v070-native-memory-migration"
 featured: true
 tags: ["AIAgentMinder", "Claude Code", "AI tooling", "building-in-public"]
 draft: false
+series:
+  id: "aiagentminder-codeveloping"
+  title: "Co-developing with AIAgentMinder"
+  order: 3
 ---
 
 I've been building [AIAgentMinder](https://github.com/lwalden/AIAgentMinder) for a few months now — an open source project governance and planning layer for Claude Code. The core pitch was simple: Claude Code is great within a single session, but real projects span dozens of sessions, and between them Claude forgets everything. My tool solved that with git-tracked markdown files, lifecycle hooks that auto-inject context, and structured slash commands for planning and handoff.
