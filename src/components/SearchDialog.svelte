@@ -73,6 +73,7 @@
         fill="none"
         stroke="currentColor"
         stroke-width="2"
+        aria-hidden="true"
       >
         <circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" />
       </svg>
@@ -81,6 +82,7 @@
         bind:value={query}
         type="text"
         placeholder="Search post titles or descriptions..."
+        aria-label="Search posts"
         class="flex-1 bg-transparent border-none outline-none text-base sm:text-lg text-foreground placeholder:text-muted-foreground/40 font-medium"
       />
       <button

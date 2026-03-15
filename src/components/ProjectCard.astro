@@ -55,6 +55,7 @@ const text3       = zone === 'light' ? 'var(--light-text-3)'    : 'var(--dark-te
 				<a href={repo} target="_blank" rel="noopener noreferrer"
 					class="text-xs font-mono no-underline transition-colors"
 					style={`color:${text3};`}
+					aria-label="View GitHub repository (opens in new tab)"
 					onmouseover={`this.style.color='${text1}'`} onmouseout={`this.style.color='${text3}'`}>
 					github ↗
 				</a>
@@ -63,6 +64,7 @@ const text3       = zone === 'light' ? 'var(--light-text-3)'    : 'var(--dark-te
 				<a href={demo} target="_blank" rel="noopener noreferrer"
 					class="text-xs font-mono no-underline transition-colors"
 					style={`color:${text3};`}
+					aria-label="View live demo (opens in new tab)"
 					onmouseover={`this.style.color='${text1}'`} onmouseout={`this.style.color='${text3}'`}>
 					demo ↗
 				</a>
