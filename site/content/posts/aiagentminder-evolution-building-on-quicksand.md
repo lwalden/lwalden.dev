@@ -1,6 +1,6 @@
 ---
 title: "I Shipped Eight Versions of My AI Tool in Six Weeks. Half of Them Deleted the Previous Version's Best Feature."
-description: "AIAgentMinder started as a memory system for Claude Code, with some up front planing, and some guardrails for Claude. Then Anthropic shipped native memory. Then they shipped rules. Then they shipped plan mode. Here's what survived, what didn't, and what I learned about building tools on a platform that moves faster than you do."
+description: "AIAgentMinder started as a memory system for Claude Code with rules and planing mode. Then Anthropic shipped native memory. Then they shipped rules. Then they shipped plan mode. Here's what survived, what didn't, and what I learned about building tools on a platform that moves faster than you do."
 pubDate: 2026-03-14
 slug: "aiagentminder-evolution-building-on-quicksand"
 tags: ["AIAgentMinder", "Claude Code", "AI tooling", "building-in-public", "context engineering", "AI governance"]
