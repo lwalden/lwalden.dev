@@ -52,7 +52,9 @@ const projects = (await getCollection('projects'))
           Object.entries(SITE.social).map(([platform, link]) => (
             <a
               href={link}
-              aria-label={`Visit our ${platform} profile`}
+              aria-label={`Visit my ${platform} profile (opens in new tab)`}
+              target="_blank"
+              rel="noopener noreferrer"
               class="text-sm font-medium tracking-[0.02em] text-muted-foreground hover:text-primary transition-all no-underline"
             >
               {platform}

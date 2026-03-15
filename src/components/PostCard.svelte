@@ -125,11 +125,8 @@
 
       {#if post.data.lang && post.data.lang !== 'en'}
         <span class="hidden sm:inline text-border">&bull;</span>
-        <div
-          class="flex items-center gap-1.5 transition-all cursor-help"
-          title={`Language: ${post.data.lang}`}
-        >
-          <span class="text-sm leading-none">{getLangFlag(post.data.lang)}</span>
+        <div class="flex items-center gap-1.5 transition-all cursor-help">
+          <span class="text-sm leading-none" role="img" aria-label={`Language: ${post.data.lang}`}>{getLangFlag(post.data.lang)}</span>
           <span class="text-[10px] opacity-70 uppercase">{post.data.lang}</span>
         </div>
       {/if}
