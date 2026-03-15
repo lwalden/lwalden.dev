@@ -8,6 +8,7 @@ draft: false
 canonicalURL: "https://medium.com/@laurancewalden/co-developing-aiagentminder-with-claude-part-2-post-rabbithole-results-52cba66030a9"
 series:
   id: "aiagentminder-codeveloping"
+  title: "Co-developing with AIAgentMinder"
   order: 2
 ---
 

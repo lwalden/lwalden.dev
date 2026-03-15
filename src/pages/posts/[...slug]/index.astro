@@ -66,13 +66,23 @@ const schemas = [
     <div class="flex-1 min-w-0">
       <div class="mb-8">
         <header class="flex flex-col gap-4">
-          <div class="section-head">
-            <div class="section-head-main">
-              <span class="section-index" aria-hidden="true">01</span>
-              <span class="section-title">Field Note</span>
-            </div>
-            <div class="section-rail" aria-hidden="true" />
-          </div>
+          {post.data.series && (() => {
+            const seriesTitle = post.data.series.title
+              ?? post.data.series.id
+                  .split('-')
+                  .map((w: string) => w.charAt(0).toUpperCase() + w.slice(1))
+                  .join(' ');
+            const orderLabel = String(post.data.series.order).padStart(2, '0');
+            return (
+              <div class="section-head">
+                <div class="section-head-main">
+                  <span class="section-index" aria-hidden="true">{orderLabel}</span>
+                  <span class="section-title">{seriesTitle}</span>
+                </div>
+                <div class="section-rail" aria-hidden="true" />
+              </div>
+            );
+          })()}
 
           <div
             class="flex flex-wrap items-center gap-x-3 gap-y-2 text-[0.75rem] text-muted-foreground font-semibold tracking-[0.04em]"

@@ -24,6 +24,7 @@ const posts = defineCollection({
       .object({
         id: z.string(),
         order: z.number(),
+        title: z.string().optional(),
       })
       .optional(),
     translatedPosts: z.record(z.string()).optional(),
