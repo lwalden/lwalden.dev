@@ -57,12 +57,6 @@ const sortedTags = Object.entries(tagCounts)
     <p class="mt-3 text-base sm:text-lg text-muted-foreground max-w-2xl leading-relaxed">
       {SITE.blogDescription}
     </p>
-    <div class="annotated-callout mt-6 max-w-3xl" data-label="Archive Signal">
-      <p>
-        Organized by year to track real implementation shifts, architectural bets, and lessons from
-        production usage.
-      </p>
-    </div>
   </div>
 
   <div class="flex flex-col lg:flex-row gap-10 lg:gap-12">
@@ -72,16 +66,8 @@ const sortedTags = Object.entries(tagCounts)
         {
           years.map((year, yearIndex) => (
             <section class="flex flex-col gap-6">
-              <div class="section-head">
-                <div class="section-head-main">
-                  <span class="section-index" aria-hidden="true">
-                    {String(yearIndex + 1).padStart(2, '0')}
-                  </span>
-                  <h2 class="section-title">{year}</h2>
-                </div>
-                <div class="section-rail" aria-hidden="true" />
-              </div>
-              <div class="flex flex-col gap-3 sm:gap-4">
+              <h2 class="text-sm font-semibold tracking-[0.08em] text-muted-foreground uppercase">{year}</h2>
+              <div class="flex flex-col divide-y divide-border/60">
                 {groupedPosts[year].map((post) => (
                   <PostCard
                     {post}
