@@ -1,6 +1,6 @@
 ---
-title: "I've Shipped 8 Versions of My AI Tool in 6 Weeks. Half of Them Deleted the Previous Version's Best Feature."
-description: "AIAgentMinder started as a memory system for Claude Code. Then Anthropic shipped native memory. Then they shipped rules. Then they shipped plan mode. Here's what survived, what didn't, and what I learned about building tools on a platform that moves faster than you do."
+title: "I Shipped Eight Versions of My AI Tool in Six Weeks. Half of Them Deleted the Previous Version's Best Feature."
+description: "AIAgentMinder started as a memory system for Claude Code, with some up front planing, and some guardrails for Claude. Then Anthropic shipped native memory. Then they shipped rules. Then they shipped plan mode. Here's what survived, what didn't, and what I learned about building tools on a platform that moves faster than you do."
 pubDate: 2026-03-14
 slug: "aiagentminder-evolution-building-on-quicksand"
 tags: ["AIAgentMinder", "Claude Code", "AI tooling", "building-in-public", "context engineering", "AI governance"]
@@ -12,7 +12,7 @@ series:
 
 I've been shipping a new version of [AIAgentMinder](https://github.com/lwalden/AIAgentMinder) almost every week since early February. Eight versions. Each one built on what came before — except for the parts where it ripped out what came before.
 
-That sounds chaotic. It's actually the point.
+That sounds chaotic. Which is the point.
 
 AIAgentMinder is a project governance framework for Claude Code. Plain markdown files and slash commands, no CLI, no database. It adds structured planning, sprint workflows, decision tracking, and scope enforcement to single-agent Claude sessions — the kind of structure you need when a project spans weeks of AI-assisted development, not a single afternoon.
 
@@ -38,7 +38,7 @@ Auto-memory landed in February — Claude writing its own persistent notes to `M
 
 Each feature individually nibbled at what AIAgentMinder did. Together, they converged on the same problem I'd solved with handcrafted hooks — but natively, with lower context cost, and zero maintenance.
 
-I ran the analysis. The verdict: **80% of my tool had been absorbed by the platform.** My proudest feature — the SessionStart injection hook — was identified as the single most damaging thing in the project. At every session start, Claude Code already loads the CLAUDE.md hierarchy, all rules files, auto-memory, and Session Memory summaries. My hook was piling more context on top of all that. Every redundant token is a token not available for actual work.
+In just weeks **80% of my tool had been absorbed by the platform.** My proudest feature — the SessionStart injection hook — was identified as the single most damaging thing in the project. At every session start, Claude Code already loads the CLAUDE.md hierarchy, all rules files, auto-memory, and Session Memory summaries. My hook was piling more context on top of all that. Every redundant token is a token not available for actual work.
 
 v0.7 went from four hook scripts to two. Three hooks deleted. The entire Session Protocol section stripped from CLAUDE.md. `PROGRESS.md` demoted from auto-managed artifact to optional human document.
 
@@ -135,7 +135,7 @@ This prevents the "Claude just rewrote six files using an approach I wouldn't ha
 
 Then came the naming problem. My `/plan` command collided with Claude Code's built-in `/plan`. My `/checkpoint` competed with native concepts. As the plugin ecosystem grew, unnamespaced commands were a liability.
 
-v1.1 renamed everything with an `aam-` prefix. `/plan` became `/aam-brief`. `/handoff` became `/aam-handoff`. Breaking change for early users, but necessary. If you're building a plugin for someone else's platform, namespace your commands. I should have done this from v1.0.
+v1.1 renamed everything with an `aam-` prefix. `/plan` became `/aam-brief`. `/handoff` became `/aam-handoff`. Breaking change for early users, but necessary. Lesson learned: If you're building a plugin for someone else's platform, namespace your commands.
 
 ## Plans that change (v1.2)
 
@@ -151,7 +151,7 @@ AIAgentMinder is stable at v1.2. The framework covers planning (brief, revise), 
 
 What's next:
 
-**SDD integration.** Spec-Driven Development tools — Spec-Kit, cc-sdd, GSD — have exploded as options for feature-level planning. They answer "how do I plan this feature?" AIAgentMinder answers "how do I govern this project?" The two are complementary. The plan is to generate a `constitution.md` from `/aam-brief` output that SDD tools can consume, so project-level governance feeds into feature-level specs.
+**SDD integration.** Spec-Driven Development tools — Spec-Kit, cc-sdd, GSD — are the latest thing. And  get it. They answer "how do I plan this feature?" AIAgentMinder answers "how do I govern this project?" The two are complementary. The plan is to generate a `constitution.md` from `/aam-brief` output that SDD tools can consume, so project-level governance feeds into feature-level specs.
 
 **Evaluating the last hook.** `compact-reorient.js` is the only hook left. As Claude Code's native Session Memory improves, the post-compaction sprint reorientation may become redundant. If removing it doesn't degrade sprint continuity, the entire Node.js dependency goes away. The project would be pure markdown.
 
@@ -188,7 +188,7 @@ And what earned its place:
 
 ## What I'd tell someone building tools in this space
 
-**Follow the platform, don't fight it.** Every hook I wrote that duplicated a native feature eventually got deleted. The ones that survived extend capabilities the platform doesn't have — opinionated workflows, domain-specific governance, process structure. Build those. Let the platform own the plumbing.
+**Follow the platform, don't fight it.** My hooks were great - they solved a big problem - so big that Anthropic had to fix it too. Every hook I wrote that duplicated a native feature eventually got deleted. The ones that survived extend capabilities the platform doesn't have — opinionated workflows, domain-specific governance, process structure. Build those. Let the platform own the plumbing.
 
 **Design for your own obsolescence.** I built AIAgentMinder because Claude Code had gaps. Some of those gaps closed. That's not a failure — that's the ecosystem maturing. If you're emotionally attached to features that the platform now does better, you'll end up maintaining dead weight instead of building what's actually useful.
 
