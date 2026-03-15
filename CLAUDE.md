@@ -64,6 +64,7 @@ Never store credentials in code. Use `.env` files (gitignored).
 - Confirm requirements before implementing
 - Write tests appropriate to the project's quality tier (see strategy-roadmap.md)
 - When Standard tier or above: write failing tests first, then implement
+- Apply `fixing-metadata` and `fixing-accessibility` skills when creating or modifying pages or components
 
 ### Decision Recording
 
