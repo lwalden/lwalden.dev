@@ -8,6 +8,7 @@ draft: false
 canonicalURL: "https://medium.com/@laurancewalden/co-developing-aiagentminder-with-claude-part-1-opus-4-6-review-e621ce574f4e"
 series:
   id: "aiagentminder-codeveloping"
+  title: "Co-developing with AIAgentMinder"
   order: 1
 ---
 
