@@ -46,31 +46,36 @@ Run `/handoff` to write a clear briefing for the next session. Hooks handle time
 ## Behavioral Rules
 
 ### Git Workflow
-- **Never commit directly to main** -- always use feature branches
-- Branch naming: `feature/short-description`, `fix/short-description`, `chore/short-description`
-- All changes via PR. Claude creates PRs; human reviews and merges
+
+See `.claude/rules/git-workflow.md` — loaded natively by Claude Code each session.
 
 ### Credentials
-- Never store credentials in code. Use `.env` files (gitignored).
+
+Never store credentials in code. Use `.env` files (gitignored).
 
 ### Autonomy Boundaries
+
 **You CAN autonomously:** Create files, install packages, run builds/tests, create branches and PRs, scaffold code
+
 **Ask the human first:** Create GitHub repos, merge PRs, sign up for services, provide API keys, approve major architectural changes
 
 ### Verification-First Development
+
 - Confirm requirements before implementing
 - Write tests appropriate to the project's quality tier (see strategy-roadmap.md)
 - When Standard tier or above: write failing tests first, then implement
 
+### Decision Recording
+
+- Record significant architectural decisions in DECISIONS.md (library choices, API contracts, auth approach, data model changes, deploy decisions)
+- Record known shortcuts and workarounds in the Known Debt section of DECISIONS.md
+- Include alternatives considered — a decision without alternatives is an assertion, not a record
+- To auto-load DECISIONS.md every session, add `@DECISIONS.md` to this file
+
 ## Context Budget
 
-| File | Target Size | Action if Exceeded |
-|------|------------|-------------------|
-| CLAUDE.md | ~75 lines | Don't add without removing something |
-| PROGRESS.md | ~20 lines active | Self-trimming: only 3 session notes kept |
-| DECISIONS.md | Grows over time | Delete superseded entries (git history preserves them) |
+> Use `/context` for real-time context usage and optimization tips.
 
-**Reading Strategy:**
-- PROGRESS.md: Every session (auto-injected by hook)
-- DECISIONS.md: Auto-injected if decisions exist; always check before architectural choices
-- strategy-roadmap.md: On-demand
+**Always loaded:** CLAUDE.md — keep under ~50 lines; don't add without removing something
+
+**On-demand:** DECISIONS.md — add `@DECISIONS.md` here to auto-load; delete superseded entries
