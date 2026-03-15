@@ -27,8 +27,7 @@ const post = Astro.props as Props;
 const { Content, headings } = await render(post);
 
 const effectiveSlug = getPostSlug(post);
-const tagCount = post.data.tags?.length ?? 0;
-const postContext = `Published ${formatDate(post.data.pubDate)}${tagCount > 0 ? ` with ${tagCount} focus ${tagCount === 1 ? 'tag' : 'tags'}` : ''}.`;
+
 
 const schemas = [
   getBlogPostingSchema({
@@ -125,9 +124,7 @@ const schemas = [
             {post.data.description}
           </p>
 
-          <div class="annotated-callout mt-1 max-w-3xl" data-label="Post Context">
-            <p>{postContext}</p>
-          </div>
+
         </header>
 
         {
