@@ -53,6 +53,9 @@ const schemas = [
   lang={post.data.lang}
   ogImage={`/og/${effectiveSlug}.png`}
   schema={schemas}
+  ogType="article"
+  pubDate={post.data.pubDate}
+  updatedDate={post.data.updatedDate}
 >
   <Breadcrumbs
     items={[
