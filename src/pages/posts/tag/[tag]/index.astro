@@ -50,23 +50,9 @@ const schema = getBreadcrumbSchema([
       Topic: <span class="text-primary">#{tag}</span>
     </h1>
 
-    <div class="annotated-callout mt-6 max-w-3xl" data-label="Tag Lens">
-      <p>
-        This stream groups posts that share the same technical concern, trade-off pattern, or
-        architecture boundary.
-      </p>
-    </div>
   </div>
 
-  <div class="section-head mb-6">
-    <div class="section-head-main">
-      <span class="section-index" aria-hidden="true">02</span>
-      <h2 class="section-title">Entries</h2>
-    </div>
-    <div class="section-rail" aria-hidden="true"></div>
-  </div>
-
-  <div class="flex flex-col gap-3 sm:gap-4">
+  <div class="flex flex-col divide-y divide-border/60">
     {
       posts.map((post) => (
         <PostCard post={post} slug={getPostSlug(post)} readTime={getReadTime(post.body || '')} />

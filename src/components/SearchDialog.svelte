@@ -12,6 +12,7 @@
 
   let posts = $state<Post[]>([]);
   let query = $state('');
+  let activeIndex = $state(-1);
 
   let filteredPosts = $derived(
     query.length > 0
@@ -23,7 +24,22 @@
       : []
   );
 
+  let resultCount = $derived(
+    query.length === 0
+      ? ''
+      : filteredPosts.length === 0
+        ? `No results found for "${query}"`
+        : `${filteredPosts.length} result${filteredPosts.length === 1 ? '' : 's'} found`
+  );
+
   let searchInput = $state<HTMLInputElement>();
+  let dialogEl = $state<HTMLDivElement>();
+
+  // Reset active index when results change
+  $effect(() => {
+    filteredPosts;
+    activeIndex = -1;
+  });
 
   $effect(() => {
     if (uiState.isSearchOpen && searchInput) {
@@ -34,6 +50,42 @@
   function handleKeydown(e: KeyboardEvent) {
     if (e.key === 'Escape') {
       uiState.closeSearch();
+      return;
+    }
+
+    // Focus trap: keep Tab within the dialog
+    if (e.key === 'Tab' && dialogEl) {
+      const focusable = dialogEl.querySelectorAll<HTMLElement>(
+        'input, button, a[href], [tabindex]:not([tabindex="-1"])'
+      );
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last?.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first?.focus();
+      }
+    }
+
+    // Arrow key navigation through results
+    if (filteredPosts.length > 0) {
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        activeIndex = activeIndex < filteredPosts.length - 1 ? activeIndex + 1 : 0;
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        activeIndex = activeIndex > 0 ? activeIndex - 1 : filteredPosts.length - 1;
+      } else if (e.key === 'Enter' && activeIndex >= 0) {
+        e.preventDefault();
+        const post = filteredPosts[activeIndex];
+        if (post) {
+          uiState.closeSearch();
+          window.location.href = `/posts/${post.id}`;
+        }
+      }
     }
   }
 
@@ -55,6 +107,7 @@
   });
 </script>
 
+<!-- Backdrop: Escape already handles keyboard close, so click-only is acceptable here -->
 <!-- svelte-ignore a11y_click_events_have_key_events -->
 <!-- svelte-ignore a11y_no_static_element_interactions -->
 <div
@@ -62,6 +115,10 @@
   onclick={() => uiState.closeSearch()}
 >
   <div
+    bind:this={dialogEl}
+    role="dialog"
+    aria-modal="true"
+    aria-label="Search posts"
     class="w-full max-w-2xl bg-card border border-border rounded-2xl shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-200"
     onclick={(e) => e.stopPropagation()}
   >
@@ -83,6 +140,8 @@
         type="text"
         placeholder="Search post titles or descriptions..."
         aria-label="Search posts"
+        aria-autocomplete="list"
+        aria-activedescendant={activeIndex >= 0 ? `search-result-${activeIndex}` : undefined}
         class="flex-1 bg-transparent border-none outline-none text-base sm:text-lg text-foreground placeholder:text-muted-foreground/40 font-medium"
       />
       <button
@@ -107,15 +166,18 @@
           </p>
         </div>
       {:else}
-        <div class="space-y-1">
-          {#each filteredPosts as post (post.id)}
+        <div class="space-y-1" role="listbox" aria-label="Search results">
+          {#each filteredPosts as post, i (post.id)}
             <a
+              id={`search-result-${i}`}
               href={`/posts/${post.id}`}
-              class="block p-4 sm:p-5 rounded-xl hover:bg-accent transition-all no-underline group"
+              role="option"
+              aria-selected={i === activeIndex}
+              class="block p-4 sm:p-5 rounded-xl transition-all no-underline group {i === activeIndex ? 'bg-accent' : 'hover:bg-accent'}"
               onclick={() => uiState.closeSearch()}
             >
               <h3
-                class="text-sm sm:text-base font-bold text-foreground group-hover:text-primary transition-colors mb-1"
+                class="text-sm sm:text-base font-bold text-foreground group-hover:text-primary transition-colors mb-1 {i === activeIndex ? 'text-primary' : ''}"
               >
                 {post.data.title}
               </h3>
@@ -126,6 +188,11 @@
           {/each}
         </div>
       {/if}
+    </div>
+
+    <!-- Live region for screen reader announcements -->
+    <div class="sr-only" aria-live="polite" aria-atomic="true">
+      {resultCount}
     </div>
 
     <div
