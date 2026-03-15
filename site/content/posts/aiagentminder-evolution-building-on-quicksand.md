@@ -7,7 +7,8 @@ tags: ["AIAgentMinder", "Claude Code", "AI tooling", "building-in-public", "cont
 draft: false
 series:
   id: "aiagentminder-codeveloping"
-  order: 3
+  title: "Co-developing with AIAgentMinder"
+  order: 4
 ---
 
 I've been shipping a new version of [AIAgentMinder](https://github.com/lwalden/AIAgentMinder) almost every week since early February. Eight versions. Each one built on what came before — except for the parts where it ripped out what came before.
