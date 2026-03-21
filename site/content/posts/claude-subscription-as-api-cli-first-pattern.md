@@ -12,7 +12,7 @@ tags:
     "building-in-public",
     "cost optimization",
   ]
-draft: true
+draft: false
 series:
   id: "n8n-automation"
   title: "Developer Automation with n8n"
