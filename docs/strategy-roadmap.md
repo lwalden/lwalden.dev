@@ -6,9 +6,9 @@
 
 ## What & Why
 
-**Problem:** Laurance Walden has 12 years of enterprise C#/.NET/Azure experience but nearly zero online visibility. The current GitHub Pages site is indexed by Google with a stale title from a prior project, has no professional experience section, no structured data, and all writing lives on Medium with no SEO traction. The .NET + AI content niche is underserved — virtually all agentic AI content is Python-centric, leaving a large enterprise .NET audience without practical guidance.
+**Problem:** Laurance Walden has 12 years of enterprise C#/.NET/Azure experience but limited online visibility. The .NET + AI content niche is underserved — virtually all agentic AI content is Python-centric, leaving a large enterprise .NET audience without practical guidance.
 
-**Vision:** A professional portfolio site at lwalden.dev that establishes Laurance as the go-to practitioner voice for .NET + AI/agentic systems — serving as the canonical home for content, a consulting portfolio, and the hub of an automated multi-platform distribution pipeline.
+**Vision:** A professional portfolio site at lwalden.dev that establishes Laurance as a practitioner voice for .NET + AI/agentic systems — serving as the canonical home for content, a consulting portfolio, and the hub of an automated multi-platform distribution pipeline.
 
 **Target Users:** (1) Potential consulting clients and hiring managers evaluating technical credibility; (2) Enterprise .NET developers searching for practical AI integration content.
 
@@ -16,25 +16,57 @@
 
 ---
 
-## MVP Features (Phase 1 — Foundation)
+## Phase 1 (Foundation) — Complete
 
-1. **Astro site scaffolded and building** — Acceptance: `npm run build` completes with zero errors; all pages render (homepage, about, projects, blog listing, blog post, 404)
-2. **SEO-critical metadata on every page** — Acceptance: Every page has unique `<title>`, `<meta description>`, `<link rel="canonical">`, OG tags, Twitter Card tags; JSON-LD Person schema on homepage; JSON-LD BlogPosting on blog posts
-3. **Content collections working** — Acceptance: Blog posts and projects render from markdown files; RSS feed generates valid XML at `/rss.xml`; sitemap generates at `/sitemap-index.xml`
-4. **Professional content scaffold** — Acceptance: Homepage hero + CTAs; About page with experience section and skills matrix; Projects page with AI Agent Minder writeup; seed blog post visible
-5. **Deployment-ready config** — Acceptance: `staticwebapp.config.json` present with security headers; GitHub Actions workflow configured for Azure Static Web Apps; legacy redirect page generated for lwalden.github.io
-6. **GitHub profile artifacts** — Acceptance: Profile README file generated and ready to push; repo description list and pinning instructions documented
+All MVP items shipped. Site is live at lwalden.dev on Azure Static Web Apps.
 
-**Out of Scope (Phase 1):**
-- n8n automation pipeline (Phase 1 Week 3 — after site is live)
-- LinkedIn/Medium/X manual optimization (Week 2 — manual work)
-- YouTube channel setup (Phase 2+)
+1. ~~Astro site scaffolded and building~~ — 21 pages, zero build errors
+2. ~~SEO-critical metadata on every page~~ — titles, descriptions, canonical, OG, Twitter cards, JSON-LD (Person, BlogPosting, BreadcrumbList, Organization)
+3. ~~Content collections working~~ — 4 blog posts, 2 projects, RSS at `/rss.xml`, sitemap at `/sitemap-index.xml`
+4. ~~Professional content scaffold~~ — homepage hero, about page with experience section, projects page with AI Agent Minder + Airdrop Architect
+5. ~~Deployment-ready config~~ — `staticwebapp.config.json` with security headers, GitHub Actions CI/CD
+6. ~~GitHub profile artifacts~~ — README pushed to lwalden.github.io
+
+---
+
+## Phase 2 (Content & Distribution) — In Progress
+
+### Done
+
+- 4 blog posts published (AIAgentMinder series)
+- Dynamic per-post OG images generated via satori
+- Static fallback OG image for non-post pages
+- Blog series grouping (section headers on blog listing page)
+
+### Planned — Not Yet Implemented
+
+- **Google Search Console setup** — add property, verify ownership, submit sitemap, request indexing *(human action — reminder active)*
+- **n8n RSS-to-social automation** — poll RSS feed, post to LinkedIn/Medium/X on new publish. Integration contract at [docs/n8n-integration-contract.md](n8n-integration-contract.md). n8n-side work to be implemented in n8n-automation-hub.
+- **OptiTrade project page** — add to `site/content/projects/`. Algorithmic options trading system (Python) with backtesting and AI-assisted decision gates.
+- **n8n automation blog series** — practical posts on building developer automation with n8n. Topics: RSS-to-social publishing pipelines, GitHub webhook workflows (PR review notifications, health monitors), email notification patterns with Resend, HMAC webhook security, and orchestrating multi-repo CI signals. Draws from real n8n-automation-hub workflows without exposing the private repo.
+- **Blog content diversification** — posts beyond the AIAgentMinder series. Topics: .NET + AI integration patterns, Azure architecture, trading system design, Claude Code workflow.
+- **LinkedIn/Medium optimization** — update profiles to point to lwalden.dev, set canonical URLs on Medium cross-posts
+- **Analytics integration** — add Plausible or Umami for privacy-respecting traffic data
+
+### Out of Scope (Phase 2)
+
+- YouTube channel setup (Phase 3)
 - Newsletter/Substack (Phase 3)
 - Consulting services page (Phase 4)
 - Contact form or Azure Functions backend
-- Analytics integration (add Plausible/Umami later)
 - Blog comments system
-- Content beyond seed/placeholder entries
+
+---
+
+## Phase 3 (Authority Building)
+
+Newsletter setup, conference speaking, video content, guest posts to .NET publications, YouTube channel.
+
+---
+
+## Phase 4 (Monetization)
+
+Consulting services page, paid course/digital product, formalized lead generation.
 
 ---
 
@@ -43,13 +75,14 @@
 | Component | Choice | Why |
 |-----------|--------|-----|
 | Framework | Astro (blog template) | Static generation, content collections, MDX support, sitemap/RSS built-in, fast builds |
-| Language | TypeScript (strict) | Already specified in project identity; type safety on content schemas |
-| Styling | Tailwind CSS | Utility-first, no separate CSS files, responsive-first |
+| Language | TypeScript (strict) | Type safety on content schemas |
+| Styling | Tailwind CSS | Utility-first, responsive-first |
 | Syntax highlighting | Shiki (github-dark theme) | Built into Astro markdown config, zero runtime cost |
-| Deployment | Azure Static Web Apps (free tier) | Custom domain + SSL, GitHub Actions CI/CD, path to Azure Functions, walks the talk |
-| Custom domain | lwalden.dev | Already registered |
+| Deployment | Azure Static Web Apps (free tier) | Custom domain + SSL, GitHub Actions CI/CD, path to Azure Functions |
+| Custom domain | lwalden.dev | Live |
 | Content | Markdown / Astro Content Collections | Type-safe frontmatter via Zod, co-located with source |
 | SEO | `astro-seo`, `schema-dts`, `@astrojs/sitemap`, `@astrojs/rss` | Standard Astro SEO stack |
+| OG Images | satori + @resvg/resvg-js | Build-time generation, per-post + static fallback |
 
 ---
 
@@ -61,36 +94,35 @@
 
 ---
 
-## Phases
+## Active Project Portfolio
 
-**Phase 1 (Foundation) — ~1-2 sessions:** Scaffold Astro site, implement all SEO infrastructure, build all pages with placeholder/seed content, configure Azure Static Web Apps deployment, generate GitHub profile artifacts. Ends when `npm run build` is green and the site is deployable.
+Projects showcased or eligible for the site's projects page:
 
-**Phase 2 (Content & Distribution) — ongoing:** Write real blog posts through the full pipeline; set up n8n RSS-to-social automation; LinkedIn/Medium optimization; YouTube channel if desired. Each blog post is a Phase 2 task.
+| Project | Status | Public | On Site |
+| ------- | ------ | ------ | ------- |
+| AI Agent Minder | Active | Yes | Yes |
+| Airdrop Architect | Active | Yes | Yes |
+| OptiTrade | Active | Yes | Planned |
+| accessi-shield | Active | Private (commercial) | No |
+| n8n-automation-hub | Active | Private (security concerns — blog series instead) | No |
+| mcp-server (Bitwarden) | Moderate | Private (review needed before publish) | No |
+| TradingSystem | Being merged into OptiTrade | Yes | No |
 
-**Phase 3 (Authority Building):** Newsletter setup, conference speaking, Shorts/video content, guest posts to .NET publications.
+### Security Review Notes — Repos Considered for Public
 
-**Phase 4 (Monetization):** Consulting services page, paid course/digital product, formalized lead generation.
+**n8n-automation-hub:** Staying private. Security scan (2026-03-18) found: (1) live API keys (N8N_API_KEY JWT, RESEND_API_KEY) in local `.env` — rotate these regardless, (2) hardcoded email `lwalden77@gmail.com` in 4 workflow JSON files, (3) internal URLs (`api.accessishield.app`, `climbonco.com`) in workflow files that reveal commercial infrastructure, (4) localhost references in 7 files. Decision: write about n8n patterns in the blog series instead of open-sourcing the repo.
 
----
-
-## Open Questions
-
-<!-- TODO: Confirm lwalden.dev DNS registrar and whether apex domain ALIAS/ANAME record is supported | WHEN: Before Azure deployment | BLOCKS: custom domain setup -->
-<!-- TODO: Professional headshot available? Needed for hero section and OG image | WHEN: Before launch | BLOCKS: final visual polish -->
-<!-- TODO: Airdrop Architect — real project description needed for projects page | WHEN: Before launch | BLOCKS: projects page content -->
-<!-- TODO: Prior work history entries beyond Columbia Sportswear? | WHEN: Before launch | BLOCKS: About page experience section completeness -->
+**mcp-server:** Safe to publish. No credentials in code or history. One minor fix: remove `C:\Users\lwald\.claude` path from `.claude/settings.json` before publishing.
 
 ---
 
 ## Human Actions Needed
 
-- **Azure account + Static Web App resource creation** — Before deployment (Claude cannot create Azure resources; use portal or `az staticwebapp create`)
-- **Google Search Console setup** — After lwalden.dev is live: add property, verify ownership, submit sitemap `https://lwalden.dev/sitemap-index.xml`, request indexing
-- **GitHub profile manual edits** — Fix bio typo (lwalden.guthub.io → lwalden.dev), update bio text, pin correct repos, push generated profile README to `lwalden/lwalden` repo
+- **Google Search Console setup** — Add property for lwalden.dev, verify ownership, submit sitemap `https://lwalden.dev/sitemap-index.xml`, request indexing. *Site is live — do this soon for SEO indexing.*
 - **Medium canonical URL update** — After blog has traffic: republish articles on lwalden.dev and update Medium's canonical to point back
-- **Legacy redirect deployment** — Copy `legacy-redirect/` contents to `lwalden.github.io` repo and push to main after new site is live
-- **Airdrop Architect description** — Provide a real 1-line description for the projects page
+- **n8n API key rotation** — Rotate N8N_API_KEY and RESEND_API_KEY in local `.env` as a precaution (live keys found on disk during security scan 2026-03-18)
+- **mcp-server public decision** — Remove local path from `.claude/settings.json`, then make public if desired
 
 ---
 
-*Generated by /plan | Last Updated: 2026-02-27*
+Last Updated: 2026-03-18
