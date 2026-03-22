@@ -23,7 +23,7 @@ All MVP items shipped. Site is live at lwalden.dev on Azure Static Web Apps.
 1. ~~Astro site scaffolded and building~~ — 21 pages, zero build errors
 2. ~~SEO-critical metadata on every page~~ — titles, descriptions, canonical, OG, Twitter cards, JSON-LD (Person, BlogPosting, BreadcrumbList, Organization)
 3. ~~Content collections working~~ — 4 blog posts, 2 projects, RSS at `/rss.xml`, sitemap at `/sitemap-index.xml`
-4. ~~Professional content scaffold~~ — homepage hero, about page with experience section, projects page with AI Agent Minder + Airdrop Architect
+4. ~~Professional content scaffold~~ — homepage hero, about page with experience section, projects page with AI Agent Minder
 5. ~~Deployment-ready config~~ — `staticwebapp.config.json` with security headers, GitHub Actions CI/CD
 6. ~~GitHub profile artifacts~~ — README pushed to lwalden.github.io
 
@@ -42,6 +42,7 @@ All MVP items shipped. Site is live at lwalden.dev on Azure Static Web Apps.
 
 - **Google Search Console setup** — add property, verify ownership, submit sitemap, request indexing *(human action — reminder active)*
 - **n8n RSS-to-social automation** — poll RSS feed, post to LinkedIn/Medium/X on new publish. Integration contract at [docs/n8n-integration-contract.md](n8n-integration-contract.md). n8n-side work to be implemented in n8n-automation-hub.
+- **Remove Airdrop Architect project page** — delete `site/content/projects/airdrop-architect.md` and replace with a more representative showcase project. Repo is now private and mothballed.
 - **OptiTrade project page** — add to `site/content/projects/`. Algorithmic options trading system (Python) with backtesting and AI-assisted decision gates.
 - **n8n automation blog series** — practical posts on building developer automation with n8n. Topics: RSS-to-social publishing pipelines, GitHub webhook workflows (PR review notifications, health monitors), email notification patterns with Resend, HMAC webhook security, and orchestrating multi-repo CI signals. Draws from real n8n-automation-hub workflows without exposing the private repo.
 - **Blog content diversification** — posts beyond the AIAgentMinder series. Topics: .NET + AI integration patterns, Azure architecture, trading system design, Claude Code workflow.
@@ -101,7 +102,7 @@ Projects showcased or eligible for the site's projects page:
 | Project | Status | Public | On Site |
 | ------- | ------ | ------ | ------- |
 | AI Agent Minder | Active | Yes | Yes |
-| Airdrop Architect | Active | Yes | Yes |
+| Airdrop Architect | Mothballed | Private | Remove from site |
 | OptiTrade | Active | Yes | Planned |
 | accessi-shield | Active | Private (commercial) | No |
 | n8n-automation-hub | Active | Private (security concerns — blog series instead) | No |
