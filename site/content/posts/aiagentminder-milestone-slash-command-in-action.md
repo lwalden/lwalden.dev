@@ -1,5 +1,5 @@
 ---
-title: "11 Sprints, Zero Lines of Code, and a Working MVP"
+title: "11 'Sprints', Zero Lines of Human Written Code, and a Working MVP"
 description: "I spent more hours building AIAgentMinder than I did on the 11 sprints where I used it to ship a real product. A quick look at what that means — and what a two-minute slash command told me about the state of my project."
 pubDate: 2026-03-22
 slug: "aiagentminder-milestone-slash-command-in-action"
@@ -18,9 +18,9 @@ series:
   order: 5
 ---
 
-I ran `/aam-milestone` today on my highest-priority side project — a commercial SaaS product that's been through 11 sprints of development. The slash command took about two minutes. When it finished, I had a complete picture of where the project stood: phase progress, sprint status, timeline health, scope drift, dependency count, complexity budget, known debt, and actionable recommendations.
+I worked on too many different things yesterday and legit could not recall where I was at with my top priority project. So I ran `/aam-milestone` in Claude Code. A minute later I had a complete picture of where the project stood. Its all below. I do want mention a couple things before I go forward: a) The MVP is live and working. b) I didn't write any code by hand, not one line.
 
-Here's the output, verbatim:
+Here's Claude's response, verbatim:
 
 ```text
 Milestone Health Check — S11 / Phase 1
@@ -59,17 +59,19 @@ Summary: Project health is strong. All 7 MVP features shipped,
 remaining. No scope drift, no surprise dependencies, no stale debt.
 ```
 
-Two minutes. Full picture. Back to work.
+One minute read. Full picture. Back to work. I really like this feature.
+
+Full disclosure: it was a overly optimistic about the '5 weeks ahead of target' line. It referenceed an imporant date in the marketplace for this product, but our actual Go Live MVP was about a week late due to my focus being spread too thin; and missed early requirements. Claude wanted to go live well before I was comfortable taking someone's money; or spending my own on ads.
 
 ## The numbers that matter
 
-I spent far more hours building AIAgentMinder — the governance tool — than I did on the 11 sprints of the product I built with it. That's not an exaggeration. The tool itself went through dozens of iterations, prompt rewrites, and architecture changes.
+I spent far more hours building AIAgentMinder — the governance tool — than I did on the 11 sprints* of the product I built with it. That's not an exaggeration. The tool itself went through dozens of iterations, prompt rewrites, and architecture changes.
 
-But here's the thing: during those 11 sprints, I didn't write code. I gave requirements. I debated implementation plans. I asked for features. I reviewed pull requests. I set up accounts, configured services, wired up billing. The AI agent wrote the code. And there's a working MVP deployed and live.
+But here's the thing: during those 11 sprints, I didn't write code. I gave requirements. I debated implementation plans. I asked for features. I reviewed pull requests. I set up accounts, and helped wire up billing. The AI agent wrote the code. It did 80% of the configuration and secret handling. It did 90% of the End2End testing. And now there's a working MVP deployed and live.
 
 ## What the slash command actually tested
 
-`/aam-milestone` is one of several slash commands that AIAgentMinder adds to Claude Code. It reads the project's roadmap, sprint file, decisions log, git history, and codebase structure — then produces a structured health assessment across six dimensions.
+`/aam-milestone` is one of several slash commands AKA skills, that AIAgentMinder adds to Claude Code. It reads the project's roadmap, sprint file, decisions log, git history, and codebase structure — then produces a structured health assessment across six dimensions.
 
 Running it on a real, in-flight project was the test I needed. Not "does it parse the files correctly" — I knew that. The test was: **does a two-minute command actually get me re-focused and up to date on a project I haven't touched in a few days?**
 
@@ -82,7 +84,8 @@ It did. I went from "what was I working on again?" to "I need to update SPRINT.m
 **Scope drift tracking earned its keep.** Eleven sprints is a lot of opportunities for feature creep. The tool checked every sprint's work against the roadmap and pre-launch audit findings. "None detected" is the best possible output there — and it's not because I was disciplined. It's because the tool caught drift attempts early in earlier sprints and I course-corrected before they landed.
 
 ---
+* - Definition of a 'Sprint': an AiAgentMinder 'Sprint' is NOT an agile sprint. It's handled with other skills in AIAgentMinder. A sprint is agent ran, human reviewed and approved. Agent generates 4-6 work items created from the backlog/roadmap with AC and test plans. After human review, the agent: works the items, creates PRs, handles PR feedback. After the human merges the PR(s) the agent works the next item in the sprint. If blocked the agent asks the human for help. When all items are complete the agent presents a sprint review for the human to approve then documents the sprint and updates the project roadmap. Ready for the next.
 
-AIAgentMinder is open source and free for solo developers.
+AIAgentMinder is open source and free. ;)
 
 [github.com/lwalden/AIAgentMinder](https://github.com/lwalden/AIAgentMinder)
