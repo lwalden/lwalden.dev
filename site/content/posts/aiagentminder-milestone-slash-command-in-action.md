@@ -73,9 +73,9 @@ But here's the thing: during those 11 sprints, I didn't write code. I gave requi
 
 `/aam-milestone` is one of several slash commands (skills) that AIAgentMinder adds to Claude Code. It reads the project's roadmap, sprint file, decisions log, git history, and codebase structure — then produces a structured health assessment across six dimensions.
 
-Running it on a real, in-flight project was the test I needed. Not "does it parse the files correctly" — I knew that. The test was: **does a two-minute command actually get me re-focused and up to date on a project I haven't touched in a few days?**
+Running it on a real, in-flight project was the test I needed. Not "does it parse the files correctly" — I knew that. The test was: **does two-minutes with a command actually get me re-focused and up to date on a project at a critical stage that I've lost track of?**
 
-It did. I went from "what was I working on again?" to "I need to update SPRINT.md and then finish S11-003" in the time it took to read the output. That's the whole point.
+It did. I went from "what was I working on again?" to "got it, lets finish this sprint, then I need to add a couple things to the backlog" in the time it took to read the output. Yes.
 
 ## Two observations
 
@@ -85,7 +85,7 @@ It did. I went from "what was I working on again?" to "I need to update SPRINT.m
 
 ---
 
-\* An AIAgentMinder "sprint" borrows the name but not the ceremony. There's no standup, no retro meeting, no velocity chart. The agent proposes 4-6 work items from the roadmap with acceptance criteria. I review and approve the scope. Then the agent works each item, creates PRs, and asks me when it's stuck. I review and merge. When the sprint is done, the agent documents what shipped and updates the roadmap. The whole cycle is two roles — agent works, human decides — not a team process.
+\* An AIAgentMinder "sprint" borrows the name but not the ceremony. There's no standup, no 2 week timebox (sprint ends when all items are resovled), no retro meeting, no velocity chart. The agent proposes 4-6 work items from the roadmap with acceptance criteria. I review and approve the scope. Then the agent works each item, creates PRs, and asks me when it's stuck. I review and merge. When the sprint is done, the agent documents what shipped and updates the roadmap. The whole cycle is two roles — agent works, human decides — not a team process.
 
 ---
 
