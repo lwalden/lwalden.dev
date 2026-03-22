@@ -71,7 +71,7 @@ Across 11 sprints[^1], the agent produced 275 commits, 92 merged pull requests, 
 
 That doesn't mean I wasn't working. I spent the vast majority of my time initiating automated work, running end-to-end tests, asking questions, and prioritizing what came next. I stopped reading PR diffs pretty quickly and automated PR review to a separate Claude agent instead. The work shifted — from typing implementation code to directing, validating, and deciding.
 
-I also spent far more hours building AIAgentMinder itself — the governance tool — than I did on those 11 sprints. The tool went through dozens of iterations, prompt rewrites, and architecture changes. That's the part people don't see: the investment in the tooling that makes this workflow possible.
+I also spent far more hours building n8n workflows and AIAgentMinder itself — the governance tool — than I did on those 11 sprints. The tool went through dozens of iterations, prompt rewrites, and architecture changes. That's the part people don't see: the investment in the tooling that makes this workflow possible.
 
 ## What the slash command actually tested
 
