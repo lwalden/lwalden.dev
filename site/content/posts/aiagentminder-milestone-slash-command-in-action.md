@@ -18,7 +18,7 @@ series:
   order: 5
 ---
 
-I worked on too many different things yesterday and legit could not recall where I was at with my top priority project. So I ran `/aam-milestone` in Claude Code. A minute later I had a complete picture of where the project stood. Its all below. I do want mention a couple things before I go forward: a) The MVP is live and working. b) I didn't write any code by hand, not one line.
+I worked on too many different things yesterday and legit could not recall where I was at with my top priority project. So I ran `/aam-milestone` in Claude Code. A minute later I had a complete picture of where the project stood. It's all below. I do want to mention a couple things before I go forward: a) The MVP is live and working. b) I didn't write any code by hand, not one line.
 
 Here's Claude's response, verbatim:
 
@@ -61,7 +61,7 @@ remaining. No scope drift, no surprise dependencies, no stale debt.
 
 One minute read. Full picture. Back to work. I really like this feature.
 
-Full disclosure: it was a overly optimistic about the '5 weeks ahead of target' line. It referenceed an imporant date in the marketplace for this product, but our actual Go Live MVP was about a week late due to my focus being spread too thin; and missed early requirements. Claude wanted to go live well before I was comfortable taking someone's money; or spending my own on ads.
+Full disclosure: it was overly optimistic about the "5 weeks ahead of target" line. It referenced an important date in the marketplace for this product, but our actual go-live was about a week late due to my focus being spread too thin and missed early requirements. Claude wanted to go live well before I was comfortable taking someone's money — or spending my own on ads.
 
 ## The numbers that matter
 
@@ -71,7 +71,7 @@ But here's the thing: during those 11 sprints, I didn't write code. I gave requi
 
 ## What the slash command actually tested
 
-`/aam-milestone` is one of several slash commands AKA skills, that AIAgentMinder adds to Claude Code. It reads the project's roadmap, sprint file, decisions log, git history, and codebase structure — then produces a structured health assessment across six dimensions.
+`/aam-milestone` is one of several slash commands (skills) that AIAgentMinder adds to Claude Code. It reads the project's roadmap, sprint file, decisions log, git history, and codebase structure — then produces a structured health assessment across six dimensions.
 
 Running it on a real, in-flight project was the test I needed. Not "does it parse the files correctly" — I knew that. The test was: **does a two-minute command actually get me re-focused and up to date on a project I haven't touched in a few days?**
 
@@ -84,8 +84,11 @@ It did. I went from "what was I working on again?" to "I need to update SPRINT.m
 **Scope drift tracking earned its keep.** Eleven sprints is a lot of opportunities for feature creep. The tool checked every sprint's work against the roadmap and pre-launch audit findings. "None detected" is the best possible output there — and it's not because I was disciplined. It's because the tool caught drift attempts early in earlier sprints and I course-corrected before they landed.
 
 ---
-* - Definition of a 'Sprint': an AiAgentMinder 'Sprint' is NOT an agile sprint. It's handled with other skills in AIAgentMinder. A sprint is agent ran, human reviewed and approved. Agent generates 4-6 work items created from the backlog/roadmap with AC and test plans. After human review, the agent: works the items, creates PRs, handles PR feedback. After the human merges the PR(s) the agent works the next item in the sprint. If blocked the agent asks the human for help. When all items are complete the agent presents a sprint review for the human to approve then documents the sprint and updates the project roadmap. Ready for the next.
 
-AIAgentMinder is open source and free. ;)
+\* An AIAgentMinder "sprint" borrows the name but not the ceremony. There's no standup, no retro meeting, no velocity chart. The agent proposes 4-6 work items from the roadmap with acceptance criteria. I review and approve the scope. Then the agent works each item, creates PRs, and asks me when it's stuck. I review and merge. When the sprint is done, the agent documents what shipped and updates the roadmap. The whole cycle is two roles — agent works, human decides — not a team process.
+
+---
+
+AIAgentMinder is open source and free.
 
 [github.com/lwalden/AIAgentMinder](https://github.com/lwalden/AIAgentMinder)
