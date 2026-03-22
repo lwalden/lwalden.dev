@@ -11,7 +11,7 @@ tags:
     "AI tooling",
     "developer-productivity",
   ]
-draft: true
+draft: false
 series:
   id: "aiagentminder"
   title: "Building AIAgentMinder"
