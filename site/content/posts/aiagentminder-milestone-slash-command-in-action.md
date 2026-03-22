@@ -11,14 +11,14 @@ tags:
     "AI tooling",
     "developer-productivity",
   ]
-draft: true
+draft: false
 series:
   id: "aiagentminder"
   title: "Building AIAgentMinder"
   order: 5
 ---
 
-I worked on too many different things yesterday and legit could not recall where I was at with my top priority project. So I ran `/aam-milestone` in Claude Code. A minute later I had a complete picture of where the project stood. It's all below. I do want to mention a couple things before I go forward: a) The MVP is live and working. b) I didn't write any code by hand, not one line.
+I worked on too many different things yesterday and legit could not recall where I was at with my top priority project. So I ran `/aam-milestone` in Claude Code. A minute later I had a complete picture of where the project stood. Before looking at the output, two things to note: the MVP is fully live, and I didn't write a single line of this code by hand.
 
 Here's Claude's response, verbatim:
 
@@ -63,19 +63,21 @@ One minute read. Full picture. Back to work. I really like this feature.
 
 Full disclosure: it was overly optimistic about the "5 weeks ahead of target" line. It referenced an important date in the marketplace for this product, but our actual go-live was about a week late due to my focus being spread too thin and missed early requirements. Claude wanted to go live well before I was comfortable taking someone's money — or spending my own on ads.
 
-## The numbers that matter
+## What "zero code" actually means
 
-I spent far more hours building AIAgentMinder — the governance tool — than I did on the 11 sprints* of the product I built with it. That's not an exaggeration. The tool itself went through dozens of iterations, prompt rewrites, and architecture changes.
+I should be precise about this, because the claim sounds bigger than it is — and also smaller.
 
-But here's the thing: during those 11 sprints, I didn't write code. I gave requirements. I debated implementation plans. I asked for features. I reviewed pull requests. I set up accounts, and helped wire up billing. The AI agent wrote the code. It did 80% of the configuration and secret handling. It did 90% of the End2End testing. And now there's a working MVP deployed and live.
+Across 11 sprints[^1], the agent produced 275 commits, 92 merged pull requests, and roughly 19,500 lines of code. I wrote none of it. Not the C#, not the Razor pages, not the EF migrations, not the JavaScript. What I did was give requirements, debate implementation plans, ask for features, verify test results, discover gaps through testing, and add new requirements when I found them. The agent wrote the code, created the PRs, and handled most of the configuration and secret wiring.
+
+That doesn't mean I wasn't working. I spent the vast majority of my time initiating automated work, running end-to-end tests, asking questions, and prioritizing what came next. I stopped reading PR diffs pretty quickly and automated PR review to a separate Claude agent instead. The work shifted — from typing implementation code to directing, validating, and deciding.
+
+I also spent far more hours building n8n workflows and AIAgentMinder itself — the governance tool — than I did on those 11 sprints. The tool went through dozens of iterations, prompt rewrites, and architecture changes. That's the part people don't see: the investment in the tooling that makes this workflow possible.
 
 ## What the slash command actually tested
 
-`/aam-milestone` is one of several slash commands (skills) that AIAgentMinder adds to Claude Code. It reads the project's roadmap, sprint file, decisions log, git history, and codebase structure — then produces a structured health assessment across six dimensions.
+`/aam-milestone` is one of several skills that AIAgentMinder adds to Claude Code. It reads the project's roadmap, sprint file, decisions log, git history, and codebase structure, then produces a structured health assessment.
 
-Running it on a real, in-flight project was the test I needed. Not "does it parse the files correctly" — I knew that. The test was: **do two minutes with a command actually get me re-focused and up to date on a project at a critical stage that I've lost track of?**
-
-It did. I went from "what was I working on again?" to "got it, let's finish this sprint, then I need to add a couple things to the backlog" in the time it took to read the output. Yes.
+The real test wasn't whether it could parse files — it was whether two minutes with a command could get me re-focused on a project I'd lost track of. It did. I went from "what was I working on again?" to "got it, let's finish this sprint" in the time it took to read the output.
 
 ## Two observations
 
@@ -83,9 +85,21 @@ It did. I went from "what was I working on again?" to "got it, let's finish this
 
 **Scope drift tracking earned its keep.** Eleven sprints is a lot of opportunities for feature creep. The tool checked every sprint's work against the roadmap and pre-launch audit findings. "None detected" is the best possible output there — and it's not because I was disciplined. It's because the tool caught drift attempts early in earlier sprints and I course-corrected before they landed.
 
+## Where it breaks
+
+I don't want to leave the impression this was smooth. It wasn't.
+
+The AI is optimistic by default. It will tell you the project is ahead of schedule while you're staring at a feature that doesn't actually work yet. It produces bugs — lots of them — the same way any developer does, except faster. Requirements I thought were obvious got missed entirely. Things I assumed would "just work" needed three rounds of back-and-forth to get right.
+
+The difference isn't that AI development produces fewer defects. It's that with proper governance — a roadmap, sprint scope, acceptance criteria, automated quality gates — those defects get filtered out during development and validation, the same way they do in professional human development. Some inevitably make it through, just like they always have.
+
+The real risk isn't buggy code. It's ungoverned code. "Vibe coding" without structure produces exactly the mess people warn about. But that's not an AI problem — it's a process problem. Ungoverned human development produces the same result; we just spent decades building processes to prevent it. AI development needs the same discipline. The tools are different, but the principle is identical: professional-grade software requires professional-grade governance, regardless of who — or what — is writing the code.
+
+Software development is transforming. Love it or hate it, it's time to get on board — and to bring your engineering standards with you.
+
 ---
 
-\* An AIAgentMinder "sprint" borrows the name but not the ceremony. There's no standup, no 2 week timebox (sprint ends when all items are resolved), no retro meeting, no velocity chart. The agent proposes 4-6 work items from the roadmap with acceptance criteria. I review and approve the scope. Then the agent works each item, creates PRs, and asks me when it's stuck. I review and merge. When the sprint is done, the agent documents what shipped and updates the roadmap. The whole cycle is two roles — agent works, human decides — not a team process.
+[^1]: An AIAgentMinder "sprint" borrows the name but not the ceremony. No standup, no two-week timebox, no retro meeting, no velocity chart. The agent proposes 4-6 work items from the roadmap with acceptance criteria. I review and approve the scope. The agent works each item, creates PRs, and asks me when it's stuck. I review and merge. When the sprint closes, the agent documents what shipped and updates the roadmap. Two roles — agent works, human decides.
 
 ---
 
