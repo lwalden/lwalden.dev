@@ -9,60 +9,55 @@ description: Architecture fitness rules — structural constraints for this proj
 ## How to Use This File
 
 These rules are enforced by Claude during code review, PR creation, and when writing new code.
-Each rule is specific enough to check mechanically.
+Replace the examples below with constraints that match YOUR project's architecture.
+Each rule should be specific enough that Claude can check it mechanically.
+
+Rules that apply only to certain file types can be scoped with glob patterns in the frontmatter:
+```yaml
+globs: ["src/routes/**", "src/handlers/**"]
+```
 
 ---
 
 ## Structural Constraints
 
+<!-- Replace these examples with your own. Remove sections that don't apply. -->
+
 ### Layer Boundaries
 
-This project follows a strict directed acyclic graph (DAG) of imports:
+<!-- Example: Enforce separation between layers -->
+<!-- Route handlers must not import from the database layer directly.
+     All database access goes through the service layer.
+     Bad: import { db } from '../db' inside a route handler
+     Good: import { UserService } from '../services/user' -->
 
-```
-Pages → Layouts → Components → Lib (utils, schemas, state)
-  ↓                                        ↓
-  └──────────────────────────→ Config (site/config.ts)
-```
-
-- `src/pages/` may import from layouts, components, lib, and config.
-- `src/layouts/` may import from components, lib, and config. Must not import from pages.
-- `src/components/` may import from `src/lib/` and config. Must not import from pages or layouts.
-- `src/lib/utils/` must be pure functions only — no imports from pages, layouts, components, or config.
-- `site/config.ts` is read-only global config. It must never import from `src/`.
-
-Path aliases: `@/*` → `src/*`, `@/config` → `site/config.ts`, `$lib` → `src/lib`.
+[Define your layer boundary rules here]
 
 ### External API Calls
 
-The project is statically generated — all data comes from Astro's `getCollection()` at build time.
+<!-- Example: Centralize external service calls -->
+<!-- All calls to external HTTP services must go through clients in `src/integrations/`.
+     No direct `fetch()`, `axios.get()`, or HTTP calls from route handlers or services.
+     This ensures retry logic, auth headers, and error handling are applied consistently. -->
 
-- Runtime `fetch()` calls are not allowed in pages, layouts, or components.
-- Build-time `fetch()` is only allowed in `src/pages/api/*.ts` endpoints or OG image generation (`src/pages/og/`).
-- The only current exception: `src/pages/og/[slug].png.ts` fetches the Inter font from jsDelivr at build time for satori.
+[Define where external calls are allowed here]
 
-If a new external call is needed at runtime, it must go in a `src/pages/api/` endpoint — not inline in a page or component.
+### Test Isolation
 
-### Content Schema Changes
+<!-- Example: Keep tests self-contained -->
+<!-- Test files must not import from other test files.
+     Each test file must be independently runnable.
+     Shared fixtures belong in a `__fixtures__/` or `test/helpers/` directory, not in test files. -->
 
-Content collection schemas are defined in `src/content.config.ts`.
-
-- Any new frontmatter field added to a markdown file must be added to the schema first.
-- Optional fields must have a `.optional()` or default value in the schema.
-- Do not access frontmatter fields that aren't in the schema.
-
-### Styles
-
-- Global styles belong in `src/styles/global.css`.
-- Component-scoped styles belong in Astro `<style>` blocks or Svelte `<style>` blocks within the component file.
-- Do not create additional standalone `.css` files.
-- Tailwind utility classes are preferred over new scoped styles wherever possible.
+[Define your test structure rules here]
 
 ### File Size Limits
 
-- Pages (`src/pages/`): flag if over 300 lines — look for component extraction opportunities.
-- Components (`src/components/`): flag if over 200 lines — consider splitting responsibilities.
-- `src/styles/global.css` is currently 491 lines; do not add to it without removing something.
+<!-- Example: Flag files that are getting too large to maintain -->
+<!-- If a source file exceeds 300 lines, flag it for decomposition before adding more code.
+     A file that large usually contains more than one responsibility. -->
+
+[Define your size thresholds here]
 
 ---
 
