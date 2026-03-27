@@ -172,7 +172,7 @@ The sprint I started today required exactly one word of input from me after the 
 
 That's the throughput unlock. Not "AI writes code faster" — any demo can show that. The unlock is: AI writes code faster _and_ a governance system ensures the output meets professional standards _without_ requiring the developer to verify every change manually. At the end of a sprint, I can stand behind the results — not because I read every line, but because I know every line went through the same gates I'd apply to human-written code.
 
-That's also why I run sprints at all. The AI could work stories in series or in parallel without end. But I need structure and digestible chunks that are human-sized. I'm still the final gate — I serve as QA and product owner at every sprint boundary. The output is not bug-free. It never was with human teams either. But I'm getting real productivity gains: faster defects, yes, but also faster fixes. Reduce friction, increase speed, apply consistent discipline.[^2]
+That's also why I run sprints at all. The AI could work stories in series or in parallel without end. But I need structure and digestible chunks that are human-sized. I'm still the final gate — QA and product owner at every sprint boundary. The output is not bug-free — it never was with human teams either.[^2] Faster defects, yes, but also faster fixes. This SaaS project went from idea to live MVP in 14 days of nights and weekends, while I was splitting attention with the governance layer and other side projects.
 
 The alternative is reading every line yourself. The sheer volume creates its own problem: developer burnout from trying to verify what the machine wrote, while the machine keeps writing more.
 
