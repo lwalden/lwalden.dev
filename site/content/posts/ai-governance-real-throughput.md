@@ -11,7 +11,8 @@ tags:
     "building-in-public",
     "developer-productivity",
   ]
-draft: true
+draft: false
+featured: true
 series:
   id: "aiagentminder"
   title: "Building AIAgentMinder"
