@@ -46,10 +46,8 @@ Never store credentials in code. Use `.env` files (gitignored).
 
 ### Verification-First Development
 
-- Confirm requirements before implementing
-- Write tests appropriate to the project's quality tier (see strategy-roadmap.md)
-- When Standard tier or above: write failing tests first, then implement
-- Apply `fixing-metadata` and `fixing-accessibility` skills when creating or modifying pages or components
+- Write failing tests first, then implement
+- Run the full test suite before every commit
 
 ### Decision Recording
 
