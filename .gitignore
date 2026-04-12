@@ -28,3 +28,9 @@ pnpm-debug.log*
 
 # MCP config (contains API keys)
 .mcp.json
+
+# AIAgentMinder ephemeral files
+.context-usage
+.sprint-continuation.md
+.sprint-continue-signal
+.exec/
