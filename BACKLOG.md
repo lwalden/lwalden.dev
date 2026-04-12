@@ -6,3 +6,4 @@
 
 | ID | Type | Title | Source | Added |
 |---|---|---|---|---|
+| B-001 | chore | Upgrade Astro dependencies to latest | dispatch directive 2026-04-12-001 | 2026-04-12 |
