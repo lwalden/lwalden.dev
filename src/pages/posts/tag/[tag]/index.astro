@@ -26,7 +26,7 @@ export const getStaticPaths = (async () => {
 const { tag, posts } = Astro.props;
 
 const schema = getBreadcrumbSchema([
-  { name: 'Blog', url: new URL('/posts', Astro.site).toString() },
+  { name: 'Blog', url: new URL('/posts/', Astro.site).toString() },
   { name: tag, url: new URL(Astro.url.pathname, Astro.site).toString() },
 ]);
 ---

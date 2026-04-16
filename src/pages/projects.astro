@@ -6,7 +6,7 @@ import { SITE } from '@/config';
 import { getBreadcrumbSchema } from '@/lib/schemas';
 
 const schema = getBreadcrumbSchema([
-  { name: 'Projects', url: new URL('/projects', Astro.site).toString() },
+  { name: 'Projects', url: new URL('/projects/', Astro.site).toString() },
 ]);
 
 const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);

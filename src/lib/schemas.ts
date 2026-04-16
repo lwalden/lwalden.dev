@@ -56,7 +56,7 @@ export function getPersonSchema() {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: SITE.author,
-    url: SITE.website,
+    url: `${SITE.website}/`,
     sameAs: Object.values(SITE.social),
   };
 }
@@ -79,7 +79,7 @@ export function getOrganizationSchema() {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: SITE.title,
-    url: SITE.website,
+    url: `${SITE.website}/`,
     logo: {
       '@type': 'ImageObject',
       url: `${SITE.website}/${SITE.ogImage}`,

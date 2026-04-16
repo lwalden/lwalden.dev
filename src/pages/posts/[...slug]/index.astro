@@ -41,7 +41,7 @@ const schemas = [
     tags: post.data.tags,
   }),
   getBreadcrumbSchema([
-    { name: 'Blog', url: new URL('/posts', Astro.site).toString() },
+    { name: 'Blog', url: new URL('/posts/', Astro.site).toString() },
     { name: post.data.title, url: new URL(Astro.url.pathname, Astro.site).toString() },
   ]),
 ];

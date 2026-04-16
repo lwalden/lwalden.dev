@@ -8,7 +8,7 @@ import { SITE } from '@/config';
 import { getBreadcrumbSchema } from '@/lib/schemas';
 
 const schema = getBreadcrumbSchema([
-  { name: 'Blog', url: new URL('/posts', Astro.site).toString() },
+  { name: 'Blog', url: new URL('/posts/', Astro.site).toString() },
 ]);
 
 const posts = (await getPublishedPosts()).sort(
