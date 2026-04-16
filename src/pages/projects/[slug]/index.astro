@@ -22,7 +22,7 @@ const project = Astro.props as Props;
 const { Content } = await render(project);
 
 const schema = getBreadcrumbSchema([
-  { name: 'Projects', url: new URL('/projects', Astro.site).toString() },
+  { name: 'Projects', url: new URL('/projects/', Astro.site).toString() },
   { name: project.data.title, url: new URL(Astro.url.pathname, Astro.site).toString() },
 ]);
 ---

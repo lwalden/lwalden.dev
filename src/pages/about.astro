@@ -6,7 +6,7 @@ import { render, getEntry } from 'astro:content';
 import { getBreadcrumbSchema } from '@/lib/schemas';
 
 const schema = getBreadcrumbSchema([
-  { name: 'About', url: new URL('/about', Astro.site).toString() },
+  { name: 'About', url: new URL('/about/', Astro.site).toString() },
 ]);
 import { Image } from 'astro:assets';
 import profilePhoto from '@/site-assets/profile_photo.png';
