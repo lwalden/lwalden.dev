@@ -99,7 +99,9 @@ The leverage parts were real. AI compressed the build dramatically — far less 
 
 The essential-human parts were equally clear. Every account registration, every auth token, every OAuth app registration, every judgment call about who this was for and whether they'd pay — those required me. The thing it most needed a human for, audience-product fit, was the thing it got wrong. The model had no way to discover that the people it was targeting either didn't know they had the problem or already had a solution they weren't going to switch away from. That's not a research gap AI closes by reading more docs. It's a market-sensing judgment that comes from being a person in the world.
 
-So: AI owns the *build*. Human owns the *why* and the *who*.
+There was a third category I didn't anticipate: **cost governance**. I had a significant Azure credit buffer when I started, which meant I wasn't watching the bill closely. The AI provisioned technically correct infrastructure — SQL resources on plans that were wildly over-provisioned for a zero-customer MVP. I approved the work without reviewing what I was approving in dollar terms. The credit burned through faster than I expected, and the resources were running for a while before I noticed. That's a failure mode I hadn't thought to put in the "human required" column, and I should have. The full story deserves its own post — but the short version is: "I have credit" is not a substitute for "I reviewed this bill," and approving an AI's infrastructure PR is not the same as understanding its monthly cost.
+
+So: AI owns the *build*. Human owns the *why*, the *who*, and the *bill*.
 
 The artifact that came out wasn't a customer. It was a template — all that plumbing, auth, billing, email, CI/CD, is now a reusable SaaS starter. The next product I want to build begins at week eight instead of week zero. And the cleaner map of where I belong in the loop is probably worth more than the template.
 
